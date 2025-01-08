@@ -1,9 +1,9 @@
-import profile from './assets/pageImg/profile.png'
-import slide1 from './assets/pageImg/slide1.png'
-import slide2 from './assets/pageImg/slide2.png'
-import slide3 from './assets/pageImg/slide3.png'
-import slide4 from './assets/pageImg/slide4.png'
-import slide5 from './assets/pageImg/slide5.png'
+import profile from './assets/pageImg/profile.png';
+import slide1 from './assets/pageImg/slide1.png';
+import slide2 from './assets/pageImg/slide2.png';
+import slide3 from './assets/pageImg/slide3.png';
+import slide4 from './assets/pageImg/slide4.png';
+import slide5 from './assets/pageImg/slide5.png';
 
 export default function HomeSection() {
   return (
@@ -23,7 +23,10 @@ export default function HomeSection() {
               </p>
             </div>
             <div className='flex space-x-2 justify-center sm:justify-start md:justify-start'>
-              <a href='' className='group'>
+              <a
+                href=''
+                className='group'
+              >
                 <svg
                   width='30'
                   height='30'
@@ -33,9 +36,11 @@ export default function HomeSection() {
                   <path d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8'></path>
                 </svg>
               </a>
-              <a href='' className='group'>
+              <a
+                href=''
+                className='group'
+              >
                 <svg
-                 
                   version='1.1'
                   width='30'
                   height='30'
@@ -53,7 +58,7 @@ export default function HomeSection() {
                       strokeMiterlimit: 10,
                       fill: 'none',
                       fillRule: 'nonzero',
-                      opacity: 1
+                      opacity: 1,
                     }}
                     transform='translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)'
                   >
@@ -68,13 +73,13 @@ export default function HomeSection() {
                         strokeLinejoin: 'miter',
                         strokeMiterlimit: 10,
                         fillRule: 'nonzero',
-                        opacity: 1
+                        opacity: 1,
                       }}
                       transform=' matrix(1 0 0 1 0 0) '
                       strokeLinecap='round'
                     ></path>
                     <path
-                      d='M 45 0 L 45 0 C 20.147 0 0 20.147 0 45 v 0 c 0 24.853 20.147 45 45 45 h 0 c 24.853 0 45 -20.147 45 -45 v 0 C 90 20.147 69.853 0 45 0 z M 67.546 45 c 0 7.043 -5.73 12.772 -12.773 12.772 c -2.489 0 -4.806 -0.727 -6.772 -1.963 v 8.736 c 0 7.043 -5.73 12.772 -12.773 12.772 s -12.772 -5.729 -12.772 -12.772 c 0 -3.919 1.778 -7.428 4.565 -9.773 c -2.787 -2.345 -4.565 -5.854 -4.565 -9.773 c 0 -3.919 1.778 -7.428 4.565 -9.773 c -2.787 -2.345 -4.565 -5.853 -4.565 -9.773 c 0 -7.043 5.729 -12.773 12.772 -12.773 H 45 h 9.772 c 7.043 0 12.773 5.73 12.773 12.773 c 0 3.919 -1.778 7.428 -4.565 9.773 C 65.768 37.572 67.546 41.081 67.546 45 z'
+                      d='M 45 0 L 45 0 C 20.147 0 0 20.147 0 45 v 0 c 0 24.853 20.147 45 45 45 h 0 c 24.853 0 45 -20.147 45 -45 v 0 C 90 20.147 69.853 0 45 0 z M 67.546 45 c 0 7.043 -5.73 12.772 -12.773 12.772 s -12.772 -5.729 -12.772 -12.772 c 0 -3.919 1.778 -7.428 4.565 -9.773 c -2.787 -2.345 -4.565 -5.854 -4.565 -9.773 c 0 -3.919 1.778 -7.428 4.565 -9.773 c -2.787 -2.345 -4.565 -5.853 -4.565 -9.773 c 0 -7.043 5.729 -12.773 12.772 -12.773 H 45 h 9.772 c 7.043 0 12.773 5.73 12.773 12.773 c 0 3.919 -1.778 7.428 -4.565 9.773 C 65.768 37.572 67.546 41.081 67.546 45 z'
                       className='fill-white group-hover:fill-pink-700'
                       style={{
                         stroke: 'none',
@@ -84,7 +89,7 @@ export default function HomeSection() {
                         strokeLinejoin: 'miter',
                         strokeMiterlimit: 10,
                         fillRule: 'nonzero',
-                        opacity: 1
+                        opacity: 1,
                       }}
                       transform=' matrix(1 0 0 1 0 0) '
                       strokeLinecap='round'
@@ -158,9 +163,11 @@ export default function HomeSection() {
                   </g>
                 </svg>
               </a>
-              <a href='' className='group'>
+              <a
+                href=''
+                className='group'
+              >
                 <svg
-                 
                   version='1.1'
                   width='30'
                   height='30'
@@ -249,9 +256,11 @@ export default function HomeSection() {
                   </g>
                 </svg>
               </a>
-              <a href='' className='group'>
+              <a
+                href=''
+                className='group'
+              >
                 <svg
-               
                   width='30'
                   height='30'
                   viewBox='0 0 16 16'
@@ -260,15 +269,16 @@ export default function HomeSection() {
                   <path d='M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951'></path>
                 </svg>
               </a>
-              <a href='' className='group'>
+              <a
+                href=''
+                className='group'
+              >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
-                
                   version='1.1'
                   width='30'
                   height='30'
                   viewBox='0 0 256 256'
-                
                   className='group-hover:text-pink-700'
                 >
                   <defs></defs>
@@ -350,26 +360,52 @@ export default function HomeSection() {
           </div>
 
           <div className='m-5'>
-            <img id='avatar' src={profile} alt='' className="w-[300px] h-[300px] rounded-full object-cover border-2 border-pink-700 shadow-lg"/>
+            <img
+              id='avatar'
+              src={profile}
+              alt=''
+              className='w-[300px] h-[300px] rounded-full object-cover border-2 border-pink-700 shadow-lg'
+            />
           </div>
         </div>
       </div>
       <section id='sectionPin'>
-        <div className='pin-wrap-sticky shadow-xl bg-gray-900 bg-opacity-70'>
-          <div className='pin-wrap'>
-            <div className='flex p-0 h-1/4 w-52 sm:h-2/4 sm:w-1/4 md:h-2/4 md:w-1/4 items-center'>
-              <h1 className='text-lg sm:text-3xl md:text-3xl font-bold text-white'>
-                One of the Figma prototype designs I created for our subject
-                group project
-              </h1>
-            </div>
-            <div className='flex flex-row'>
-              <img src={slide1} alt='' />
-              <img src={slide2} alt='' />
-              <img src={slide3} alt='' />
-              <img src={slide4} alt='' />
-              <img src={slide5} alt='' />
-            </div>
+        <div className='pin-wrap-sticky'>
+          <div className='text-container'>
+            <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4'>
+              One of the Figma prototype designs I created for our subject group
+              project
+            </h1>
+            <p className='text-gray-300 text-sm sm:text-base mb-2'>
+              ← Scroll horizontally to view all designs →
+            </p>
+          </div>
+          <div className='slides-container'>
+            <img
+              src={slide1}
+              alt='App Icon Design'
+              className='slide-image'
+            />
+            <img
+              src={slide2}
+              alt='Welcome Screen'
+              className='slide-image'
+            />
+            <img
+              src={slide3}
+              alt='Login Interface'
+              className='slide-image'
+            />
+            <img
+              src={slide4}
+              alt='Home Screen'
+              className='slide-image'
+            />
+            <img
+              src={slide5}
+              alt='User Profile'
+              className='slide-image'
+            />
           </div>
         </div>
       </section>

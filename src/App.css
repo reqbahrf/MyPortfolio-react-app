@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   scrollbar-width: thin;
-  scrollbar-color: #9E2359  rgba(0, 0, 0, 0.9);
+  scrollbar-color: #9e2359 rgba(0, 0, 0, 0.9);
 }
 
 /* Works on Chrome, Edge, and Safari */
@@ -18,31 +17,36 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #9E2359;
+  background-color: #9e2359;
   border-radius: 20px;
-  border: 3px solid  rgba(0, 0, 0, 0.5);
+  border: 3px solid rgba(0, 0, 0, 0.5);
 }
+
+html,
 body {
-  background-image: url('../src/assets/pageImg/body.jpg');
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('./assets/pageImg/body.jpg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-attachment: fixed;
   background-size: cover;
   background-blend-mode: hard-light;
 }
+
 .container {
   position: relative;
   width: 100vw;
 }
 
-.hero{
+.hero {
   background-image: url('../src/assets/pageImg/hero1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   margin-bottom: 5vh;
-
-
 }
 
 @keyframes move {
@@ -52,120 +56,100 @@ body {
   }
 }
 
-
 #sectionPin {
-  /* Stretch it out, so that we create room for the horizontal scroll animation */
-  height: 500vh;
-  overflow-y: visible; /* To make position sticky work … */
-  view-timeline-name: --section-pin-tl;
-  view-timeline-axis: block;
-  background: var(--text-color);
-  color: var(--bg-color);
+  width: 100%;
+  overflow-x: scroll;
+  position: relative;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#sectionPin::-webkit-scrollbar {
+  height: 8px;
+}
+
+#sectionPin::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+#sectionPin::-webkit-scrollbar-thumb {
+  background-color: #9e2359;
+  border-radius: 4px;
 }
 
 .pin-wrap-sticky {
-  /* Stick to Top */
-  height: 100vh;
-  width: 100vw;
-  position: sticky;
-  padding: 5vh 5vw;
-  top: 0;
-  overflow-x: hidden;
+  width: 150vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
 }
 
+.text-container {
+  flex: 0 0 300px;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  margin-left: 2rem;
+}
 
+.slides-container {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+}
 
-.pin-wrap img {
-  padding: 0 1rem;
-  height: 100%;
-  width: auto;
+.slides-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.slides-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.slides-container::-webkit-scrollbar-thumb {
+  background-color: #9e2359;
+  border-radius: 4px;
+}
+
+.slide-image {
+  flex: 0 0 auto;
+  width: 300px;
+  height: auto;
   object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
-@media (min-width: 768px){
-  .pin-wrap {
-    height: 100vh;
-    width: 200vmax;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 50px 10vw;
-    will-change: transform;
-    animation: linear move forwards;
-    animation-timeline: --section-pin-tl;
-    animation-range: contain 0% contain 100%;
-  }
-
-  .img-content {
-    display: flex;
-    flex-direction: row; /* Align items horizontally */
-    justify-content: flex-start; /* Align items to the start (left) */
-    align-items: center; /* Center the items vertically */
-    position: relative;
-    overflow: hidden; /* Hide overflow to maintain layout */
-    width: 100%;
-    height: 720px;
-    min-height: 700px;
-  }
-  
-  .img-wrapper {
-    position: absolute;
-    flex: none; /* Do not allow the wrapper to grow or shrink */
-    transition: transform 0.5s ease, left 0.5s ease; /* Smooth transition for any transformations */
-    height: 700px;
-    width: 330px; /* Fixed width for images */
-    max-width: 100%; /* Ensure images do not exceed their container */
-  }
-  
-  .img-wrapper img {
-    width: 330px; /* Fixed width for images */
-    height: 700px; /* Fixed height for images */
-    object-fit: cover; /* Ensure images cover the area without distortion */
-  }
-  
-  /* Adjust the position of each wrapper to create a stacked effect */
-  .img-wrapper:nth-child(1) { left: 0%;  }
-  .img-wrapper:nth-child(2) { left: 0%;  }
-  .img-wrapper:nth-child(3) { left: 0%;  }
-  .img-wrapper:nth-child(4) { left: 0%;  }
-  .img-wrapper:nth-child(5) { left: 0%; }
-  .img-wrapper:nth-child(6) { left: 0%; opacity: 0;}
-  
-  /* Spread the images further apart on hover */
-  .img-content:hover .img-wrapper:nth-child(1) { left: 0%; }
-  .img-content:hover .img-wrapper:nth-child(2) { left: 10%; }
-  .img-content:hover .img-wrapper:nth-child(3) { left: 20%; }
-  .img-content:hover .img-wrapper:nth-child(4) { left: 30%; }
-  .img-content:hover .img-wrapper:nth-child(5) { left: 40%; }
-  .img-content:hover .img-wrapper:nth-child(6) { left: 70%; opacity: 1;}
-
+.slide-image:hover {
+  transform: scale(1.02);
 }
 
 @media (max-width: 768px) {
-  #nav-links {
-    flex-direction: column;
-    width: 100%;
-    background-color: rgba(31, 41, 55, 0.9); /* Tailwind's bg-gray-900 with opacity */
-    position: absolute; /* Position it absolutely */
-    top: 100%; /* Position it below the nav bar */
-    left: 0; /* Align it to the left */
+  .pin-wrap-sticky {
+    width: 200vw;
   }
-  #nav-links a {
+  
+  .text-container {
+    flex: 0 0 250px;
     padding: 1rem;
-    text-align: center;
   }
 
-  .pin-wrap {
-    height: 100vh;
-    width: 290vmax;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 50px 10vw;
-    will-change: transform;
-    animation: linear move forwards;
-    animation-timeline: --section-pin-tl;
-    animation-range: contain 0% contain 100%;
+  .slides-container {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .slide-image {
+    width: 250px;
   }
 }
 
@@ -182,7 +166,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -206,7 +190,7 @@ body {
   text-shadow: 1px 1px 3px #000000;
   font-size: 40px;
   font-weight: bold;
-  color: #9E2359;
+  color: #9e2359;
   z-index: 20;
 }
 
@@ -219,7 +203,7 @@ body {
 @keyframes pop-up {
   0% {
     transform: scale(0);
-    opacity: .6;
+    opacity: 0.6;
     border-radius: 40px;
   }
   100% {
