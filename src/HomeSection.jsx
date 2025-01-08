@@ -4,8 +4,44 @@ import slide2 from './assets/pageImg/slide2.png';
 import slide3 from './assets/pageImg/slide3.png';
 import slide4 from './assets/pageImg/slide4.png';
 import slide5 from './assets/pageImg/slide5.png';
+import { useEffect, useRef } from 'react';
 
 export default function HomeSection() {
+  const sectionRef = useRef(null);
+  const wrapperRef = useRef(null);
+  const progressRef = useRef(0);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const wrapper = wrapperRef.current;
+
+    if (!section || !wrapper) return;
+
+    const scrollHandler = () => {
+      const sectionRect = section.getBoundingClientRect();
+      const sectionTop = sectionRect.top;
+      const sectionHeight = sectionRect.height;
+      const windowHeight = window.innerHeight;
+
+      let scrollProgress = Math.max(0, Math.min(1, -sectionTop / (sectionHeight - windowHeight)));
+      const animationSpeed = 0.1; // Adjust this value to control the animation speed (0 to 1)
+      progressRef.current = progressRef.current + (scrollProgress - progressRef.current) * animationSpeed;
+
+      const totalMove = wrapper.scrollWidth - window.innerWidth + 100;
+
+      requestAnimationFrame(() => {
+        wrapper.style.transform = `translateX(${-progressRef.current * totalMove}px)`;
+      });
+    };
+
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    scrollHandler(); // Initial position
+
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
+
   return (
     <section id='Home'>
       <div className='h-screen flex justify-center items-center hero'>
@@ -144,7 +180,7 @@ export default function HomeSection() {
                       strokeLinecap='round'
                     ></path>
                     <path
-                      d='M 48 45 c 0 3.734 3.038 6.772 6.772 6.772 c 3.735 0 6.773 -3.038 6.773 -6.772 c 0 -3.735 -3.038 -6.773 -6.773 -6.773 C 51.038 38.227 48 41.265 48 45 z'
+                      d='M 48 45 c 0 3.734 3.038 6.772 6.772 6.772 c 3.735 0 6.773 -3.038 6.773 -6.772 c 0 -3.735 -3.038 -6.772 -6.773 -6.772 C 51.038 38.227 48 41.265 48 45 z'
                       className='fill-white group-hover:fill-pink-700'
                       style={{
                         stroke: 'none',
@@ -369,8 +405,8 @@ export default function HomeSection() {
           </div>
         </div>
       </div>
-      <section id='sectionPin'>
-        <div className='pin-wrap-sticky'>
+      <section id='sectionPin' ref={sectionRef}>
+        <div className='pin-wrap-sticky' ref={wrapperRef}>
           <div className='text-container'>
             <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4'>
               One of the Figma prototype designs I created for our subject group
