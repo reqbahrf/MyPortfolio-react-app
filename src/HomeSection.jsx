@@ -23,14 +23,21 @@ export default function HomeSection() {
       const sectionHeight = sectionRect.height;
       const windowHeight = window.innerHeight;
 
-      let scrollProgress = Math.max(0, Math.min(1, -sectionTop / (sectionHeight - windowHeight)));
+      let scrollProgress = Math.max(
+        0,
+        Math.min(1, -sectionTop / (sectionHeight - windowHeight))
+      );
       const animationSpeed = 0.1; // Adjust this value to control the animation speed (0 to 1)
-      progressRef.current = progressRef.current + (scrollProgress - progressRef.current) * animationSpeed;
+      progressRef.current =
+        progressRef.current +
+        (scrollProgress - progressRef.current) * animationSpeed;
 
       const totalMove = wrapper.scrollWidth - window.innerWidth + 100;
 
       requestAnimationFrame(() => {
-        wrapper.style.transform = `translateX(${-progressRef.current * totalMove}px)`;
+        wrapper.style.transform = `translateX(${
+          -progressRef.current * totalMove
+        }px)`;
       });
     };
 
@@ -405,16 +412,19 @@ export default function HomeSection() {
           </div>
         </div>
       </div>
-      <section id='sectionPin' ref={sectionRef}>
-        <div className='pin-wrap-sticky' ref={wrapperRef}>
+      <section
+        id='sectionPin'
+        ref={sectionRef}
+      >
+        <div
+          className='pin-wrap-sticky'
+          ref={wrapperRef}
+        >
           <div className='text-container'>
             <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4'>
               One of the Figma prototype designs I created for our subject group
               project
             </h1>
-            <p className='text-gray-300 text-sm sm:text-base mb-2'>
-              ← Scroll horizontally to view all designs →
-            </p>
           </div>
           <div className='slides-container'>
             <img
