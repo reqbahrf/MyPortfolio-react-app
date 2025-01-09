@@ -1,3 +1,4 @@
+import React from 'react'
 import profile2 from './assets/pageImg/profile2.jpg'
 
 export default function AboutSection() {

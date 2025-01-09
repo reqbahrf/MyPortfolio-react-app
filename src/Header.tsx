@@ -1,3 +1,4 @@
+import React from 'react'
 import logo from './assets/pageImg/logo.jpg'
 
 export default function Header() {

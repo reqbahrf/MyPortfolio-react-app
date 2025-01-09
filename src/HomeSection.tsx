@@ -1,3 +1,4 @@
+import React from 'react';
 import profile from './assets/pageImg/profile.png';
 import slide1 from './assets/pageImg/slide1.png';
 import slide2 from './assets/pageImg/slide2.png';
@@ -7,8 +8,8 @@ import slide5 from './assets/pageImg/slide5.png';
 import { useEffect, useRef } from 'react';
 
 export default function HomeSection() {
-  const sectionRef = useRef(null);
-  const wrapperRef = useRef(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef(0);
 
   useEffect(() => {

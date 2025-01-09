@@ -1,7 +1,66 @@
-import slide1Java from './assets/Java_project/slide1.webp'
-import slide1Figma from './assets/Figma_project/slide1.webp'
-import slide1Photo from './assets/Photo_project/slide1.jpg'
-export default function ProjectSection() {
+import React from 'react';
+import slide1Java from './assets/Java_project/slide1.webp';
+import slide2Java from './assets/Java_project/slide2.png';
+import slide3Java from './assets/Java_project/slide3.png';
+import slide4Java from './assets/Java_project/slide4.png';
+import slide5Java from './assets/Java_project/slide5.png';
+import slide6Java from './assets/Java_project/slide6.png';
+
+import slide1Figma from './assets/Figma_project/slide1.webp';
+import slide2Figma from './assets/Figma_project/slide2.webp';
+import slide3Figma from './assets/Figma_project/slide3.webp';
+import slide4Figma from './assets/Figma_project/slide4.webp';
+import slide5Figma from './assets/Figma_project/slide5.webp';
+import slide1Figma2 from './assets/Figma_project/2slide1.webp';
+import slide2Figma2 from './assets/Figma_project/2slide2.webp';
+import slide3Figma2 from './assets/Figma_project/2slide3.webp';
+import slide4Figma2 from './assets/Figma_project/2slide4.webp';
+import slide5Figma2 from './assets/Figma_project/2slide5.webp';
+
+import slide1Photo from './assets/Photo_project/slide1.jpg';
+import slide2Photo from './assets/Photo_project/slide2.jpg';
+import slide3Photo from './assets/Photo_project/slide3.jpg';
+import slide4Photo from './assets/Photo_project/slide4.jpg';
+import backgroundPhoto from './assets/Photo_project/raw_photos/backgroundImg.webp';
+import floridaPhoto from './assets/Photo_project/raw_photos/florida-kennedy-space-center-rocket-launch.webp';
+import otherPhoto from './assets/Photo_project/raw_photos/1641457957683.webp';
+interface ProjectSectionProps {}
+
+const ProjectSection: React.FC<ProjectSectionProps> = () => {
+  const openModal = (modalId: string) => {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.style.display = 'block';
+    }
+  };
+
+  const closeModal = (modalId: string) => {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  React.useEffect(() => {
+    const modals = ['javaProjectModal', 'FigmaProjectModal', 'PhotoProjectModal'];
+    modals.forEach((modalId) => {
+      const closeButton = document.querySelector(`#${modalId} .close-button`);
+      if (closeButton) {
+        closeButton.addEventListener('click', () => closeModal(modalId));
+      }
+      
+      //close the modal if the user clicks outside of it
+      const modal = document.getElementById(modalId);
+      if(modal){
+        modal.addEventListener('click', (event) => {
+          if(event.target === modal){
+            closeModal(modalId);
+          }
+        })
+      }
+    });
+  }, []);
+
   return (
     <section id='Project'>
       <div className='flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-14 m-0 py-10 sm:m-30 md:m-40'>
@@ -26,6 +85,7 @@ export default function ProjectSection() {
               className='text-pink-300 hover:text-pink-700 flex items-center'
               id='viewJavaProject'
               data-modal-target='javaProjectModal'
+              onClick={() => openModal('javaProjectModal')}
             >
               View Full Details
               <svg
@@ -59,10 +119,10 @@ export default function ProjectSection() {
               Interaction.
             </p>
             <button
-              href='#'
               className='text-pink-300 hover:text-pink-700 flex items-center'
               id='viewFigmaProject'
               data-modal-target='FigmaProjectModal'
+              onClick={() => openModal('FigmaProjectModal')}
             >
               View Full Details
               <svg
@@ -95,10 +155,10 @@ export default function ProjectSection() {
               Introduction to Computing.
             </p>
             <button
-              href='#'
               className='text-pink-300 hover:text-pink-700 flex items-center'
               id='viewPhotoProject'
               data-modal-target='PhotoProjectModal'
+              onClick={() => openModal('PhotoProjectModal')}
             >
               View Full Details
               <svg
@@ -129,32 +189,32 @@ export default function ProjectSection() {
             <div className='flex flex-col space-y-5 p-4 w-full px-10 mainContent'>
               <div className='flex flex-col items-center py-40 h-auto space-y-10'>
                 <img
-                  src='assest/Java_project/slide1.webp'
+                  src={slide1Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
                 <img
-                  src='assest/Java_project/slide2.png'
+                  src={slide2Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
                 <img
-                  src='assest/Java_project/slide3.png'
+                  src={slide3Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
                 <img
-                  src='assest/Java_project/slide4.png'
+                  src={slide4Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
                 <img
-                  src='assest/Java_project/slide5.png'
+                  src={slide5Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
                 <img
-                  src='assest/Java_project/slide6.png'
+                  src={slide6Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
@@ -176,24 +236,24 @@ export default function ProjectSection() {
             <div className='flex flex-col items-center space-y-5 p-4 w-full px-10 z-10 mainContent'>
               <div className='z-10 img-content'>
                 <div className='img-wrapper'>
-                  <img src='assest/Figma_project/slide1.webp' alt='' />
+                  <img src={slide1Figma} alt='' />
                 </div>
                 <div className='img-wrapper'>
-                  <img src='assest/Figma_project/slide2.webp' alt='' />
+                  <img src={slide2Figma} alt='' />
                 </div>
                 <div className='img-wrapper'>
-                  <img src='assest/Figma_project/slide3.webp' alt='' />
+                  <img src={slide3Figma} alt='' />
                 </div>
                 <div className='img-wrapper'>
-                  <img src='assest/Figma_project/slide4.webp' alt='' />
+                  <img src={slide4Figma} alt='' />
                 </div>
                 <div className='img-wrapper'>
-                  <img src='assest/Figma_project/slide5.webp' alt='' />
+                  <img src={slide5Figma} alt='' />
                 </div>
                 <div className='img-wrapper'>
                   <div className='border border-white rounded-[45px] h-full w-full flex justify-center items-center'>
                     <a
-                      href='https://www.figma.com/proto/vNXOmiZr1qYqwrhGEvcvDx/CUAMAG-GARCIA-LANGAMON-MONERA?node-id=278-1450&amp;t=iLTkKMWkZ5JL9CKL-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=278%3A1450'
+                      href='https://www.figma.com/proto/vNXOmiZr1qYqwrhGEvcvDx/CUAMAG-GARCIA-LANGAMON-MONERA?node-id=278-1450&t=iLTkKMWkZ5JL9CKL-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=278%3A1450'
                       target='_blank'
                       className='text-white font-bold text-lg hover:text-pink-700 hover:font-bold'
                     >
@@ -204,24 +264,24 @@ export default function ProjectSection() {
               </div>
               <div className='z-10 img-content'>
                 <div className='img-wrapper'>
-                  <img src='assest/Figma_project/2slide1.webp' alt='' />
+                  <img src={slide1Figma2} alt='' />
                 </div>
                 <div className='img-wrapper'>
-                  <img src='assest/Figma_project/2slide2.webp' alt='' />
+                  <img src={slide2Figma2} alt='' />
                 </div>
                 <div className='img-wrapper'>
-                  <img src='assest/Figma_project/2slide3.webp' alt='' />
+                  <img src={slide3Figma2} alt='' />
                 </div>
                 <div className='img-wrapper'>
-                  <img src='assest/Figma_project/2slide4.webp' alt='' />
+                  <img src={slide4Figma2} alt='' />
                 </div>
                 <div className='img-wrapper'>
-                  <img src='assest/Figma_project/2slide5.webp' alt='' />
+                  <img src={slide5Figma2} alt='' />
                 </div>
                 <div className='img-wrapper'>
                   <div className='border border-white rounded-[45px] h-full w-full flex justify-center items-center'>
                     <a
-                      href='https://www.figma.com/proto/45kjCb71Vs8cQsjf3r7Mlr/MONERA-YU-Figma-Activity-%231?t=d4q8g4KxVsn7wm2u-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;node-id=1-648&amp;starting-point-node-id=1%3A648&amp;show-proto-sidebar=1'
+                      href='https://www.figma.com/proto/45kjCb71Vs8cQsjf3r7Mlr/MONERA-YU-Figma-Activity-%231?t=d4q8g4KxVsn7wm2u-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=1-648&starting-point-node-id=1%3A648&show-proto-sidebar=1'
                       target='_blank'
                       className='text-white font-bold text-lg hover:text-pink-700 hover:font-bold'
                     >
@@ -249,7 +309,7 @@ export default function ProjectSection() {
                   <div>
                     <img
                       className='group-hover:blur-[2px] group-hover:brightness-75'
-                      src='assest/Photo_project/slide1.jpg'
+                      src={slide1Photo}
                       alt=''
                     />
                   </div>
@@ -258,21 +318,21 @@ export default function ProjectSection() {
                       <div className='w-4/6'>
                         <img
                           className='object-cover object-center'
-                          src='assest/Photo_project/raw_photos/backgroundImg.webp'
+                          src={backgroundPhoto}
                           alt=''
                         />
                       </div>
                       <div className='w-4/6'>
                         <img
                           className='object-cover object-center'
-                          src='assest/Photo_project/raw_photos/florida-kennedy-space-center-rocket-launch.webp'
+                          src={floridaPhoto}
                           alt=''
                         />
                       </div>
                       <div className='w-4/6'>
                         <img
                           className='object-cover object-center'
-                          src='assest/Photo_project/raw_photos/1641457957683.webp'
+                          src={otherPhoto}
                           alt=''
                         />
                       </div>
@@ -293,13 +353,13 @@ export default function ProjectSection() {
                 </div>
                 <div className='flex flex-col justify-center items-center py-4 ring-2 ring-pink-700'>
                   <div className='w-4/5'>
-                    <img src='assest/Photo_project/slide2.jpg' alt='' />
+                    <img src={slide2Photo} alt='' />
                   </div>
                   <div className='w-4/5'>
-                    <img src='assest/Photo_project/slide3.jpg' alt='' />
+                    <img src={slide3Photo} alt='' />
                   </div>
                   <div className='w-4/5'>
-                    <img src='assest/Photo_project/slide4.jpg' alt='' />
+                    <img src={slide4Photo} alt='' />
                   </div>
                   <div className='w-4/5 flex justify-center items-center my-10'>
                     <a
@@ -318,4 +378,6 @@ export default function ProjectSection() {
       </div>
     </section>
   );
-}
+};
+
+export default ProjectSection;

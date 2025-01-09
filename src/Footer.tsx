@@ -1,4 +1,4 @@
-
+import React from 'react'
 export default function Footer() {
   return (
     <div className="flex flex-col items-center justify-center bg-gray-900 bottom-0">
