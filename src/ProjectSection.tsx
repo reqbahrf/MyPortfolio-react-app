@@ -24,41 +24,82 @@ import slide4Photo from './assets/Photo_project/slide4.jpg';
 import backgroundPhoto from './assets/Photo_project/raw_photos/backgroundImg.webp';
 import floridaPhoto from './assets/Photo_project/raw_photos/florida-kennedy-space-center-rocket-launch.webp';
 import otherPhoto from './assets/Photo_project/raw_photos/1641457957683.webp';
-interface ProjectSectionProps {}
 
-const ProjectSection: React.FC<ProjectSectionProps> = () => {
-  const openModal = (modalId: string) => {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.style.display = 'block';
+const ProjectSection = () => {
+  const openModal = (buttonId: string, modalId: string) => {
+    const buttonElement = document.getElementById(buttonId);
+    const modalElement = document.getElementById(modalId);
+
+    if (!buttonElement || !modalElement) {
+      console.error('Button or modal element not found');
+      return;
     }
+
+    const button = buttonElement as HTMLButtonElement;
+    const modal = modalElement as HTMLDivElement;
+
+    const buttonRect = button.getBoundingClientRect();
+    const buttonCenterX = buttonRect.left + buttonRect.width / 2;
+    const buttonCenterY = buttonRect.top + buttonRect.height / 2;
+    modal.style.transformOrigin = `${buttonCenterX}px ${buttonCenterY}px`;
+
+    modal.classList.toggle('show-modal');
+    document.body.classList.toggle('no-scroll');
   };
 
-  const closeModal = (modalId: string) => {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.style.display = 'none';
+  const closeModal = (event: React.MouseEvent<HTMLButtonElement>, modalId: string) => {
+    event.stopPropagation();
+    const modalElement = event.currentTarget.closest(`#${modalId}`);
+    if (!modalElement) {
+      console.error('Modal element not found');
+      return;
     }
+
+    const modal = modalElement as HTMLDivElement;
+    modal.classList.remove('show-modal');
+    document.body.classList.remove('no-scroll');
   };
 
   React.useEffect(() => {
-    const modals = ['javaProjectModal', 'FigmaProjectModal', 'PhotoProjectModal'];
-    modals.forEach((modalId) => {
-      const closeButton = document.querySelector(`#${modalId} .close-button`);
-      if (closeButton) {
-        closeButton.addEventListener('click', () => closeModal(modalId));
+    const javaProjectModal = document.getElementById('JProjectModal');
+    const figmaProjectModal = document.getElementById('FProjectModal');
+    const PhotoProjectModal = document.getElementById('PProjectModal');
+    const toggle = 'is-sticky';
+
+    const handleScroll = (modal: HTMLElement | null) => {
+      if (modal) {
+        const currentScroll = modal.scrollTop;
+        if (currentScroll > 0) {
+          modal.classList.add(toggle);
+        } else {
+          modal.classList.remove(toggle);
+        }
       }
-      
-      //close the modal if the user clicks outside of it
-      const modal = document.getElementById(modalId);
-      if(modal){
-        modal.addEventListener('click', (event) => {
-          if(event.target === modal){
-            closeModal(modalId);
-          }
-        })
+    };
+
+    if (javaProjectModal) {
+      javaProjectModal.addEventListener('scroll', () => handleScroll(javaProjectModal));
+    }
+
+    if (figmaProjectModal) {
+      figmaProjectModal.addEventListener('scroll', () => handleScroll(figmaProjectModal));
+    }
+
+    if (PhotoProjectModal) {
+      PhotoProjectModal.addEventListener('scroll', () => handleScroll(PhotoProjectModal));
+    }
+
+    return () => {
+      if (javaProjectModal) {
+        javaProjectModal.removeEventListener('scroll', () => handleScroll(javaProjectModal));
       }
-    });
+      if (figmaProjectModal) {
+        figmaProjectModal.removeEventListener('scroll', () => handleScroll(figmaProjectModal));
+      }
+      if (PhotoProjectModal) {
+        PhotoProjectModal.removeEventListener('scroll', () => handleScroll(PhotoProjectModal));
+      }
+    };
   }, []);
 
   return (
@@ -85,7 +126,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = () => {
               className='text-pink-300 hover:text-pink-700 flex items-center'
               id='viewJavaProject'
               data-modal-target='javaProjectModal'
-              onClick={() => openModal('javaProjectModal')}
+              onClick={() => openModal('viewJavaProject', 'javaProjectModal')}
             >
               View Full Details
               <svg
@@ -122,7 +163,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = () => {
               className='text-pink-300 hover:text-pink-700 flex items-center'
               id='viewFigmaProject'
               data-modal-target='FigmaProjectModal'
-              onClick={() => openModal('FigmaProjectModal')}
+              onClick={() => openModal('viewFigmaProject', 'FigmaProjectModal')}
             >
               View Full Details
               <svg
@@ -158,7 +199,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = () => {
               className='text-pink-300 hover:text-pink-700 flex items-center'
               id='viewPhotoProject'
               data-modal-target='PhotoProjectModal'
-              onClick={() => openModal('PhotoProjectModal')}
+              onClick={() => openModal('viewPhotoProject', 'PhotoProjectModal')}
             >
               View Full Details
               <svg
@@ -180,7 +221,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = () => {
 
       <div id='javaProjectModal' className='modal'>
         <div id='javaProjectModalContent' className='modal-content'>
-          <span className='close-button'>×</span>
+          <button className='close-button' onClick={(event) => closeModal(event, 'javaProjectModal')}>×</button>
           <div
             className='flex flex-col overflow-x-hidden items-center w-screen h-screen'
             id='JProjectModal'
@@ -226,7 +267,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = () => {
 
       <div id='FigmaProjectModal' className='modal'>
         <div className='modal-content'>
-          <span className='close-button'>×</span>
+          <button className='close-button' onClick={(event) => closeModal(event, 'FigmaProjectModal')}>×</button>
 
           <div
             className='flex flex-col overflow-x-hidden items-center w-screen h-screen'
@@ -296,7 +337,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = () => {
       </div>
       <div id='PhotoProjectModal' className='modal'>
         <div className='modal-content'>
-          <span className='close-button'>×</span>
+          <button className='close-button' onClick={(event) => closeModal(event, 'PhotoProjectModal')}>×</button>
 
           <div
             className='flex flex-col overflow-x-hidden items-center w-screen h-screen'
