@@ -1,10 +1,10 @@
 import React from 'react';
-import profile from './assets/pageImg/profile.png';
-import slide1 from './assets/pageImg/slide1.png';
-import slide2 from './assets/pageImg/slide2.png';
-import slide3 from './assets/pageImg/slide3.png';
-import slide4 from './assets/pageImg/slide4.png';
-import slide5 from './assets/pageImg/slide5.png';
+import profile from '/public/assets/pageImg/profile.png';
+import slide1 from '/public/assets/pageImg/slide1.png';
+import slide2 from '/public/assets/pageImg/slide2.png';
+import slide3 from '/public/assets/pageImg/slide3.png';
+import slide4 from '/public/assets/pageImg/slide4.png';
+import slide5 from '/public/assets/pageImg/slide5.png';
 import { useEffect, useRef } from 'react';
 
 export default function HomeSection() {

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import logo from './assets/pageImg/logo.jpg'
+import logo from '/public/assets/pageImg/logo.jpg'
 
 export default function Header() {
   const navLinks = useRef<HTMLDivElement>(null);

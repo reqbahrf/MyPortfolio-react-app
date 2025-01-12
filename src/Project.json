@@ -1,0 +1,28 @@
+{
+    "projects": [
+        {
+            "id": "javaProject",
+            "coverImg" : "/public/assets/Java_project/slide1.webp",
+            "title": "Java Application Project",
+            "description": "First Java Application Project as one of requirement from the System Analysis and Design subject.",
+            "btn_id": "viewJavaProject",
+            "targetModal_id": "javaProjectModal"
+        },
+        {
+            "id": "figmaProject",
+            "coverImg" : "/public/assets/Figma_project/slide1.webp",
+            "title": "Figma Application Project",
+            "description": "Figma Projects I created during my 3rd year subject Human Computer Interaction.",
+            "btn_id": "viewFigmaProject",
+            "targetModal_id": "figmaProjectModal"
+        },
+        {
+            "id": "photoProject",
+            "coverImg" : "/public/assets/Photo_project/slide1.jpg",
+            "title": "Photo Manipulation Project",
+            "description": "Photo Editor Projects I created during my 1st year subject Introduction to Computing.",
+            "btn_id": "viewPhotoProject",
+            "targetModal_id": "photoProjectModal"
+        }
+    ]
+}

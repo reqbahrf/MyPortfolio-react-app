@@ -1,5 +1,5 @@
 import React from 'react'
-import profile2 from './assets/pageImg/profile2.jpg'
+import profile2 from '/public/assets/pageImg/profile2.jpg'
 
 export default function AboutSection() {
   return (

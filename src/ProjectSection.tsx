@@ -1,29 +1,31 @@
 import React from 'react';
-import slide1Java from './assets/Java_project/slide1.webp';
-import slide2Java from './assets/Java_project/slide2.png';
-import slide3Java from './assets/Java_project/slide3.png';
-import slide4Java from './assets/Java_project/slide4.png';
-import slide5Java from './assets/Java_project/slide5.png';
-import slide6Java from './assets/Java_project/slide6.png';
+import ProjectCard from './components/ProjectCard';
+import Projects from './Project.json';
+import slide1Java from '/public/assets/Java_project/slide1.webp';
+import slide2Java from '/public/assets/Java_project/slide2.png';
+import slide3Java from '/public/assets/Java_project/slide3.png';
+import slide4Java from '/public/assets/Java_project/slide4.png';
+import slide5Java from '/public/assets/Java_project/slide5.png';
+import slide6Java from '/public/assets/Java_project/slide6.png';
 
-import slide1Figma from './assets/Figma_project/slide1.webp';
-import slide2Figma from './assets/Figma_project/slide2.webp';
-import slide3Figma from './assets/Figma_project/slide3.webp';
-import slide4Figma from './assets/Figma_project/slide4.webp';
-import slide5Figma from './assets/Figma_project/slide5.webp';
-import slide1Figma2 from './assets/Figma_project/2slide1.webp';
-import slide2Figma2 from './assets/Figma_project/2slide2.webp';
-import slide3Figma2 from './assets/Figma_project/2slide3.webp';
-import slide4Figma2 from './assets/Figma_project/2slide4.webp';
-import slide5Figma2 from './assets/Figma_project/2slide5.webp';
+import slide1Figma from '/public/assets/Figma_project/slide1.webp';
+import slide2Figma from '/public/assets/Figma_project/slide2.webp';
+import slide3Figma from '/public/assets/Figma_project/slide3.webp';
+import slide4Figma from '/public/assets/Figma_project/slide4.webp';
+import slide5Figma from '/public/assets/Figma_project/slide5.webp';
+import slide1Figma2 from '/public/assets/Figma_project/2slide1.webp';
+import slide2Figma2 from '/public/assets/Figma_project/2slide2.webp';
+import slide3Figma2 from '/public/assets/Figma_project/2slide3.webp';
+import slide4Figma2 from '/public/assets/Figma_project/2slide4.webp';
+import slide5Figma2 from '/public/assets/Figma_project/2slide5.webp';
 
-import slide1Photo from './assets/Photo_project/slide1.jpg';
-import slide2Photo from './assets/Photo_project/slide2.jpg';
-import slide3Photo from './assets/Photo_project/slide3.jpg';
-import slide4Photo from './assets/Photo_project/slide4.jpg';
-import backgroundPhoto from './assets/Photo_project/raw_photos/backgroundImg.webp';
-import floridaPhoto from './assets/Photo_project/raw_photos/florida-kennedy-space-center-rocket-launch.webp';
-import otherPhoto from './assets/Photo_project/raw_photos/1641457957683.webp';
+import slide1Photo from '/public/assets/Photo_project/slide1.jpg';
+import slide2Photo from '/public/assets/Photo_project/slide2.jpg';
+import slide3Photo from '/public/assets/Photo_project/slide3.jpg';
+import slide4Photo from '/public/assets/Photo_project/slide4.jpg';
+import backgroundPhoto from '/public/assets/Photo_project/raw_photos/backgroundImg.webp';
+import floridaPhoto from '/public/assets/Photo_project/raw_photos/florida-kennedy-space-center-rocket-launch.webp';
+import otherPhoto from '/public/assets/Photo_project/raw_photos/1641457957683.webp';
 
 const ProjectSection = () => {
   const openModal = (buttonId: string, modalId: string) => {
@@ -60,14 +62,27 @@ const ProjectSection = () => {
     document.body.classList.remove('no-scroll');
   };
 
+  const ProjectCardsData = Projects.projects.map(project => (
+    <ProjectCard
+      key={project.id}
+      coverImg={project.coverImg}
+      Div_id={project.id}
+      title={project.title}
+      btn_id={project.btn_id}
+      targetModal_id={project.targetModal_id}
+      description={project.description}
+      openModal={() => openModal(project.btn_id, project.targetModal_id)}
+    />
+  ));
+
   React.useEffect(() => {
     const javaProjectModal = document.getElementById('JProjectModal');
     const figmaProjectModal = document.getElementById('FProjectModal');
-    const PhotoProjectModal = document.getElementById('PProjectModal');
+    const photoProjectModal = document.getElementById('PProjectModal');
     const toggle = 'is-sticky';
 
     const handleScroll = (modal: HTMLElement | null) => {
-      if (modal) {
+      if (modal) { 
         const currentScroll = modal.scrollTop;
         if (currentScroll > 0) {
           modal.classList.add(toggle);
@@ -85,8 +100,8 @@ const ProjectSection = () => {
       figmaProjectModal.addEventListener('scroll', () => handleScroll(figmaProjectModal));
     }
 
-    if (PhotoProjectModal) {
-      PhotoProjectModal.addEventListener('scroll', () => handleScroll(PhotoProjectModal));
+    if (photoProjectModal) {
+      photoProjectModal.addEventListener('scroll', () => handleScroll(photoProjectModal));
     }
 
     return () => {
@@ -96,129 +111,16 @@ const ProjectSection = () => {
       if (figmaProjectModal) {
         figmaProjectModal.removeEventListener('scroll', () => handleScroll(figmaProjectModal));
       }
-      if (PhotoProjectModal) {
-        PhotoProjectModal.removeEventListener('scroll', () => handleScroll(PhotoProjectModal));
+      if (photoProjectModal) {
+        photoProjectModal.removeEventListener('scroll', () => handleScroll(photoProjectModal));
       }
     };
   }, []);
-
   return (
     <section id='Project'>
       <div className='flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-14 m-0 py-10 sm:m-30 md:m-40'>
-        <div
-          className='flex flex-col items-center justify-center w-[280px] h-[350px] sm:w-[290px] sm:h-[355px] rounded-[40px] overflow-hidden shadow-lg bg-gray-800'
-          id='javaProjectConta'
-        >
-          <img
-            className='w-full h-48 object-cover'
-            src={slide1Java}
-            alt='Java Project'
-          />
-          <div className='p-4'>
-            <div className='font-bold text-white text-xl mb-2'>
-              Java Application Project
-            </div>
-            <p className='text-white text-sm mb-4'>
-              First Java Application Project as one of requirement from the
-              System Analysis and Design subject.
-            </p>
-            <button
-              className='text-pink-300 hover:text-pink-700 flex items-center'
-              id='viewJavaProject'
-              data-modal-target='javaProjectModal'
-              onClick={() => openModal('viewJavaProject', 'javaProjectModal')}
-            >
-              View Full Details
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='h-5 w-5 ml-1'
-                viewBox='0 0 20 20'
-                fill='currentColor'
-              >
-                <path
-                  fillRule='evenodd'
-                  d='M12.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L15.586 11H3a1 1 0 110-2h12.586l-3.293-3.293a1 1 0 010-1.414z'
-                  clipRule='evenodd'
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <div className='flex flex-col items-center justify-center w-[280px] h-[350px] sm:w-[290px] sm:h-[355px] rounded-[40px] overflow-hidden shadow-lg bg-gray-800'>
-          <img
-            className='w-full h-48 object-cover'
-            src={slide1Figma}
-            alt='Figma Project'
-          />
-          <div className='p-4'>
-            <div className='font-bold text-white text-xl mb-2'>
-              Figma Projects
-            </div>
-            <p className='text-white text-sm mb-4'>
-              Figma Projects I created during my 3rd year subject Human Computer
-              Interaction.
-            </p>
-            <button
-              className='text-pink-300 hover:text-pink-700 flex items-center'
-              id='viewFigmaProject'
-              data-modal-target='FigmaProjectModal'
-              onClick={() => openModal('viewFigmaProject', 'FigmaProjectModal')}
-            >
-              View Full Details
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='h-5 w-5 ml-1'
-                viewBox='0 0 20 20'
-                fill='currentColor'
-              >
-                <path
-                  fillRule='evenodd'
-                  d='M12.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L15.586 11H3a1 1 0 110-2h12.586l-3.293-3.293a1 1 0 010-1.414z'
-                  clipRule='evenodd'
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div className='flex flex-col items-center justify-center w-[280px] h-[350px] sm:w-[290px] sm:h-[355px] rounded-[40px] overflow-hidden shadow-lg bg-gray-800'>
-          <img
-            className='w-full h-48 object-cover'
-            src={slide1Photo}
-            alt='Photo Editor Project'
-          />
-          <div className='p-4'>
-            <div className='font-bold text-white text-xl mb-2'>
-              Photo Editor Projects
-            </div>
-            <p className='text-white text-sm mb-4'>
-              Photo Editor Projects I created during my 1st year subject
-              Introduction to Computing.
-            </p>
-            <button
-              className='text-pink-300 hover:text-pink-700 flex items-center'
-              id='viewPhotoProject'
-              data-modal-target='PhotoProjectModal'
-              onClick={() => openModal('viewPhotoProject', 'PhotoProjectModal')}
-            >
-              View Full Details
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='h-5 w-5 ml-1'
-                viewBox='0 0 20 20'
-                fill='currentColor'
-              >
-                <path
-                  fillRule='evenodd'
-                  d='M12.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L15.586 11H3a1 1 0 110-2h12.586l-3.293-3.293a1 1 0 010-1.414z'
-                  clipRule='evenodd'
-                ></path>
-              </svg>
-            </button>
-          </div>
-        </div>
+        {ProjectCardsData || ''}
       </div>
-
       <div id='javaProjectModal' className='modal'>
         <div id='javaProjectModalContent' className='modal-content'>
           <button className='close-button' onClick={(event) => closeModal(event, 'javaProjectModal')}>×</button>
@@ -264,10 +166,9 @@ const ProjectSection = () => {
           </div>
         </div>
       </div>
-
-      <div id='FigmaProjectModal' className='modal'>
+      <div id='figmaProjectModal' className='modal'>
         <div className='modal-content'>
-          <button className='close-button' onClick={(event) => closeModal(event, 'FigmaProjectModal')}>×</button>
+          <button className='close-button' onClick={(event) => closeModal(event, 'figmaProjectModal')}>×</button>
 
           <div
             className='flex flex-col overflow-x-hidden items-center w-screen h-screen'
@@ -335,9 +236,9 @@ const ProjectSection = () => {
           </div>
         </div>
       </div>
-      <div id='PhotoProjectModal' className='modal'>
+      <div id='photoProjectModal' className='modal'>
         <div className='modal-content'>
-          <button className='close-button' onClick={(event) => closeModal(event, 'PhotoProjectModal')}>×</button>
+          <button className='close-button' onClick={(event) => closeModal(event, 'photoProjectModal')}>×</button>
 
           <div
             className='flex flex-col overflow-x-hidden items-center w-screen h-screen'
