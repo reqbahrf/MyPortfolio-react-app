@@ -27,6 +27,10 @@ import backgroundPhoto from '/public/assets/Photo_project/raw_photos/backgroundI
 import floridaPhoto from '/public/assets/Photo_project/raw_photos/florida-kennedy-space-center-rocket-launch.webp';
 import otherPhoto from '/public/assets/Photo_project/raw_photos/1641457957683.webp';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+
 const ProjectSection = () => {
   const openModal = (buttonId: string, modalId: string) => {
     const buttonElement = document.getElementById(buttonId);
@@ -49,7 +53,10 @@ const ProjectSection = () => {
     document.body.classList.toggle('no-scroll');
   };
 
-  const closeModal = (event: React.MouseEvent<HTMLButtonElement>, modalId: string) => {
+  const closeModal = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    modalId: string
+  ) => {
     event.stopPropagation();
     const modalElement = event.currentTarget.closest(`#${modalId}`);
     if (!modalElement) {
@@ -62,7 +69,7 @@ const ProjectSection = () => {
     document.body.classList.remove('no-scroll');
   };
 
-  const ProjectCardsData = Projects.projects.map(project => (
+  const ProjectCardsData = Projects.projects.map((project) => (
     <ProjectCard
       key={project.id}
       coverImg={project.coverImg}
@@ -82,7 +89,7 @@ const ProjectSection = () => {
     const toggle = 'is-sticky';
 
     const handleScroll = (modal: HTMLElement | null) => {
-      if (modal) { 
+      if (modal) {
         const currentScroll = modal.scrollTop;
         if (currentScroll > 0) {
           modal.classList.add(toggle);
@@ -93,26 +100,38 @@ const ProjectSection = () => {
     };
 
     if (javaProjectModal) {
-      javaProjectModal.addEventListener('scroll', () => handleScroll(javaProjectModal));
+      javaProjectModal.addEventListener('scroll', () =>
+        handleScroll(javaProjectModal)
+      );
     }
 
     if (figmaProjectModal) {
-      figmaProjectModal.addEventListener('scroll', () => handleScroll(figmaProjectModal));
+      figmaProjectModal.addEventListener('scroll', () =>
+        handleScroll(figmaProjectModal)
+      );
     }
 
     if (photoProjectModal) {
-      photoProjectModal.addEventListener('scroll', () => handleScroll(photoProjectModal));
+      photoProjectModal.addEventListener('scroll', () =>
+        handleScroll(photoProjectModal)
+      );
     }
 
     return () => {
       if (javaProjectModal) {
-        javaProjectModal.removeEventListener('scroll', () => handleScroll(javaProjectModal));
+        javaProjectModal.removeEventListener('scroll', () =>
+          handleScroll(javaProjectModal)
+        );
       }
       if (figmaProjectModal) {
-        figmaProjectModal.removeEventListener('scroll', () => handleScroll(figmaProjectModal));
+        figmaProjectModal.removeEventListener('scroll', () =>
+          handleScroll(figmaProjectModal)
+        );
       }
       if (photoProjectModal) {
-        photoProjectModal.removeEventListener('scroll', () => handleScroll(photoProjectModal));
+        photoProjectModal.removeEventListener('scroll', () =>
+          handleScroll(photoProjectModal)
+        );
       }
     };
   }, []);
@@ -121,9 +140,20 @@ const ProjectSection = () => {
       <div className='flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-14 m-0 py-10 sm:m-30 md:m-40'>
         {ProjectCardsData || ''}
       </div>
-      <div id='javaProjectModal' className='modal'>
-        <div id='javaProjectModalContent' className='modal-content'>
-          <button className='close-button' onClick={(event) => closeModal(event, 'javaProjectModal')}>×</button>
+      <div
+        id='javaProjectModal'
+        className='modal'
+      >
+        <div
+          id='javaProjectModalContent'
+          className='modal-content'
+        >
+          <button
+            className='close-button'
+            onClick={(event) => closeModal(event, 'javaProjectModal')}
+          >
+            ×
+          </button>
           <div
             className='flex flex-col overflow-x-hidden items-center w-screen h-screen'
             id='JProjectModal'
@@ -131,32 +161,62 @@ const ProjectSection = () => {
             <div className='Java-Project-header'>POS Java Project</div>
             <div className='flex flex-col space-y-5 p-4 w-full px-10 mainContent'>
               <div className='flex flex-col items-center py-40 h-auto space-y-10'>
-                <img
+                <LazyLoadImage
+                  effect='blur'
+                  threshold={300}
+                  wrapperProps={{
+                    style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                  }}
                   src={slide1Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
-                <img
+                <LazyLoadImage
+                  effect='blur'
+                  threshold={300}
+                  wrapperProps={{
+                    style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                  }}
                   src={slide2Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
-                <img
+                <LazyLoadImage
+                  effect='blur'
+                  threshold={300}
+                  wrapperProps={{
+                    style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                  }}
                   src={slide3Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
-                <img
+                <LazyLoadImage
+                  effect='blur'
+                  threshold={300}
+                  wrapperProps={{
+                    style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                  }}
                   src={slide4Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
-                <img
+                <LazyLoadImage
+                  effect='blur'
+                  threshold={300}
+                  wrapperProps={{
+                    style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                  }}
                   src={slide5Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
                 />
-                <img
+                <LazyLoadImage
+                  effect='blur'
+                  threshold={300}
+                  wrapperProps={{
+                    style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                  }}
                   src={slide6Java}
                   className='w-4/5 sm:w-1/2 md:w-1/2'
                   alt=''
@@ -166,9 +226,17 @@ const ProjectSection = () => {
           </div>
         </div>
       </div>
-      <div id='figmaProjectModal' className='modal'>
+      <div
+        id='figmaProjectModal'
+        className='modal'
+      >
         <div className='modal-content'>
-          <button className='close-button' onClick={(event) => closeModal(event, 'figmaProjectModal')}>×</button>
+          <button
+            className='close-button'
+            onClick={(event) => closeModal(event, 'figmaProjectModal')}
+          >
+            ×
+          </button>
 
           <div
             className='flex flex-col overflow-x-hidden items-center w-screen h-screen'
@@ -178,19 +246,59 @@ const ProjectSection = () => {
             <div className='flex flex-col items-center space-y-5 p-4 w-full px-10 z-10 mainContent'>
               <div className='z-10 img-content'>
                 <div className='img-wrapper'>
-                  <img src={slide1Figma} alt='' />
+                  <LazyLoadImage
+                    effect='blur'
+                    threshold={300}
+                    wrapperProps={{
+                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                    }}
+                    src={slide1Figma}
+                    alt=''
+                  />
                 </div>
                 <div className='img-wrapper'>
-                  <img src={slide2Figma} alt='' />
+                  <LazyLoadImage
+                    effect='blur'
+                    threshold={300}
+                    wrapperProps={{
+                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                    }}
+                    src={slide2Figma}
+                    alt=''
+                  />
                 </div>
                 <div className='img-wrapper'>
-                  <img src={slide3Figma} alt='' />
+                  <LazyLoadImage
+                    effect='blur'
+                    threshold={300}
+                    wrapperProps={{
+                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                    }}
+                    src={slide3Figma}
+                    alt=''
+                  />
                 </div>
                 <div className='img-wrapper'>
-                  <img src={slide4Figma} alt='' />
+                  <LazyLoadImage
+                    effect='blur'
+                    threshold={300}
+                    wrapperProps={{
+                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                    }}
+                    src={slide4Figma}
+                    alt=''
+                  />
                 </div>
                 <div className='img-wrapper'>
-                  <img src={slide5Figma} alt='' />
+                  <LazyLoadImage
+                    effect='blur'
+                    threshold={300}
+                    wrapperProps={{
+                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                    }}
+                    src={slide5Figma}
+                    alt=''
+                  />
                 </div>
                 <div className='img-wrapper'>
                   <div className='border border-white rounded-[45px] h-full w-full flex justify-center items-center'>
@@ -206,19 +314,59 @@ const ProjectSection = () => {
               </div>
               <div className='z-10 img-content'>
                 <div className='img-wrapper'>
-                  <img src={slide1Figma2} alt='' />
+                  <LazyLoadImage
+                    effect='blur'
+                    threshold={300}
+                    wrapperProps={{
+                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                    }}
+                    src={slide1Figma2}
+                    alt=''
+                  />
                 </div>
                 <div className='img-wrapper'>
-                  <img src={slide2Figma2} alt='' />
+                  <LazyLoadImage
+                    effect='blur'
+                    threshold={300}
+                    wrapperProps={{
+                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                    }}
+                    src={slide2Figma2}
+                    alt=''
+                  />
                 </div>
                 <div className='img-wrapper'>
-                  <img src={slide3Figma2} alt='' />
+                  <LazyLoadImage
+                    effect='blur'
+                    threshold={300}
+                    wrapperProps={{
+                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                    }}
+                    src={slide3Figma2}
+                    alt=''
+                  />
                 </div>
                 <div className='img-wrapper'>
-                  <img src={slide4Figma2} alt='' />
+                  <LazyLoadImage
+                    effect='blur'
+                    threshold={300}
+                    wrapperProps={{
+                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                    }}
+                    src={slide4Figma2}
+                    alt=''
+                  />
                 </div>
                 <div className='img-wrapper'>
-                  <img src={slide5Figma2} alt='' />
+                  <LazyLoadImage
+                    effect='blur'
+                    threshold={300}
+                    wrapperProps={{
+                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                    }}
+                    src={slide5Figma2}
+                    alt=''
+                  />
                 </div>
                 <div className='img-wrapper'>
                   <div className='border border-white rounded-[45px] h-full w-full flex justify-center items-center'>
@@ -236,9 +384,17 @@ const ProjectSection = () => {
           </div>
         </div>
       </div>
-      <div id='photoProjectModal' className='modal'>
+      <div
+        id='photoProjectModal'
+        className='modal'
+      >
         <div className='modal-content'>
-          <button className='close-button' onClick={(event) => closeModal(event, 'photoProjectModal')}>×</button>
+          <button
+            className='close-button'
+            onClick={(event) => closeModal(event, 'photoProjectModal')}
+          >
+            ×
+          </button>
 
           <div
             className='flex flex-col overflow-x-hidden items-center w-screen h-screen'
@@ -249,7 +405,12 @@ const ProjectSection = () => {
               <div className='flex flex-col flex-wrap items-center py-40 space-y-10 z-10'>
                 <div className='flex flex-col relative w-4/5 group mb-8 ring-2 ring-pink-700'>
                   <div>
-                    <img
+                    <LazyLoadImage
+                      effect='blur'
+                      threshold={300}
+                      wrapperProps={{
+                        style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                      }}
                       className='group-hover:blur-[2px] group-hover:brightness-75'
                       src={slide1Photo}
                       alt=''
@@ -258,21 +419,36 @@ const ProjectSection = () => {
                   <div className='flex flex-col flex-wrap items-start justify-center absolute w-full h-full opacity-0 group-hover:opacity-100'>
                     <div className='flex flex-col justify-center items-center flex-wrap w-1/4 p-1 bg-gray-900 h-full'>
                       <div className='w-4/6'>
-                        <img
+                        <LazyLoadImage
+                          effect='blur'
+                          threshold={300}
+                          wrapperProps={{
+                            style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                          }}
                           className='object-cover object-center'
                           src={backgroundPhoto}
                           alt=''
                         />
                       </div>
                       <div className='w-4/6'>
-                        <img
+                        <LazyLoadImage
+                          effect='blur'
+                          threshold={300}
+                          wrapperProps={{
+                            style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                          }}
                           className='object-cover object-center'
                           src={floridaPhoto}
                           alt=''
                         />
                       </div>
                       <div className='w-4/6'>
-                        <img
+                        <LazyLoadImage
+                          effect='blur'
+                          threshold={300}
+                          wrapperProps={{
+                            style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                          }}
                           className='object-cover object-center'
                           src={otherPhoto}
                           alt=''
@@ -295,13 +471,37 @@ const ProjectSection = () => {
                 </div>
                 <div className='flex flex-col justify-center items-center py-4 ring-2 ring-pink-700'>
                   <div className='w-4/5'>
-                    <img src={slide2Photo} alt='' />
+                    <LazyLoadImage
+                      effect='blur'
+                      threshold={300}
+                      wrapperProps={{
+                        style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                      }}
+                      src={slide2Photo}
+                      alt=''
+                    />
                   </div>
                   <div className='w-4/5'>
-                    <img src={slide3Photo} alt='' />
+                    <LazyLoadImage
+                      effect='blur'
+                      threshold={300}
+                      wrapperProps={{
+                        style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                      }}
+                      src={slide3Photo}
+                      alt=''
+                    />
                   </div>
                   <div className='w-4/5'>
-                    <img src={slide4Photo} alt='' />
+                    <LazyLoadImage
+                      effect='blur'
+                      threshold={300}
+                      wrapperProps={{
+                        style: { transitionDelay: '0.3s' }, // Adjust transition delay
+                      }}
+                      src={slide4Photo}
+                      alt=''
+                    />
                   </div>
                   <div className='w-4/5 flex justify-center items-center my-10'>
                     <a

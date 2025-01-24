@@ -7,6 +7,10 @@ import slide4 from '/public/assets/pageImg/slide4.png';
 import slide5 from '/public/assets/pageImg/slide5.png';
 import { useEffect, useRef } from 'react';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+
 export default function HomeSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -428,27 +432,52 @@ export default function HomeSection() {
             </h1>
           </div>
           <div className='slides-container'>
-            <img
+            <LazyLoadImage
+             effect='opacity'
+             threshold={300}
+             wrapperProps={{
+               style: { transitionDelay: '0.3s' }, // Adjust transition delay
+             }}
               src={slide1}
               alt='App Icon Design'
               className='slide-image'
             />
-            <img
+            <LazyLoadImage
+             effect='opacity'
+             threshold={300}
+             wrapperProps={{
+               style: { transitionDelay: '0.4s' }, // Adjust transition delay
+             }}
               src={slide2}
               alt='Welcome Screen'
               className='slide-image'
             />
-            <img
+            <LazyLoadImage
+             effect='opacity'
+             threshold={300}
+             wrapperProps={{
+               style: { transitionDelay: '0.5s' }, // Adjust transition delay
+             }}
               src={slide3}
               alt='Login Interface'
               className='slide-image'
             />
-            <img
+            <LazyLoadImage
+             effect='opacity'
+             threshold={300}
+             wrapperProps={{
+               style: { transitionDelay: '0.6s' }, // Adjust transition delay
+             }}
               src={slide4}
               alt='Home Screen'
               className='slide-image'
             />
-            <img
+            <LazyLoadImage
+             effect='opacity'
+             threshold={300}
+             wrapperProps={{
+               style: { transitionDelay: '0.7s' }, // Adjust transition delay
+             }}
               src={slide5}
               alt='User Profile'
               className='slide-image'

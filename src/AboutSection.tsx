@@ -1,13 +1,22 @@
 import React from 'react'
 import profile2 from '/public/assets/pageImg/profile2.jpg'
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+
 export default function AboutSection() {
   return (
     <section id='About'>
       <div className='flex flex-col sm:flex-row md:flex-row m-0 sm:m-30 md:m-40 border-y-black shadow-xl bg-gray-900 bg-opacity-70 px-8 py-5 sm:px-20 md:px-20'>
         <div className='flex flex-col flex-grow-0'>
           <div className='myProfileImg flex flex-1 justify-center'>
-            <img
+            <LazyLoadImage
+              effect='blur'
+              threshold={300}
+              wrapperProps={{
+                style: { transitionDelay: '0.3s' }, // Adjust transition delay
+              }}
               src={profile2}
               className='profile1'
               width='340'

@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 interface ProjectCardProps {
   Div_id: string;
   coverImg: string;
@@ -17,8 +18,13 @@ export default function ProjectCard(props: ProjectCardProps) {
       className='flex flex-col justify-between w-[280px] h-[350px] sm:w-[290px] sm:h-[355px] rounded-[40px] overflow-hidden shadow-lg bg-gray-800'
     >
       <div className='flex-grow'>
-      <img
+      <LazyLoadImage
         className='w-full h-48 object-cover'
+        effect='blur'
+        threshold={300}
+        wrapperProps={{
+          style: { transitionDelay: '0.3s' }, // Adjust transition delay
+        }}
         src={props.coverImg}
         alt={props.title}
       />
