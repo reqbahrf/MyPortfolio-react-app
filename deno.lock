@@ -2364,6 +2364,7 @@
         "npm:react-dom@^18.3.1",
         "npm:react-lazy-load-image-component@^1.6.3",
         "npm:react@^18.3.1",
+        "npm:remixicon@^4.6.0",
         "npm:tailwindcss@^3.4.14",
         "npm:vite@^5.4.9"
       ]
