@@ -1,5 +1,5 @@
 import * as React from 'react';
-import profile2 from '/public/assets/pageImg/profile2.jpg';
+import profile2 from '/public/assets/pageImg/profile2.webp';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -92,26 +92,29 @@ export default function AboutSection() {
             I&apos;m Reanz Arthur Antone Monera
           </div>
           <div className='text-white text-lg mb-7 indent-8 text-justify'>
-            I am a 4th year student at the Davao del Norte State College in the
-            Philippines taking up Bachelor of Science in Information System. I
-            am a self-taught web developer and a graphic designer. I am
-            passionate about creating and designing websites and applications. I
-            am currently looking for an internship or a part-time job to further
-            enhance my skills and knowledge in the field of web development.
+            I recently graduated with a degree in Information System from Davao
+            del Norte State College. Although the BS in Information System
+            mainly focuses on designing and proposing systems, a change in our
+            curriculum gave me the chance to actually build one too. This shift
+            helped me learn and explore web development more, especially through
+            our Capstone project.
           </div>
           <div className='text-white text-lg mb-7 indent-8 text-justify'>
-            In addition to web development and graphic design, I have a keen
-            interest in photo editing and space exploration. Photo editing
-            allows me to express my creativity and attention to detail, while my
-            fascination with space exploration fuels my curiosity about the
-            universe and its mysteries. These hobbies not only provide me with a
-            well-rounded skill set but also inspire me to think beyond
-            conventional boundaries and continuously seek new knowledge and
-            experiences.
+            I'm a self-taught web developer and graphic designer. I enjoy
+            building websites and apps that look good and work well. I'm now
+            looking for job opportunities where I can grow and keep learning
+            more about web development.
           </div>
           <div className='text-white text-lg mb-7 indent-8 text-justify'>
-            My enthusiasm for this fields drives me to continually improve my
-            skills and stay updated with the latest industry trends.
+            Aside from coding and design, I like editing photos and learning
+            about space. Photo editing lets me be creative and focus on small
+            details. My interest in space keeps me curious and open to new
+            ideas. These hobbies help me stay creative and motivated.
+          </div>
+          <div className='text-white text-lg mb-7 indent-8 text-justify'>
+            I enjoy what I do and I’m always trying to get better at it. I keep
+            up with new tools and trends so I can improve my skills and build
+            better things.
           </div>
         </div>
       </div>

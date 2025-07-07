@@ -1,10 +1,10 @@
 import * as React from 'react';
-import profile from '/public/assets/pageImg/profile.png';
-import slide1 from '/public/assets/pageImg/slide1.png';
-import slide2 from '/public/assets/pageImg/slide2.png';
-import slide3 from '/public/assets/pageImg/slide3.png';
-import slide4 from '/public/assets/pageImg/slide4.png';
-import slide5 from '/public/assets/pageImg/slide5.png';
+import profile from '/public/assets/pageImg/profile.webp';
+import slide1 from '/public/assets/pageImg/slide1.webp';
+import slide2 from '/public/assets/pageImg/slide2.webp';
+import slide3 from '/public/assets/pageImg/slide3.webp';
+import slide4 from '/public/assets/pageImg/slide4.webp';
+import slide5 from '/public/assets/pageImg/slide5.webp';
 import { useEffect, useRef } from 'react';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -98,7 +98,7 @@ export default function HomeSection() {
             </div>
             <div className='text-center sm:text-start !mt-10'>
               <a
-                href='https://drive.google.com/file/d/1VpfmmPKy-ESeWP0FBhTV0TsP5udw6cDM/view?usp=sharing'
+                href='https://docs.google.com/document/d/17s6o-BsEe8exWWh_qno_6BJzvd8nbuCJ/edit?usp=sharing&ouid=114884687085173552646&rtpof=true&sd=true'
                 target='_blank'
                 className='rounded-full bg-white hover:bg-pink-700 text-black font-bold py-2 px-9'
               >
