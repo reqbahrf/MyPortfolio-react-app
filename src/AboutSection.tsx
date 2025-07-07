@@ -97,7 +97,8 @@ export default function AboutSection() {
             mainly focuses on designing and proposing systems, a change in our
             curriculum gave me the chance to actually build one too. This shift
             helped me learn and explore web development more, especially through
-            our Capstone project.
+            our Capstone project, where I developed a web application as a
+            full-stack developer.
           </div>
           <div className='text-white text-lg mb-7 indent-8 text-justify'>
             I'm a self-taught web developer and graphic designer. I enjoy
