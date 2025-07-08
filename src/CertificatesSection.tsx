@@ -1,4 +1,3 @@
-import React from 'react';
 import CertificateCard from './components/CertificateCard';
 import Certificates from './content/Certificates.json';
 
