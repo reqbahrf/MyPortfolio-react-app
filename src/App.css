@@ -391,6 +391,31 @@ body {
   -o-transition: all 1s;
 }
 
+.DOST-Project-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #fff;
+  height: 100vh;
+  width: 100%;
+  background-image: url('/public/assets/dost_setup_system/index.webp');
+  background-size: cover;
+  background-position: 50% 0;
+  background-blend-mode: soft-light;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font: bold;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: calc(4vw + 1em);
+  align-content: center;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
+
 .mainContent {
   padding-top: 110vh;
   transition: all 1s;
@@ -403,7 +428,7 @@ body {
 
 .is-sticky .Java-Project-header {
   background-position: 50% 100%;
-  background-color: #0b1584;
+  background-color: #9e2359;
   height: 10vh;
   font-size: 2em;
   z-index: 2;
@@ -411,7 +436,7 @@ body {
 
 .is-sticky .Figma-Project-header {
   background-position: 50% 100%;
-  background-color: #0b1584;
+  background-color: #9e2359;
   height: 10vh;
   font-size: 2em;
   z-index: 2;
@@ -419,7 +444,15 @@ body {
 
 .is-sticky .Photo-Project-header {
   background-position: 50% 100%;
-  background-color: #0b1584;
+  background-color: #9e2359;
+  height: 10vh;
+  font-size: 2em;
+  z-index: 2;
+}
+
+.is-sticky .DOST-Project-header {
+  background-position: 50% 100%;
+  background-color: #9e2359;
   height: 10vh;
   font-size: 2em;
   z-index: 2;

@@ -26,7 +26,7 @@
     },
     {
       "id": "DOSTSETUPSYSTEM",
-      "coverImg": "/assets/dost_setup_system/Admin1.1.webp",
+      "coverImg": "/assets/dost_setup_system/index.webp",
       "title": "DOST SETUP System",
       "description": "A system developed for the Department of Science and Technology (DOST) – SETUP program, created as part of our BS in Information System Capstone requirement.",
       "btn_id": "viewDOSTSETUPSYSTEM",
