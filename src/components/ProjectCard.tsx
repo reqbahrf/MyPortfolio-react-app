@@ -36,12 +36,12 @@ export default function ProjectCard({
   return (
     <div
       id={Div_id}
-      className='group flex flex-col justify-between w-[280px] h-[350px] sm:w-[290px] sm:h-[355px] rounded-[40px] overflow-hidden shadow-lg bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl'
+      className='group flex flex-col justify-between w-[300px] sm:w-[310px] rounded-[20px] h-[400px] overflow-hidden shadow-lg bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl'
     >
       <div className='flex-grow'>
         <div className='relative'>
           <LazyLoadImage
-            className='w-full h-48 object-cover transition-all duration-300 group-hover:brightness-75'
+            className='w-full h-48 object-cover group-hover:brightness-75 group-hover:object-contain'
             effect='blur'
             threshold={300}
             wrapperProps={{
@@ -52,7 +52,9 @@ export default function ProjectCard({
           />
         </div>
         <div className='pt-4 px-2'>
-          <div className='font-bold text-white text-xl mb-2'>{title}</div>
+          <div className='font-bold text-white text-xl mb-4 line-clamp-1 group-hover:text-pink-700'>
+            {title}
+          </div>
           <p
             className='text-white text-sm mb-4 text-justify'
             title={description} // Tooltip for full description
