@@ -64,6 +64,12 @@ export default function Header() {
         >
           Projects
         </a>
+        <a
+          href='#Certificates'
+          className='hover:text-pink-700 px-4 my-2 py-2 text-white'
+        >
+          Certificates
+        </a>
       </nav>
     </div>
   );

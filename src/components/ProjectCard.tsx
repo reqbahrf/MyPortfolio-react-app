@@ -81,7 +81,7 @@ export default function ProjectCard({
           className='text-pink-300 hover:text-pink-700 flex items-center'
           onClick={openModal}
         >
-          View Full Details
+          View Details
           <svg
             xmlns='http://www.w3.org/2000/svg'
             className='h-5 w-5 ml-1'

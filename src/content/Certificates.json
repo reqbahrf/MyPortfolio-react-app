@@ -1,0 +1,18 @@
+{
+  "certificates": [
+    {
+      "id": "jsCert",
+      "coverImg": "/assets/cert/js_cert.webp",
+      "title": "JavaScript Certificate",
+      "description": "I earned this certificate from freeCodeCamp for completing the Legacy JavaScript Algorithms and Data Structures Developer Certification on February 22, 2025, representing approximately 300 hours of work.",
+      "link": "https://freecodecamp.org/certification/fcce905541b-745a-4bce-b29f-ec1b89ebe394/javascript-algorithms-and-data-structures"
+    },
+    {
+      "id": "deploymentCert",
+      "coverImg": "/assets/cert/Capstone_cert.webp",
+      "title": "Capstone Project Deployment Certificate",
+      "description": "I received this certificate for the successful deployment and implementation of the 'Fund Monitoring Management System for DOST Small Enterprise Technology Upgrading Program in the Province of Davao del Norte' capstone project.",
+      "link": ""
+    }
+  ]
+}

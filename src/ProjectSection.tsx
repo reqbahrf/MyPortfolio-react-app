@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectCard from './components/ProjectCard';
-import Projects from './Project.json';
+import Projects from './content/Project.json';
 import slide1Java from '/public/assets/Java_project/slide1.webp';
 import slide2Java from '/public/assets/Java_project/slide2.webp';
 import slide3Java from '/public/assets/Java_project/slide3.webp';
