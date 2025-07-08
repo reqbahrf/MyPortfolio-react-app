@@ -69,18 +69,10 @@ const ProjectSection = () => {
     document.body.classList.remove('no-scroll');
   };
 
-  const ProjectCardsData = Projects.projects.map((project) => (
-    <ProjectCard
-      key={project.id}
-      coverImg={project.coverImg}
-      Div_id={project.id}
-      title={project.title}
-      btn_id={project.btn_id}
-      targetModal_id={project.targetModal_id}
-      description={project.description}
-      openModal={() => openModal(project.btn_id, project.targetModal_id)}
-    />
-  ));
+  const rows = [];
+  for (let i = 0; i < Projects.projects.length; i += 3) {
+    rows.push(Projects.projects.slice(i, i + 3));
+  }
 
   React.useEffect(() => {
     const javaProjectModal = document.getElementById('JProjectModal');
@@ -137,8 +129,28 @@ const ProjectSection = () => {
   }, []);
   return (
     <section id='Project'>
-      <div className='flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-14 m-0 py-10 sm:m-30 md:m-40'>
-        {ProjectCardsData || ''}
+      <div className='flex flex-col items-center justify-center m-0 py-10 sm:m-30 md:m-40'>
+        {rows.map((row, rowIndex) => (
+          <div
+            key={rowIndex}
+            className='flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-14 mb-6'
+          >
+            {row.map((project) => (
+              <ProjectCard
+                key={project.id}
+                coverImg={project.coverImg}
+                Div_id={project.id}
+                title={project.title}
+                btn_id={project.btn_id}
+                targetModal_id={project.targetModal_id}
+                description={project.description}
+                openModal={() =>
+                  openModal(project.btn_id, project.targetModal_id)
+                }
+              />
+            ))}
+          </div>
+        ))}
       </div>
       <div
         id='javaProjectModal'
