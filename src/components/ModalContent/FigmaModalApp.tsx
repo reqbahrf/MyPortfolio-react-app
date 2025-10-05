@@ -1,16 +1,16 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import slide1Figma from '/public/assets/Figma_project/slide1.webp';
-import slide2Figma from '/public/assets/Figma_project/slide2.webp';
-import slide3Figma from '/public/assets/Figma_project/slide3.webp';
-import slide4Figma from '/public/assets/Figma_project/slide4.webp';
-import slide5Figma from '/public/assets/Figma_project/slide5.webp';
-import slide1Figma2 from '/public/assets/Figma_project/2slide1.webp';
-import slide2Figma2 from '/public/assets/Figma_project/2slide2.webp';
-import slide3Figma2 from '/public/assets/Figma_project/2slide3.webp';
-import slide4Figma2 from '/public/assets/Figma_project/2slide4.webp';
-import slide5Figma2 from '/public/assets/Figma_project/2slide5.webp';
+import slide1Figma from '/assets/Figma_project/slide1.webp';
+import slide2Figma from '/assets/Figma_project/slide2.webp';
+import slide3Figma from '/assets/Figma_project/slide3.webp';
+import slide4Figma from '/assets/Figma_project/slide4.webp';
+import slide5Figma from '/assets/Figma_project/slide5.webp';
+import slide1Figma2 from '/assets/Figma_project/2slide1.webp';
+import slide2Figma2 from '/assets/Figma_project/2slide2.webp';
+import slide3Figma2 from '/assets/Figma_project/2slide3.webp';
+import slide4Figma2 from '/assets/Figma_project/2slide4.webp';
+import slide5Figma2 from '/assets/Figma_project/2slide5.webp';
 const FigmaModalApp = () => {
   return (
     <>

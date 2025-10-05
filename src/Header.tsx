@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import logo from '/public/assets/pageImg/logo.webp';
+import logo from '/assets/pageImg/logo.webp';
 
 export default function Header() {
   const navLinks = useRef<HTMLDivElement>(null);

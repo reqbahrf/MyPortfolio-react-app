@@ -1,12 +1,12 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import slide1Java from '/public/assets/Java_project/slide1.webp';
-import slide2Java from '/public/assets/Java_project/slide2.webp';
-import slide3Java from '/public/assets/Java_project/slide3.webp';
-import slide4Java from '/public/assets/Java_project/slide4.webp';
-import slide5Java from '/public/assets/Java_project/slide5.webp';
-import slide6Java from '/public/assets/Java_project/slide6.webp';
+import slide1Java from '/assets/Java_project/slide1.webp';
+import slide2Java from '/assets/Java_project/slide2.webp';
+import slide3Java from '/assets/Java_project/slide3.webp';
+import slide4Java from '/assets/Java_project/slide4.webp';
+import slide5Java from '/assets/Java_project/slide5.webp';
+import slide6Java from '/assets/Java_project/slide6.webp';
 
 const POSJavaProject = () => {
   return (

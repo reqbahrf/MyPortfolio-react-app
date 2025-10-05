@@ -1,13 +1,13 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import slide1Photo from '/public/assets/Photo_project/slide1.jpg';
-import slide2Photo from '/public/assets/Photo_project/slide2.jpg';
-import slide3Photo from '/public/assets/Photo_project/slide3.jpg';
-import slide4Photo from '/public/assets/Photo_project/slide4.jpg';
-import backgroundPhoto from '/public/assets/Photo_project/raw_photos/backgroundImg.webp';
-import floridaPhoto from '/public/assets/Photo_project/raw_photos/florida-kennedy-space-center-rocket-launch.webp';
-import otherPhoto from '/public/assets/Photo_project/raw_photos/1641457957683.webp';
+import slide1Photo from '/assets/Photo_project/slide1.jpg';
+import slide2Photo from '/assets/Photo_project/slide2.jpg';
+import slide3Photo from '/assets/Photo_project/slide3.jpg';
+import slide4Photo from '/assets/Photo_project/slide4.jpg';
+import backgroundPhoto from '/assets/Photo_project/raw_photos/backgroundImg.webp';
+import floridaPhoto from '/assets/Photo_project/raw_photos/florida-kennedy-space-center-rocket-launch.webp';
+import otherPhoto from '/assets/Photo_project/raw_photos/1641457957683.webp';
 const PhotoEditProject = () => {
   return (
     <>

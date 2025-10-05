@@ -1,10 +1,10 @@
 import * as React from 'react';
-import profile from '/public/assets/pageImg/profile.webp';
-import slide1 from '/public/assets/pageImg/slide1.webp';
-import slide2 from '/public/assets/pageImg/slide2.webp';
-import slide3 from '/public/assets/pageImg/slide3.webp';
-import slide4 from '/public/assets/pageImg/slide4.webp';
-import slide5 from '/public/assets/pageImg/slide5.webp';
+import profile from '/assets/pageImg/profile.webp';
+import slide1 from '/assets/Figma_project/slide1.webp';
+import slide2 from '/assets/Figma_project/slide2.webp';
+import slide3 from '/assets/Figma_project/slide3.webp';
+import slide4 from '/assets/Figma_project/slide4.webp';
+import slide5 from '/assets/Figma_project/slide5.webp';
 import { useEffect, useRef } from 'react';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import profile2 from '/public/assets/pageImg/profile2.webp';
+import profile2 from '/assets/pageImg/profile2.webp';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
