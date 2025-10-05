@@ -11,31 +11,9 @@ import dostCoop2 from '/public/assets/dost_setup_system/Coop2.webp';
 import dostIndex from '/public/assets/dost_setup_system/index.webp';
 import dostStaff1 from '/public/assets/dost_setup_system/Staff1.webp';
 import dostStaff3 from '/public/assets/dost_setup_system/Staff3.webp';
-import { useEffect } from 'react';
-import handleScroll from '../../utils/handleScroll';
 const DostSetupSystemProject = () => {
-  useEffect(() => {
-    const dostSetupSystemModal = document.getElementById('DOSTProjectModal');
-    if (dostSetupSystemModal) {
-      dostSetupSystemModal.addEventListener('scroll', () =>
-        handleScroll(dostSetupSystemModal)
-      );
-    }
-    return () => {
-      if (dostSetupSystemModal) {
-        dostSetupSystemModal.removeEventListener('scroll', () =>
-          handleScroll(dostSetupSystemModal)
-        );
-      }
-    };
-  }, []);
   return (
     <>
-      <div
-        className='flex flex-col overflow-x-hidden items-center w-screen h-screen'
-        id='DOSTProjectModal'
-      >
-        <div className='DOST-Project-header'>DOST SETUP System</div>
         <div className='flex flex-col space-y-5 p-4 w-full px-10 mainContent'>
           <div className='flex flex-col items-center py-40 h-auto space-y-10'>
             <p className='text-white text-center text-lg mb-4 sm:w-full md:w-3/4'>
@@ -202,7 +180,6 @@ const DostSetupSystemProject = () => {
             </div>
           </div>
         </div>
-      </div>
     </>
   );
 };
