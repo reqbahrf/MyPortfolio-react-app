@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 interface CertificateCardProps {
   coverImg: string;
@@ -49,4 +49,4 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
   );
 };
 
-export default CertificateCard;
+export default memo(CertificateCard);

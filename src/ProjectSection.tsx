@@ -70,20 +70,9 @@ const ProjectSection = () => {
             {row.map((project) => (
               <ProjectCard
                 key={project.id}
-                coverImg={project.coverImg}
-                Div_id={project.id}
-                title={project.title}
-                btn_id={project.btn_id}
-                description={project.description}
+                {...project}
                 ref={(e) => (buttonRef.current[project.btn_id] = e)}
-                openModal={() =>
-                  handleOpenModal(
-                    project.btn_id,
-                    project.targetModal_id,
-                    project.coverImg,
-                    project.title
-                  )
-                }
+                openModal={handleOpenModal}
               />
             ))}
           </div>

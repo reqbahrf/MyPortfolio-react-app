@@ -3,16 +3,25 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 interface ProjectCardProps {
-  Div_id: string;
+  id: string;
   coverImg: string;
   title: string;
+  targetModal_id: string;
   description?: string;
   btn_id: string;
-  openModal: () => void;
+  openModal: (
+    btnId: string,
+    modalId: string,
+    coverImg: string,
+    title: string
+  ) => void;
 }
 
 const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
-  ({ Div_id, coverImg, title, description, btn_id, openModal }, ref) => {
+  (
+    { id, targetModal_id, coverImg, title, description, btn_id, openModal },
+    ref
+  ) => {
     const truncateDescription = (text: string, maxLength: number) => {
       if (!text) return '';
       if (text.length <= maxLength) return text;
@@ -25,7 +34,7 @@ const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
 
     return (
       <div
-        id={Div_id}
+        id={id}
         className='group flex flex-col justify-between w-[300px] sm:w-[310px] rounded-[20px] h-[400px] overflow-hidden shadow-lg bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl'
       >
         <div className='flex-grow'>
@@ -57,7 +66,7 @@ const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
           <button
             id={btn_id}
             className='text-pink-300 hover:text-pink-700 flex items-center'
-            onClick={openModal}
+            onClick={() => openModal(btn_id, targetModal_id, coverImg, title)}
             ref={ref}
           >
             View Details

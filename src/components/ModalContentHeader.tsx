@@ -13,7 +13,6 @@ const ModalContentHeader = ({
   children,
 }: ContentHeaderProps) => {
   const modalContentRef = useRef<HTMLDivElement>(null);
-
   const onScroll = useCallback(() => {
     if (modalContentRef.current) {
       handleScroll(modalContentRef.current);

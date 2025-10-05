@@ -1,11 +1,15 @@
+import { useMemo } from 'react';
 import CertificateCard from './components/CertificateCard';
 import Certificates from './content/Certificates.json';
 
 const CertificatesSection = () => {
-  const rows = [];
-  for (let i = 0; i < Certificates.certificates.length; i += 2) {
-    rows.push(Certificates.certificates.slice(i, i + 2));
-  }
+  const rows = useMemo(() => {
+    const arr = [];
+    for (let i = 0; i < Certificates.certificates.length; i += 2) {
+      arr.push(Certificates.certificates.slice(i, i + 2));
+    }
+    return arr;
+  }, [Certificates.certificates]);
 
   return (
     <section id='Certificates'>
@@ -18,10 +22,7 @@ const CertificatesSection = () => {
             {row.map((certificate) => (
               <CertificateCard
                 key={certificate.id}
-                coverImg={certificate.coverImg}
-                title={certificate.title}
-                description={certificate.description}
-                link={certificate.link}
+                {...certificate}
               />
             ))}
           </div>
