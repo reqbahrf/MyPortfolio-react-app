@@ -30,21 +30,6 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
           return null;
       }
     };
-    const closeModal = (
-      event: React.MouseEvent<HTMLButtonElement>,
-      modalId: string
-    ) => {
-      event.stopPropagation();
-      const modalElement = event.currentTarget.closest(`#${modalId}`);
-      if (!modalElement) {
-        console.error('Modal element not found');
-        return;
-      }
-
-      const modal = modalElement;
-      modal.classList.remove('show-modal');
-      onClose();
-    };
     return (
       <div
         id={modalId}
@@ -54,7 +39,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         <div className='modal-content'>
           <button
             className='close-button'
-            onClick={(event) => closeModal(event, modalId)}
+            onClick={onClose}
           >
             ×
           </button>
