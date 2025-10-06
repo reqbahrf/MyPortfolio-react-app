@@ -8,6 +8,8 @@ interface ProjectCardProps {
   title: string;
   targetModal_id: string;
   description?: string;
+  tags: string[];
+  techStack?: string[];
   btn_id: string;
   openModal: (
     btnId: string,
@@ -19,7 +21,17 @@ interface ProjectCardProps {
 
 const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
   (
-    { id, targetModal_id, coverImg, title, description, btn_id, openModal },
+    {
+      id,
+      targetModal_id,
+      coverImg,
+      title,
+      description,
+      tags,
+      techStack,
+      btn_id,
+      openModal,
+    },
     ref
   ) => {
     const truncateDescription = (text: string, maxLength: number) => {
@@ -35,7 +47,7 @@ const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
     return (
       <div
         id={id}
-        className='group flex flex-col justify-between w-[300px] sm:w-[310px] rounded-[20px] h-[400px] overflow-hidden shadow-lg bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl'
+        className='group flex flex-col justify-between w-[350px] rounded-[20px] h-[430px] overflow-hidden shadow-lg bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl'
       >
         <div className='flex-grow'>
           <div className='relative'>
@@ -54,12 +66,34 @@ const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
             <div className='font-bold text-white text-xl mb-4 line-clamp-1 group-hover:text-pink-700'>
               {title}
             </div>
-            <p
-              className='text-white text-sm mb-4 text-justify'
-              title={description} // Tooltip for full description
-            >
-              {truncatedDescription}
+            <p className='text-gray-200 text-sm mb-3 text-justify overflow-hidden md:max-h-[35px] sm:max-h-[50px] group-hover:overflow-y-auto group-hover:max-h-[200px] transition-all duration-300 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800'>
+              {description}
             </p>
+            <div className='flex flex-wrap gap-2'>
+              {tags?.map((tag, index) => (
+                <span
+                  key={index}
+                  className='bg-gray-700 text-white px-2 py-1 rounded'
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            {techStack && techStack?.length > 0 && (
+              <div className='text-white text-xs mt-2'>
+                <span className='font-semibold mr-1'>Stack:</span>
+                <div className='flex flex-wrap gap-2 mt-1'>
+                  {techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className='bg-pink-700 text-white text-xs p-1 rounded-full cursor-default hover:bg-pink-600 transition'
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <div className='ps-6 mb-3'>

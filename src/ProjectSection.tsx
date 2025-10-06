@@ -65,7 +65,7 @@ const ProjectSection = () => {
         {rows.map((row, rowIndex) => (
           <div
             key={rowIndex}
-            className='flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-14 mb-6'
+            className='flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-14 mb-6'
           >
             {row.map((project) => (
               <ProjectCard

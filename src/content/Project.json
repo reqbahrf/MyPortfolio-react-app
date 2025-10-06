@@ -1,12 +1,35 @@
 {
   "projects": [
     {
+      "id": "DOSTSETUPSYSTEM",
+      "coverImg": "/assets/dost_setup_system/index.webp",
+      "title": "DOST SETUP System",
+      "description": "A System for the Department of Science and Technology (DOST) – SETUP program, created as part of our BS in Information System Capstone requirement.",
+      "btn_id": "viewDOSTSETUPSYSTEM",
+      "targetModal_id": "dostSetupSystemModal",
+      "tags": ["DOST", "SETUP", "Capstone", "Development"],
+      "techStack": [
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "Bootstrap",
+        "jQuery",
+        "ApexCharts.js"
+      ]
+    },
+    {
       "id": "javaProject",
       "coverImg": "/assets/Java_project/slide1.webp",
       "title": "Java Application Project",
       "description": "First Java Application Project as one of requirement from the System Analysis and Design subject.",
       "btn_id": "viewJavaProject",
-      "targetModal_id": "javaProjectModal"
+      "targetModal_id": "javaProjectModal",
+      "tags": [
+        "Java",
+        "Development",
+        "System Analysis and Design",
+        "School Project"
+      ]
     },
     {
       "id": "figmaProject",
@@ -14,7 +37,13 @@
       "title": "Figma Application Project",
       "description": "Figma Projects I created during my 3rd year subject Human Computer Interaction.",
       "btn_id": "viewFigmaProject",
-      "targetModal_id": "figmaProjectModal"
+      "targetModal_id": "figmaProjectModal",
+      "tags": [
+        "Figma",
+        "Design",
+        "Human Computer Interaction",
+        "School Project"
+      ]
     },
     {
       "id": "photoProject",
@@ -22,15 +51,8 @@
       "title": "Photo Manipulation Project",
       "description": "Photo Editor Projects I created during my 1st year subject Introduction to Computing.",
       "btn_id": "viewPhotoProject",
-      "targetModal_id": "photoProjectModal"
-    },
-    {
-      "id": "DOSTSETUPSYSTEM",
-      "coverImg": "/assets/dost_setup_system/index.webp",
-      "title": "DOST SETUP System",
-      "description": "A system developed for the Department of Science and Technology (DOST) – SETUP program, created as part of our BS in Information System Capstone requirement.",
-      "btn_id": "viewDOSTSETUPSYSTEM",
-      "targetModal_id": "dostSetupSystemModal"
+      "targetModal_id": "photoProjectModal",
+      "tags": ["Photo Editing", "Introduction to Computing", "School Project"]
     }
   ]
 }
