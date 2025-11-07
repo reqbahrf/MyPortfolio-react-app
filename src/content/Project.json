@@ -5,7 +5,6 @@
       "coverImg": "/assets/math-ai-project/index.webp",
       "title": "Math Problem Generator",
       "description": "An AI-assisted math learning platform that generates adaptive math problems, evaluates answers instantly, and provides step-by-step feedback using Google Gemini AI. Built with modern web technologies for a smooth, engaging learning experience.",
-      "btn_id": "viewMATHPROBLEMGENERATOR",
       "targetModal_id": "mathProblemGeneratorModal",
       "tags": ["AI", "Education", "Next.js", "Portfolio"],
       "techStack": [
@@ -24,7 +23,6 @@
       "coverImg": "/assets/dost_setup_system/index.webp",
       "title": "DOST SETUP System",
       "description": "A System for the Department of Science and Technology (DOST) – SETUP program, created as part of our BS in Information System Capstone requirement.",
-      "btn_id": "viewDOSTSETUPSYSTEM",
       "targetModal_id": "dostSetupSystemModal",
       "tags": ["DOST", "SETUP", "Capstone", "Development"],
       "techStack": [
@@ -41,7 +39,6 @@
       "coverImg": "/assets/Java_project/slide1.webp",
       "title": "Java Application Project",
       "description": "First Java Application Project as one of requirement from the System Analysis and Design subject.",
-      "btn_id": "viewJavaProject",
       "targetModal_id": "javaProjectModal",
       "tags": [
         "Java",
@@ -55,7 +52,6 @@
       "coverImg": "/assets/Figma_project/slide1.webp",
       "title": "Figma Application Project",
       "description": "Figma Projects I created during my 3rd year subject Human Computer Interaction.",
-      "btn_id": "viewFigmaProject",
       "targetModal_id": "figmaProjectModal",
       "tags": [
         "Figma",
@@ -69,7 +65,6 @@
       "coverImg": "/assets/Photo_project/slide1.jpg",
       "title": "Photo Manipulation Project",
       "description": "Photo Editor Projects I created during my 1st year subject Introduction to Computing.",
-      "btn_id": "viewPhotoProject",
       "targetModal_id": "photoProjectModal",
       "tags": ["Photo Editing", "Introduction to Computing", "School Project"]
     }

@@ -10,16 +10,10 @@ interface ProjectCardProps {
   description?: string;
   tags: string[];
   techStack?: string[];
-  btn_id: string;
-  openModal: (
-    btnId: string,
-    modalId: string,
-    coverImg: string,
-    title: string
-  ) => void;
+  openModal: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
+const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
   (
     {
       id,
@@ -29,25 +23,19 @@ const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
       description,
       tags,
       techStack,
-      btn_id,
       openModal,
     },
     ref
   ) => {
-    const truncateDescription = (text: string, maxLength: number) => {
-      if (!text) return '';
-      if (text.length <= maxLength) return text;
-      return text.substring(0, maxLength) + '...';
-    };
-
-    const truncatedDescription = description
-      ? truncateDescription(description, 100)
-      : '';
-
     return (
       <div
         id={id}
-        className='group flex flex-col justify-between w-[350px] rounded-[20px] h-[430px] overflow-hidden shadow-lg bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl relative'
+        ref={ref}
+        data-target-modalid={targetModal_id}
+        data-cover-img={coverImg}
+        data-title={title}
+        onClick={openModal}
+        className='group flex flex-col justify-between w-[350px] rounded-[20px] h-[430px] overflow-hidden shadow-lg bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl relative cursor-pointer'
       >
         <div className='flex-grow'>
           <div className='relative'>
@@ -95,28 +83,6 @@ const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
               </div>
             )}
           </div>
-        </div>
-        <div className='absolute bottom-0 left-3'>
-          <button
-            id={btn_id}
-            className='text-pink-300 hover:text-pink-700 flex items-center'
-            onClick={() => openModal(btn_id, targetModal_id, coverImg, title)}
-            ref={ref}
-          >
-            View Details
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-5 w-5 ml-1'
-              viewBox='0 0 20 20'
-              fill='currentColor'
-            >
-              <path
-                fillRule='evenodd'
-                d='M12.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L15.586 11H3a1 1 0 110-2h12.586l-3.293-3.293a1 1 0 010-1.414z'
-                clipRule='evenodd'
-              ></path>
-            </svg>
-          </button>
         </div>
       </div>
     );

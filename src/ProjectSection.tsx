@@ -11,21 +11,18 @@ const ProjectSection = () => {
     contentCoverImg: '',
     title: '',
   });
-  const buttonRef = useRef<Record<string, HTMLButtonElement | null>>({});
-  const lastClickedButtonId = useRef<string | null>(null);
+  const triggeredDivRef = useRef<Record<string, HTMLDivElement | null>>({});
+  const lastClickedTriggerId = useRef<string | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
-  const handleOpenModal = useCallback(
-    (
-      buttonId: string,
-      modalId: string,
-      contentCoverImg: string,
-      title: string
-    ) => {
-      lastClickedButtonId.current = buttonId;
-      setModal({ isOpen: true, modalId, contentCoverImg, title });
-    },
-    []
-  );
+  const handleOpenModal = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const refTriggerId = e.currentTarget.id;
+    const modalId = e.currentTarget.dataset.targetModalid;
+    const contentCoverImg = e.currentTarget.dataset.coverImg;
+    const title = e.currentTarget.dataset.title;
+    if (!refTriggerId || !modalId || !contentCoverImg || !title) return;
+    lastClickedTriggerId.current = refTriggerId;
+    setModal({ isOpen: true, modalId, contentCoverImg, title });
+  }, []);
 
   const handleOnCloseModal = useCallback(() => {
     setModal({ isOpen: false, modalId: '', contentCoverImg: '', title: '' });
@@ -40,16 +37,17 @@ const ProjectSection = () => {
   }, []);
 
   useEffect(() => {
-    if (modal.isOpen && modalRef.current && lastClickedButtonId.current) {
-      const buttonElement = buttonRef.current?.[lastClickedButtonId.current];
+    if (modal.isOpen && modalRef.current && lastClickedTriggerId.current) {
+      const cardElement =
+        triggeredDivRef.current?.[lastClickedTriggerId.current];
       const modalElement = modalRef.current;
 
-      if (!buttonElement || !modalElement) return;
+      if (!cardElement || !modalElement) return;
 
-      const buttonRect = buttonElement.getBoundingClientRect();
-      const buttonCenterX = buttonRect.left + buttonRect.width / 2;
-      const buttonCenterY = buttonRect.top + buttonRect.height / 2;
-      modalElement.style.transformOrigin = `${buttonCenterX}px ${buttonCenterY}px`;
+      const cardRect = cardElement.getBoundingClientRect();
+      const cardCenterX = cardRect.left + cardRect.width / 2;
+      const cardCenterY = cardRect.top + cardRect.height / 2;
+      modalElement.style.transformOrigin = `${cardCenterX}px ${cardCenterY}px`;
     }
   }, [modal.isOpen]);
 
@@ -71,7 +69,7 @@ const ProjectSection = () => {
               <ProjectCard
                 key={project.id}
                 {...project}
-                ref={(e) => (buttonRef.current[project.btn_id] = e)}
+                ref={(e) => (triggeredDivRef.current[project.id] = e)}
                 openModal={handleOpenModal}
               />
             ))}

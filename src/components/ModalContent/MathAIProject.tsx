@@ -4,8 +4,9 @@ import aiGeneration from '/assets/math-ai-project/index.webp';
 import sessionSettings from '/assets/math-ai-project/session-settings.webp';
 import aistepByStep from '/assets/math-ai-project/ai-step-by-step.gif';
 import aiFeedback from '/assets/math-ai-project/ai-instant-feedback.gif';
+import aiResultSummary from '/assets/math-ai-project/ai-view-summary.gif';
 import aiChart from '/assets/math-ai-project/ai-chart-insight.gif';
-import aiSessionManagement from '/assets/math-ai-project/ai-session-history.gif';
+import aiSessionManagement from '/assets/math-ai-project/ai-session-management.gif';
 import aiDarkModeShowcase from '/assets/math-ai-project/ai-darkmode-showcase.gif';
 const MathAIProject = () => {
   const features = [
@@ -32,6 +33,12 @@ const MathAIProject = () => {
       description:
         'Get immediate AI feedback on your answers with clear explanations and encouragement for improvement.',
       image: aiFeedback,
+    },
+    {
+      title: 'View Summary of Results',
+      description:
+        'View a summary of your results, including the number of correct answers, the number of incorrect answers, and step-by-step solutions for each problem.',
+      image: aiResultSummary,
     },
     {
       title: 'Session Management & History',
@@ -118,7 +125,7 @@ const MathAIProject = () => {
                     style: { transitionDelay: '0.3s' },
                   }}
                   src={feature.image}
-                  className='w-4/5 sm:w-3/5 md:w-1/2 rounded-2xl shadow-lg'
+                  className='rounded-2xl shadow-lg sm:h-[200px] md:h-[400px] w-full object-contain'
                   alt={feature.title}
                 />
               </div>
