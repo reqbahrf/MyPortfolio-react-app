@@ -47,7 +47,7 @@ const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
     return (
       <div
         id={id}
-        className='group flex flex-col justify-between w-[350px] rounded-[20px] h-[430px] overflow-hidden shadow-lg bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl'
+        className='group flex flex-col justify-between w-[350px] rounded-[20px] h-[430px] overflow-hidden shadow-lg bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl relative'
       >
         <div className='flex-grow'>
           <div className='relative'>
@@ -96,7 +96,7 @@ const ProjectCard = forwardRef<HTMLButtonElement, ProjectCardProps>(
             )}
           </div>
         </div>
-        <div className='ps-6 mb-3'>
+        <div className='absolute bottom-0 left-3'>
           <button
             id={btn_id}
             className='text-pink-300 hover:text-pink-700 flex items-center'

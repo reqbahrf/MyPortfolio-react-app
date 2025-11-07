@@ -7,6 +7,7 @@ const PhotoEditProject = lazy(() => import('./ModalContent/PhotoEditProject'));
 const DostSetupSystemProject = lazy(
   () => import('./ModalContent/DostSetupSystemProject')
 );
+const MathAIProject = lazy(() => import('./ModalContent/MathAIProject'));
 type ModalProps = {
   modalId: string;
   title: string;
@@ -17,6 +18,7 @@ type ModalProps = {
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
   ({ modalId, title, onClose, contentCoverImg }, ref) => {
     const renderModalContent = () => {
+      console.log(modalId);
       switch (modalId) {
         case 'javaProjectModal':
           return <POSJavaProject />;
@@ -26,6 +28,8 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
           return <PhotoEditProject />;
         case 'dostSetupSystemModal':
           return <DostSetupSystemProject />;
+        case 'mathProblemGeneratorModal':
+          return <MathAIProject />;
         default:
           return null;
       }
