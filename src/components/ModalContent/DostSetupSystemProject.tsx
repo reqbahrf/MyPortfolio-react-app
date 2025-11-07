@@ -1,16 +1,16 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import dostAdmin1_1 from '/assets/dost_setup_system/Admin1.1.webp';
-import dostAdmin1_2 from '/assets/dost_setup_system/Admin1.2.webp';
-import dostAppli1 from '/assets/dost_setup_system/Appli1.webp';
-import dostApplicationForm1_1 from '/assets/dost_setup_system/ApplicationForm1.1.webp';
-import dostApplicationForm1 from '/assets/dost_setup_system/ApplicationForm1.webp';
-import dostCoop1 from '/assets/dost_setup_system/Coop1.webp';
-import dostCoop2 from '/assets/dost_setup_system/Coop2.webp';
-import dostIndex from '/assets/dost_setup_system/index.webp';
-import dostStaff1 from '/assets/dost_setup_system/Staff1.webp';
-import dostStaff3 from '/assets/dost_setup_system/Staff3.webp';
+import dostAdmin1_1 from '/assets/dost-setup-system/Admin1.1.webp';
+import dostAdmin1_2 from '/assets/dost-setup-system/Admin1.2.webp';
+import dostAppli1 from '/assets/dost-setup-system/Appli1.webp';
+import dostApplicationForm1_1 from '/assets/dost-setup-system/ApplicationForm1.1.webp';
+import dostApplicationForm1 from '/assets/dost-setup-system/ApplicationForm1.webp';
+import dostCoop1 from '/assets/dost-setup-system/Coop1.webp';
+import dostCoop2 from '/assets/dost-setup-system/Coop2.webp';
+import dostIndex from '/assets/dost-setup-system/index.webp';
+import dostStaff1 from '/assets/dost-setup-system/Staff1.webp';
+import dostStaff3 from '/assets/dost-setup-system/Staff3.webp';
 const DostSetupSystemProject = () => {
   return (
     <>
