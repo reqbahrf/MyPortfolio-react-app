@@ -12,6 +12,12 @@ export default class Donut extends Component<props, any> {
     this.state = {
       series: this.props.topLanguages.map((lang) => lang.bytes),
       options: {
+        chart: {
+          background: 'transparent',
+        },
+        theme: {
+          mode: 'dark',
+        },
         labels: this.props.topLanguages.map((lang) => lang.name),
         colors: this.props.topLanguages.map((lang) => lang.color),
         legend: {
@@ -26,6 +32,14 @@ export default class Donut extends Component<props, any> {
             formatter: (value: number) => `${value.toLocaleString()} bytes`,
           },
         },
+        title: {
+          text: 'Top Languages',
+          align: 'center',
+          style: {
+            fontSize: '15px',
+            color: '#ffffff',
+          },
+        },
       },
     };
   }
@@ -36,7 +50,7 @@ export default class Donut extends Component<props, any> {
         options={this.state.options}
         series={this.state.series}
         type='donut'
-        width='350'
+        width='450'
       />
     );
   }
