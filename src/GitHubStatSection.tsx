@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { StatEndPointResponse } from '../libs/types/stat';
 import HeatMap from '../src/components/chart/Heatmap';
 import Donut from '../src/components/chart/Donut';
+import GitHubStatLoading from './components/GitHubStatLoading';
 const GitHubStatSection = () => {
   const [stat, setStat] = useState<StatEndPointResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -16,9 +17,11 @@ const GitHubStatSection = () => {
     fetchStat()
       .then((json) => {
         setStat(json);
-        setLoading(false);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   const availableYears = useMemo(() => {
@@ -31,13 +34,27 @@ const GitHubStatSection = () => {
     });
     const sortedYears = Array.from(years).sort().reverse();
     if (sortedYears.length > 0 && !selectedYear) {
-      setSelectedYear(sortedYears[0]); // Fix: Set to the first year (string)
+      setSelectedYear(sortedYears[0]);
     }
     return sortedYears;
   }, [stat, selectedYear]);
 
-  if (!stat) return <p>No data</p>;
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <GitHubStatLoading />;
+
+  if (!stat)
+    return (
+      <div className='flex justify-center items-center h-96'>
+        <div className='text-center'>
+          <h2 className='text-2xl text-center font-bold text-white mb-2'>
+            No Data Available
+          </h2>
+          <p className='text-xl text-white'>
+            Unable to fetch GitHub statistics. The data might be temporarily
+            unavailable.
+          </p>
+        </div>
+      </div>
+    );
 
   const filteredContributions = stat.contributions.weeks
     .flatMap((week) => week.contributionDays)
