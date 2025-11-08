@@ -3,50 +3,156 @@ import { Component } from 'react';
 import Chart from 'react-apexcharts';
 
 export default class HeatMap extends Component<ContributionsProps, any> {
-  private groupWeeks: Record<string, number[]>;
-  private heatMapSeries: any[];
   constructor(props: ContributionsProps) {
     super(props);
-    this.groupWeeks = this.props.contributions.reduce<Record<string, number[]>>(
-      (acc, day) => {
-        const week = day.date.slice(0, 7);
-        if (!acc[week]) acc[week] = [];
-        acc[week].push(day.contributionCount);
-        return acc;
-      },
-      {}
-    );
-    this.heatMapSeries = Object.entries(this.groupWeeks).map(
-      ([month, counts]) => ({
-        name: month,
-        data: counts.map((count, i) => ({
-          x: `Day ${i + 1}`,
-          y: count,
-        })),
-      })
-    );
+    const { series, dayCategories } = HeatMap.getHeatMapSeries(props);
     this.state = {
-      series: this.heatMapSeries,
+      series: series,
       options: {
         chart: {
           type: 'heatmap',
+          toolbar: {
+            show: false,
+          },
+          background: 'transparent',
         },
-        xaxis: {
-          labels: { show: false },
+        theme: {
+          mode: 'dark',
         },
-        yaxis: {
-          labels: { show: false },
-        },
-        colors: ['#008FFB'],
         dataLabels: {
           enabled: false,
         },
+        colors: [
+          {
+            ranges: [
+              { from: 0, to: 0, color: '#ebedf0' },
+              { from: 1, to: 9, color: '#9be9a8' },
+              { from: 10, to: 19, color: '#40c463' },
+              { from: 20, to: 29, color: '#30a14e' },
+              { from: 30, to: 1000, color: '#216e39' },
+            ],
+          },
+        ],
+        xaxis: {
+          type: 'category',
+          categories: dayCategories,
+          labels: {
+            show: true,
+            rotate: -90,
+            style: {
+              fontSize: '10px',
+              color: '#ffffff',
+            },
+          },
+          tooltip: {
+            enabled: false,
+          },
+        },
+        yaxis: {
+          labels: {
+            show: true,
+            style: {
+              color: '#ffffff',
+            },
+          },
+        },
+        grid: {
+          padding: {
+            right: 0,
+            left: 10,
+          },
+        },
+        plotOptions: {
+          heatmap: {
+            radius: 0,
+            enableShades: false,
+            colorScale: {
+              ranges: [
+                { from: 0, to: 0, color: '#ebedf0' },
+                { from: 1, to: 9, color: '#9be9a8' },
+                { from: 10, to: 19, color: '#40c463' },
+                { from: 20, to: 29, color: '#30a14e' },
+                { from: 30, to: 1000, color: '#216e39' },
+              ],
+            },
+          },
+        },
         title: {
-          text: 'Github Contributions (Heatmap)',
+          text: 'GitHub Contributions (Monthly View)',
           align: 'center',
+          style: {
+            fontSize: '15px',
+            color: '#ffffff',
+          },
         },
       },
     };
+  }
+
+  static getHeatMapSeries(props: ContributionsProps) {
+    const MONTHS = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+    const DAYS_IN_MONTH = 31;
+    const dayCategories = Array.from({ length: DAYS_IN_MONTH }, (_, i) =>
+      (i + 1).toString()
+    );
+
+    const contributionsByMonth = props.contributions.reduce<
+      Record<number, Record<number, number>>
+    >((acc, day) => {
+      const date = new Date(day.date);
+      const month = date.getMonth();
+      const dayOfMonth = date.getDate();
+
+      if (!acc[month]) {
+        acc[month] = {};
+      }
+      acc[month][dayOfMonth] = day.contributionCount;
+      return acc;
+    }, {});
+
+    const series = MONTHS.map((monthName, monthIndex) => {
+      const monthData = contributionsByMonth[monthIndex] || {};
+      const data = dayCategories.map((day) => ({
+        x: day,
+        y: monthData[parseInt(day)] || 0,
+      }));
+
+      return {
+        name: monthName,
+        data: data,
+      };
+    }).reverse();
+
+    return { series, dayCategories };
+  }
+
+  componentDidUpdate(prevProps: ContributionsProps) {
+    if (prevProps.contributions !== this.props.contributions) {
+      const { series, dayCategories } = HeatMap.getHeatMapSeries(this.props);
+      this.setState({
+        series: series,
+        options: {
+          ...this.state.options,
+          xaxis: {
+            ...this.state.options.xaxis,
+            categories: dayCategories,
+          },
+        },
+      });
+    }
   }
 
   render() {
@@ -54,7 +160,8 @@ export default class HeatMap extends Component<ContributionsProps, any> {
       <Chart
         options={this.state.options}
         series={this.state.series}
-        width='350'
+        type='heatmap'
+        width='1000'
       />
     );
   }
