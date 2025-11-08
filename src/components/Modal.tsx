@@ -1,13 +1,13 @@
 import { Suspense, lazy, forwardRef } from 'react';
 import Loading from './Loading';
 import ModalContentHeader from './ModalContentHeader';
-const POSJavaProject = lazy(() => import('./modalContent/POSJavaProject.tsx'));
-const FigmaModalApp = lazy(() => import('./modalContent/FigmaModalApp.tsx'));
-const PhotoEditProject = lazy(() => import('./modalContent/PhotoEditProject.tsx'));
+const POSJavaProject = lazy(() => import('./modalContent/POSJavaProject'));
+const FigmaModalApp = lazy(() => import('./modalContent/FigmaModalApp'));
+const PhotoEditProject = lazy(() => import('./modalContent/PhotoEditProject'));
 const DostSetupSystemProject = lazy(
-  () => import('./modalContent/DostSetupSystemProject.tsx')
+  () => import('./modalContent/DostSetupSystemProject')
 );
-const MathAIProject = lazy(() => import('./modalContent/MathAIProject.tsx'));
+const MathAIProject = lazy(() => import('./modalContent/MathAIProject'));
 type ModalProps = {
   modalId: string;
   title: string;
