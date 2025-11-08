@@ -1,10 +1,10 @@
+import type { GitHubProxyStatResponse } from '../../libs/types/stat';
 export const config = {
   runtime: 'edge',
 };
 const GITHUB_GRAPHQL_URL = 'https://api.github.com/graphql';
 
 export default async function handler(): Promise<Response> {
-  console.log('This endpoint is called');
   const username = 'reqbahrf';
 
   const query = `
@@ -48,7 +48,7 @@ export default async function handler(): Promise<Response> {
       body: JSON.stringify({ query, variables: { login: username } }),
     });
 
-    const json = await res.json();
+    const json = (await res.json()) as GitHubProxyStatResponse;
 
     if (!res.ok) {
       throw new Error(JSON.stringify(json));
@@ -58,16 +58,19 @@ export default async function handler(): Promise<Response> {
     const calendar =
       json.data.user.contributionsCollection.contributionCalendar;
 
-    const languageMap = new Map<string, number>();
+    const languageMap = new Map<string, [number, string]>();
     for (const repo of repos) {
       for (const lang of repo.languages.edges) {
-        const { name } = lang.node;
-        languageMap.set(name, (languageMap.get(name) || 0) + lang.size);
+        const { name, color } = lang.node;
+        languageMap.set(name, [
+          (languageMap.get(name)?.[0] || 0) + lang.size,
+          color,
+        ]);
       }
     }
 
     const topLanguages = Array.from(languageMap.entries())
-      .map(([name, bytes]) => ({ name, bytes }))
+      .map(([name, [bytes, color]]) => ({ name, bytes, color }))
       .sort((a, b) => b.bytes - a.bytes)
       .slice(0, 5);
 
