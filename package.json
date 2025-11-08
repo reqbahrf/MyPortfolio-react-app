@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "bunx vite",
+    "dev": "vite",
     "vercel:dev": "bunx vercel dev",
-    "build": "bunx vite build",
-    "lint": "bunx eslint .",
-    "preview": "bunx vite preview"
+    "build": "vite build",
+    "lint": " eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@types/node": "^24.10.0",
