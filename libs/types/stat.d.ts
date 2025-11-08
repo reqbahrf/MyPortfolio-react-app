@@ -41,7 +41,7 @@ export interface GitHubProxyStatResponse {
   data: User;
 }
 
-export interface topLanguagesProps {
+export interface TopLanguagesProps {
   name: string;
   bytes: number;
   color: string;
@@ -57,6 +57,6 @@ export interface ContributionsProps {
 }
 
 export interface StatEndPointResponse {
-  topLanguages: topLanguagesProps[];
+  topLanguages: TopLanguagesProps[];
   contributions: ContributionsCollection['contributionCalendar'];
 }

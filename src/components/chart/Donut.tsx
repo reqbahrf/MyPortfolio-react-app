@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import Chart from 'react-apexcharts';
-import { topLanguagesProps } from '../../../libs/types/stat';
+import { TopLanguagesProps } from '../../../libs/types/stat';
 
 interface props {
-  topLanguages: topLanguagesProps[];
+  topLanguages: TopLanguagesProps[];
 }
 
 export default class Donut extends Component<props, any> {
