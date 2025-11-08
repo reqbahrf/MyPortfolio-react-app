@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, forwardRef } from 'react';
+import { Suspense, lazy, forwardRef } from 'react';
 import Loading from './Loading';
 import ModalContentHeader from './ModalContentHeader';
 const POSJavaProject = lazy(() => import('./modalContent/POSJavaProject'));
