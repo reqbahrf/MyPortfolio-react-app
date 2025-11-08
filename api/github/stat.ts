@@ -2,9 +2,10 @@ import type { GitHubProxyStatResponse } from '../../libs/types/stat';
 export const config = {
   runtime: 'edge',
 };
+
 const GITHUB_GRAPHQL_URL = 'https://api.github.com/graphql';
 
-export default async function handler(): Promise<Response> {
+export default async function handler(request: Request): Promise<Response> {
   const username = 'reqbahrf';
 
   const query = `
@@ -85,7 +86,7 @@ export default async function handler(): Promise<Response> {
       {
         headers: {
           'Content-Type': 'application/json',
-          'Cache-Control': 'max-age=604800',
+          'Cache-Control': 'max-age=3600',
         },
         status: 200,
       }
@@ -99,7 +100,6 @@ export default async function handler(): Promise<Response> {
         status: 500,
         headers: {
           'Content-Type': 'application/json',
-          'Cache-Control': 'max-age=604800',
         },
       }
     );
