@@ -5,7 +5,7 @@ export const config = {
 
 const GITHUB_GRAPHQL_URL = 'https://api.github.com/graphql';
 
-export default async function handler(request: Request): Promise<Response> {
+export default async function handler(): Promise<Response> {
   const username = 'reqbahrf';
 
   const query = `
