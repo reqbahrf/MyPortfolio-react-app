@@ -6,12 +6,14 @@ import AboutSection from './AboutSection';
 import ProjectSection from './ProjectSection';
 import CertificatesSection from './CertificatesSection';
 import Footer from './Footer';
+import GitHubStatSection from './GitHubStatSection';
 
 const App: React.FC = () => {
   return (
     <>
       <Header />
       <HomeSection />
+      <GitHubStatSection />
       <AboutSection />
       <ProjectSection />
       <CertificatesSection />
