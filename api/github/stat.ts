@@ -10,10 +10,7 @@ export default async function handler(req: Request): Promise<Response> {
   const username = 'reqbahrf';
   const origin = req.headers.get('origin') || req.headers.get('referer') || '';
 
-  if (
-    !Boolean(process.env.APP_DEBUG === 'true') &&
-    !ALLOWED_ORIGIN?.startsWith(origin)
-  ) {
+  if (!Boolean(process.env.APP_DEBUG === 'true') && origin !== ALLOWED_ORIGIN) {
     return new Response(
       JSON.stringify({
         error: 'Forbidden',
