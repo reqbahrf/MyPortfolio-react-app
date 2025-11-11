@@ -4,10 +4,28 @@ export const config = {
 };
 
 const GITHUB_GRAPHQL_URL = 'https://api.github.com/graphql';
+const ALLOWED_ORIGIN = process.env.APP_URL;
 
-export default async function handler(): Promise<Response> {
+export default async function handler(req: Request): Promise<Response> {
   const username = 'reqbahrf';
+  const origin = req.headers.get('origin') || req.headers.get('referer') || '';
 
+  if (
+    !Boolean(process.env.APP_DEBUG === 'true') &&
+    !ALLOWED_ORIGIN?.startsWith(origin)
+  ) {
+    return new Response(
+      JSON.stringify({
+        error: 'Forbidden',
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        status: 403,
+      }
+    );
+  }
   const query = `
     query($login: String!) {
       user(login: $login) {
