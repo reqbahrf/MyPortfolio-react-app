@@ -45,6 +45,7 @@ export interface TopLanguagesProps {
   name: string;
   bytes: number;
   color: string;
+  percent: number;
 }
 
 export interface ContributionDay {
@@ -57,6 +58,11 @@ export interface ContributionsProps {
 }
 
 export interface StatEndPointResponse {
+  topLanguages: Repositories;
+  contributions: ContributionsCollection['contributionCalendar'];
+}
+
+export interface StatLocalState {
   topLanguages: TopLanguagesProps[];
   contributions: ContributionsCollection['contributionCalendar'];
 }

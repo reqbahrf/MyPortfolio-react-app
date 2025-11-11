@@ -78,7 +78,7 @@ export default class HeatMap extends Component<ContributionsProps, any> {
           },
         },
         title: {
-          text: 'GitHub Contributions (Monthly View)',
+          text: 'GitHub Contributions (Yearly View)',
           align: 'center',
           style: {
             fontSize: '15px',

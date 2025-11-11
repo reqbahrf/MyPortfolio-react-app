@@ -74,25 +74,9 @@ export default async function handler(req: Request): Promise<Response> {
     const calendar =
       json.data.user.contributionsCollection.contributionCalendar;
 
-    const languageMap = new Map<string, [number, string]>();
-    for (const repo of repos) {
-      for (const lang of repo.languages.edges) {
-        const { name, color } = lang.node;
-        languageMap.set(name, [
-          (languageMap.get(name)?.[0] || 0) + lang.size,
-          color,
-        ]);
-      }
-    }
-
-    const topLanguages = Array.from(languageMap.entries())
-      .map(([name, [bytes, color]]) => ({ name, bytes, color }))
-      .sort((a, b) => b.bytes - a.bytes)
-      .slice(0, 5);
-
     return new Response(
       JSON.stringify({
-        topLanguages,
+        repos,
         contributions: {
           totalContributions: calendar.totalContributions,
           weeks: calendar.weeks,

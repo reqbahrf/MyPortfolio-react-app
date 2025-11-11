@@ -10,7 +10,7 @@ export default class Donut extends Component<props, any> {
   constructor(props: props) {
     super(props);
     this.state = {
-      series: this.props.topLanguages.map((lang) => lang.bytes),
+      series: this.props.topLanguages.map((lang) => lang.percent),
       options: {
         chart: {
           background: 'transparent',
@@ -29,7 +29,7 @@ export default class Donut extends Component<props, any> {
         },
         tooltip: {
           y: {
-            formatter: (value: number) => `${value.toLocaleString()} bytes`,
+            formatter: (value: number) => `${value.toFixed(1)}%`,
           },
         },
         title: {
@@ -50,7 +50,8 @@ export default class Donut extends Component<props, any> {
         options={this.state.options}
         series={this.state.series}
         type='donut'
-        width='450'
+        height='400'
+        width='600'
       />
     );
   }

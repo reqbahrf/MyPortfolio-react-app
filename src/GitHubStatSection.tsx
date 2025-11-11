@@ -1,14 +1,30 @@
 import { useEffect, useState, useMemo } from 'react';
-import { StatEndPointResponse } from '../libs/types/stat';
+import { StatEndPointResponse, StatLocalState } from '../libs/types/stat';
 import HeatMap from '../src/components/chart/Heatmap';
 import Donut from '../src/components/chart/Donut';
 import GitHubStatLoading from './components/GitHubStatLoading';
 const GitHubStatSection = () => {
-  const [stat, setStat] = useState<StatEndPointResponse | null>(null);
+  const [stat, setStat] = useState<StatLocalState | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedYear, setSelectedYear] = useState<string>('');
 
   useEffect(() => {
+    const worker = new Worker(
+      new URL('./workers/repoLanguage.worker', import.meta.url),
+      { type: 'module' }
+    );
+    worker.onmessage = (e: MessageEvent) => {
+      const { topLanguages, contributions } = e.data as StatLocalState;
+      setStat({
+        topLanguages,
+        contributions,
+      });
+    };
+
+    worker.onerror = (err) => {
+      console.error('worker error: ', err);
+      setLoading(false);
+    };
     const fetchStat = async () => {
       const res = await fetch('/api/github/stat');
       const json = (await res.json()) as StatEndPointResponse;
@@ -16,12 +32,17 @@ const GitHubStatSection = () => {
     };
     fetchStat()
       .then((json) => {
-        setStat(json);
+        worker.postMessage(json);
       })
-      .catch((error) => console.error(error))
+      .catch((error) => {
+        console.error(error);
+        setStat(null);
+      })
       .finally(() => {
         setLoading(false);
       });
+
+    return () => worker.terminate();
   }, []);
 
   const availableYears = useMemo(() => {
@@ -32,16 +53,25 @@ const GitHubStatSection = () => {
         years.add(day.date.substring(0, 4));
       });
     });
-    const sortedYears = Array.from(years).sort().reverse();
-    if (sortedYears.length > 0 && !selectedYear) {
-      setSelectedYear(sortedYears[0]);
+    return Array.from(years).sort().reverse();
+  }, [stat]);
+
+  useEffect(() => {
+    if (availableYears.length > 0 && !selectedYear) {
+      setSelectedYear(availableYears[0]);
     }
-    return sortedYears;
+  }, [availableYears, selectedYear]);
+
+  const filteredContributions = useMemo(() => {
+    if (!stat?.contributions?.weeks || !selectedYear) return [];
+    return stat.contributions.weeks
+      .flatMap((week) => week.contributionDays)
+      .filter((day) => day.date.startsWith(selectedYear));
   }, [stat, selectedYear]);
 
   if (loading) return <GitHubStatLoading />;
 
-  if (!stat?.contributions?.weeks)
+  if (!stat?.contributions?.weeks || !stat?.topLanguages) {
     return (
       <div className='flex justify-center items-center h-96'>
         <div className='text-center'>
@@ -55,13 +85,9 @@ const GitHubStatSection = () => {
         </div>
       </div>
     );
+  }
 
-  const filteredContributions = stat.contributions.weeks
-    .flatMap((week) => week.contributionDays)
-    .filter((day) => day.date.startsWith(selectedYear));
-
-  const topLanguages = stat.topLanguages;
-
+  const topLanguages = stat?.topLanguages;
   return (
     <section id='githubStatPin'>
       <div>
