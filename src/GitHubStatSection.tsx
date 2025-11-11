@@ -53,16 +53,25 @@ const GitHubStatSection = () => {
         years.add(day.date.substring(0, 4));
       });
     });
-    const sortedYears = Array.from(years).sort().reverse();
-    if (sortedYears.length > 0 && !selectedYear) {
-      setSelectedYear(sortedYears[0]);
+    return Array.from(years).sort().reverse();
+  }, [stat]);
+
+  useEffect(() => {
+    if (availableYears.length > 0 && !selectedYear) {
+      setSelectedYear(availableYears[0]);
     }
-    return sortedYears;
+  }, [availableYears, selectedYear]);
+
+  const filteredContributions = useMemo(() => {
+    if (!stat?.contributions?.weeks || !selectedYear) return [];
+    return stat.contributions.weeks
+      .flatMap((week) => week.contributionDays)
+      .filter((day) => day.date.startsWith(selectedYear));
   }, [stat, selectedYear]);
 
   if (loading) return <GitHubStatLoading />;
 
-  if (!stat?.contributions?.weeks)
+  if (!stat?.contributions?.weeks || !stat?.topLanguages) {
     return (
       <div className='flex justify-center items-center h-96'>
         <div className='text-center'>
@@ -76,13 +85,9 @@ const GitHubStatSection = () => {
         </div>
       </div>
     );
+  }
 
-  const filteredContributions = stat.contributions.weeks
-    .flatMap((week) => week.contributionDays)
-    .filter((day) => day.date.startsWith(selectedYear));
-
-  const topLanguages = stat.topLanguages;
-
+  const topLanguages = stat?.topLanguages;
   return (
     <section id='githubStatPin'>
       <div>
