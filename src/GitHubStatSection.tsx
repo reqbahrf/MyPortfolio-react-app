@@ -86,6 +86,16 @@ const GitHubStatSection = () => {
           </select>
           <HeatMap contributions={filteredContributions} />
           <Donut topLanguages={topLanguages} />
+          <p className='text-xs text-gray-400'>
+            Note: Data provided by GitHub API. retrieved using{' '}
+            <a
+              href='https://docs.github.com/en/graphql'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              GitHub GraphQL API
+            </a>
+          </p>
         </div>
       </div>
     </section>
