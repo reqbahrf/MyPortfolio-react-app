@@ -25,7 +25,7 @@ const GitHubStatSection = () => {
   }, []);
 
   const availableYears = useMemo(() => {
-    if (!stat) return [];
+    if (!stat?.contributions?.weeks) return [];
     const years = new Set<string>();
     stat.contributions.weeks.forEach((week) => {
       week.contributionDays.forEach((day) => {
@@ -41,7 +41,7 @@ const GitHubStatSection = () => {
 
   if (loading) return <GitHubStatLoading />;
 
-  if (!stat)
+  if (!stat?.contributions?.weeks)
     return (
       <div className='flex justify-center items-center h-96'>
         <div className='text-center'>
@@ -49,8 +49,8 @@ const GitHubStatSection = () => {
             No Data Available
           </h2>
           <p className='text-xl text-white'>
-            Unable to fetch GitHub statistics. The data might be temporarily
-            unavailable.
+            Unable to fetch GitHub statistics. The GitHub API provider might be
+            temporarily unavailable.
           </p>
         </div>
       </div>
