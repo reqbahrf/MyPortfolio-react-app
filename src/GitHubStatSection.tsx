@@ -1,14 +1,30 @@
 import { useEffect, useState, useMemo } from 'react';
-import { StatEndPointResponse } from '../libs/types/stat';
+import { StatEndPointResponse, StatLocalState } from '../libs/types/stat';
 import HeatMap from '../src/components/chart/Heatmap';
 import Donut from '../src/components/chart/Donut';
 import GitHubStatLoading from './components/GitHubStatLoading';
 const GitHubStatSection = () => {
-  const [stat, setStat] = useState<StatEndPointResponse | null>(null);
+  const [stat, setStat] = useState<StatLocalState | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedYear, setSelectedYear] = useState<string>('');
 
   useEffect(() => {
+    const worker = new Worker(
+      new URL('./workers/repoLanguage.worker', import.meta.url),
+      { type: 'module' }
+    );
+    worker.onmessage = (e: MessageEvent) => {
+      const { topLanguages, contributions } = e.data as StatLocalState;
+      setStat({
+        topLanguages,
+        contributions,
+      });
+    };
+
+    worker.onerror = (err) => {
+      console.error('worker error: ', err);
+      setLoading(false);
+    };
     const fetchStat = async () => {
       const res = await fetch('/api/github/stat');
       const json = (await res.json()) as StatEndPointResponse;
@@ -16,12 +32,17 @@ const GitHubStatSection = () => {
     };
     fetchStat()
       .then((json) => {
-        setStat(json);
+        worker.postMessage(json);
       })
-      .catch((error) => console.error(error))
+      .catch((error) => {
+        console.error(error);
+        setStat(null);
+      })
       .finally(() => {
         setLoading(false);
       });
+
+    return () => worker.terminate();
   }, []);
 
   const availableYears = useMemo(() => {
