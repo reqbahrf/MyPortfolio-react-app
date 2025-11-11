@@ -50,7 +50,8 @@ export default class Donut extends Component<props, any> {
         options={this.state.options}
         series={this.state.series}
         type='donut'
-        width='450'
+        height='400'
+        width='600'
       />
     );
   }
