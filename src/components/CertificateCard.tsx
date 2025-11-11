@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { motion } from 'motion/react';
 interface CertificateCardProps {
   coverImg: string;
   title: string;
@@ -18,10 +19,18 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
   };
 
   return (
-    <div className='group certificate-card sm:w-full md:w-[600px] h-[200px] rounded-[20px] overflow-hidden shadow-lg bg-gray-800 transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-row'>
-      <div className='w-1/2 h-full'>
+    <motion.div
+      className='group certificate-card sm:w-full md:w-[600px] h-[200px] rounded-[20px] shadow-lg bg-gray-800 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-row'
+      style={{
+        transformStyle: 'preserve-3d',
+        perspective: 1000,
+      }}
+      whileHover={{ scale: 1.05, overflow: 'visible' }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+    >
+      <div className='w-1/2 h-full transition-transform duration-500 [transform-style:preserve-3d] [transform:translateZ(0px)] group-hover:[transform:translateZ(150px)]'>
         <LazyLoadImage
-          className='w-full h-full object-cover group-hover:brightness-75 group-hover:object-contain'
+          className='w-full h-full object-cover group-hover:object-contain'
           effect='blur'
           threshold={300}
           wrapperProps={{
@@ -45,7 +54,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
           View Certificate
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
