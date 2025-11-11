@@ -20,7 +20,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
 
   return (
     <motion.div
-      className='group certificate-card sm:w-full md:w-[600px] h-[200px] rounded-[20px] shadow-lg bg-gray-800 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-row'
+      className='group certificate-card sm:w-full md:w-[38rem] h-[13rem] rounded-[20px] shadow-lg bg-gray-800 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-row'
       style={{
         transformStyle: 'preserve-3d',
         perspective: 1000,
