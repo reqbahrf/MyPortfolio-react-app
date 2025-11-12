@@ -133,6 +133,14 @@ body {
   transition: transform 0.3s ease;
 }
 
+@media (max-width: 480px) {
+  .slide-image {
+    width: 85vw;
+    min-width: 320px;
+    max-width: 450px;
+  }
+}
+
 .slide-image:hover {
   transform: scale(1.02);
 }
