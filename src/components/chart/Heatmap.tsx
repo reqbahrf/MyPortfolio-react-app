@@ -157,12 +157,16 @@ export default class HeatMap extends Component<ContributionsProps, any> {
 
   render() {
     return (
-      <Chart
-        options={this.state.options}
-        series={this.state.series}
-        type='heatmap'
-        width='1000'
-      />
+      <div className='w-full flex items-center justify-center'>
+        <div className='w-[95dvw] sm:w-[85dvw] md:w-[70dvw] lg:w-[60dvw]'>
+          <Chart
+            options={this.state.options}
+            series={this.state.series}
+            type='heatmap'
+            width='100%'
+          />
+        </div>
+      </div>
     );
   }
 }
