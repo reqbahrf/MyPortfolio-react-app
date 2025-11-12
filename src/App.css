@@ -231,21 +231,23 @@ body {
 
 @media (max-width: 768px) {
   .pin-wrap-sticky {
-    width: 200vw;
+    width: 250vw;
   }
 
   .text-container {
-    flex: 0 0 250px;
+    flex: 0 0 200px;
     padding: 1rem;
   }
 
   .slides-container {
     padding: 0 1rem;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .slide-image {
-    width: 250px;
+    width: 85vw;
+    height: auto;
+    min-width: 280px;
   }
 }
 
