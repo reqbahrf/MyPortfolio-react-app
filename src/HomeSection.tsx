@@ -57,20 +57,20 @@ export default function HomeSection() {
   return (
     <section id='Home'>
       <div className='h-screen flex justify-center items-center hero'>
-        <div className='flex flex-col-reverse md:flex-row lg:flex-row h-full sm:h-2/4 w-auto px-10 sm:px-40'>
+        <div className='flex flex-col-reverse lg:flex-row h-full sm:h-2/4 w-auto px-10 sm:px-40'>
           <div className='flex flex-col justify-center space-y-5'>
             <div>
-              <h1 className='text-4xl font-bold text-center sm:text-start md:text-start text-white'>
+              <h1 className='text-1xl md:text-2xl lg:text-4xl font-bold text-center xl:text-start text-white'>
                 Hi I&apos;m Reanz Arthur A. Monera
               </h1>
             </div>
             <div>
-              <p className='text-center sm:text-start md:text-start text-lg text-white'>
+              <p className='text-center text-md xl:text-start lg:text-lg text-white'>
                 Full stack developer <span className='font-bold'>|</span> Photo
                 Editor
               </p>
             </div>
-            <div className='flex space-x-2 justify-center sm:justify-start md:justify-start'>
+            <div className='flex space-x-2 justify-center xl:justify-start'>
               <a
                 href=''
                 className='group text-white hover:text-pink-700'
@@ -96,7 +96,7 @@ export default function HomeSection() {
                 <i className='ri-instagram-line text-[30px]'></i>
               </a>
             </div>
-            <div className='text-center sm:text-start !mt-10'>
+            <div className='text-center xl:text-start !mt-10'>
               <a
                 href='https://docs.google.com/document/d/17s6o-BsEe8exWWh_qno_6BJzvd8nbuCJ/edit?usp=sharing&ouid=114884687085173552646&rtpof=true&sd=true'
                 target='_blank'
