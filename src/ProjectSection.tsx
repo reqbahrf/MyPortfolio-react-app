@@ -59,11 +59,14 @@ const ProjectSection = () => {
   }, [modal.isOpen]);
   return (
     <section id='Project'>
+      <h2 className='text-2xl text-center font-bold text-white pt-2'>
+        Projects
+      </h2>
       <div className='flex flex-col items-center justify-center py-10 gap-4 sm:gap-6'>
         {rows.map((row, rowIndex) => (
           <div
             key={rowIndex}
-            className='flex flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-row items-center justify-center gap-4 sm:gap-6'
+            className='flex flex-col sm:flex-col md:flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6'
           >
             {row.map((project) => (
               <ProjectCard
