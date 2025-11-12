@@ -1,4 +1,3 @@
-import * as React from 'react';
 import profile from '/assets/pageImg/profile.webp';
 import slide1 from '/assets/figma-project/slide1.webp';
 import slide2 from '/assets/figma-project/slide2.webp';
