@@ -124,10 +124,10 @@ export default function HomeSection() {
           ref={wrapperRef}
         >
           <div className='text-container'>
-            <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4'>
+            <p className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4'>
               One of the Figma prototype designs I created for our subject group
               project
-            </h1>
+            </p>
           </div>
           <div className='slides-container'>
             <LazyLoadImage
