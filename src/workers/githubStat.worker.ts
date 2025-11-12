@@ -5,7 +5,7 @@ onmessage = async (e: MessageEvent) => {
     const fetchStat = async (): Promise<StatEndPointResponse> => {
       const res = await fetch('/api/github/stat');
       const json = await res.json();
-      return { repos: json.repos, contributions: json.contributions };
+      return json;
     };
     const { repos, contributions } = await fetchStat();
     const languageMap = new Map<string, [number, string]>();
