@@ -8,7 +8,16 @@ const ALLOWED_ORIGIN = process.env.APP_URL;
 
 export default async function handler(req: Request): Promise<Response> {
   const username = 'reqbahrf';
-  const origin = req.headers.get('origin') || req.headers.get('referer') || '';
+  const originHeader =
+    req.headers.get('origin') || req.headers.get('referer') || '';
+  const origin = (() => {
+    try {
+      const url = new URL(originHeader);
+      return `${url.protocol}//${url.host}`;
+    } catch (e) {
+      return '';
+    }
+  })();
 
   if (!Boolean(process.env.APP_DEBUG === 'true') && origin !== ALLOWED_ORIGIN) {
     return new Response(
