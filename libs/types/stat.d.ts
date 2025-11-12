@@ -58,7 +58,7 @@ export interface ContributionsProps {
 }
 
 export interface StatEndPointResponse {
-  topLanguages: Repositories;
+  repos: Node[];
   contributions: ContributionsCollection['contributionCalendar'];
 }
 
