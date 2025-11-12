@@ -1,4 +1,3 @@
-import * as React from 'react';
 import profile2 from '/assets/pageImg/profile2.webp';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
