@@ -7,7 +7,7 @@ import 'react-lazy-load-image-component/src/effects/opacity.css';
 export default function AboutSection() {
   return (
     <section id='About'>
-      <div className='flex flex-col sm:flex-row md:flex-row m-0 md:m-30 lg:m-40 border-y-black shadow-xl bg-gray-900 bg-opacity-70 px-8 py-5 md:px-20 lg:px-20'>
+      <div className='flex flex-col lg:flex-col xl:flex-row m-0 md:m-30 lg:m-40 border-y-black shadow-xl bg-gray-900 bg-opacity-70 px-8 py-5 md:px-20 lg:px-20'>
         <div className='flex flex-col flex-grow-0'>
           <div className='myProfileImg flex flex-1 justify-center'>
             <LazyLoadImage

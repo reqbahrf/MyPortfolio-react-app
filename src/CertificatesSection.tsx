@@ -13,11 +13,11 @@ const CertificatesSection = () => {
 
   return (
     <section id='Certificates'>
-      <div className='flex flex-col items-center justify-center m-0 py-10 sm:m-30 md:m-40'>
+      <div className='flex flex-col items-center justify-center gap-4 sm:gap-6 py-10'>
         {rows.map((row, rowIndex) => (
           <div
             key={rowIndex}
-            className='flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-14 mb-6'
+            className='flex flex-col sm:flex-col md:flex-col lg:flex-col xl:flex-row items-center justify-center gap-4 sm:gap-6'
           >
             {row.map((certificate) => (
               <CertificateCard
