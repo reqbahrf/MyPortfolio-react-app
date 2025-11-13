@@ -22,7 +22,7 @@
 }
 
 @utility nav-bar-text {
-  @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-sm rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap;
+  @apply absolute bottom-full left-1/2 transform -translate-x-1/2 translate-y-2 mb-2 px-2 py-1 bg-gray-800 text-white text-sm rounded-sm opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0  transition-all duration-300 ease-out whitespace-nowrap shadow-md;
 }
 
 * {
