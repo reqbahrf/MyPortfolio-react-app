@@ -11,8 +11,8 @@ const App: React.FC = () => {
   return (
     <>
       <HomeSection />
-      <GitHubStatSection />
       <AboutSection />
+      <GitHubStatSection />
       <ProjectSection />
       <CertificatesSection />
       <NavigationBar />

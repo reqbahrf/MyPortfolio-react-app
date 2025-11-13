@@ -96,30 +96,13 @@ export default function AboutSection() {
             I&apos;m Reanz Arthur Antone Monera
           </div>
           <div className='text-white text-lg mb-7 indent-8 text-justify'>
-            I recently graduated with a degree in Information System from Davao
-            del Norte State College. Although the BS in Information System
-            mainly focuses on designing and proposing systems, a change in our
-            curriculum gave me the chance to actually build one too. This shift
-            helped me learn and explore web development more, especially through
-            our Capstone project, where I developed a web application as a
-            full-stack developer.
-          </div>
-          <div className='text-white text-lg mb-7 indent-8 text-justify'>
-            I'm a self-taught web developer and graphic designer. I enjoy
-            building websites and apps that look good and work well. I'm now
-            looking for job opportunities where I can grow and keep learning
-            more about web development.
-          </div>
-          <div className='text-white text-lg mb-7 indent-8 text-justify'>
-            Aside from coding and design, I like editing photos and learning
-            about space. Photo editing lets me be creative and focus on small
-            details. My interest in space keeps me curious and open to new
-            ideas. These hobbies help me stay creative and motivated.
-          </div>
-          <div className='text-white text-lg mb-7 indent-8 text-justify'>
-            I enjoy what I do and I’m always trying to get better at it. I keep
-            up with new tools and trends so I can improve my skills and build
-            better things.
+            I graduated with a degree in Information System from Davao del Norte
+            State College. Although the BS in Information System mainly focuses
+            on designing and proposing systems, a change in our curriculum gave
+            me the chance to actually build one too. This shift helped me learn
+            and explore web development more, especially through our Capstone
+            project, where I developed a web application as a full-stack
+            developer.
           </div>
         </div>
       </div>
