@@ -56,7 +56,7 @@ export default function HomeSection() {
   return (
     <section id='Home'>
       <div className='h-screen flex justify-center items-center hero'>
-        <div className='flex flex-col-reverse lg:flex-row h-full sm:h-2/4 w-auto px-10 sm:px-40'>
+        <div className='flex flex-col-reverse lg:flex-row h-full w-auto px-10 sm:px-40'>
           <div className='flex flex-col justify-center space-y-5'>
             <div>
               <h1 className='text-4xl font-bold text-center xl:text-start text-white'>
@@ -80,12 +80,12 @@ export default function HomeSection() {
               </a>
             </div>
           </div>
-          <div className='m-5 '>
+          <div className='m-5 flex justify-center'>
             <img
               id='avatar'
               src={profile}
-              alt=''
-              className='w-[300px] h-[300px] rounded-full object-cover border-2 border-pink-700 shadow-lg m-auto'
+              alt='Profile'
+              className='w-[250px] h-[250px] rounded-full object-cover border-2 border-pink-700 shadow-lg m-auto'
             />
           </div>
         </div>
