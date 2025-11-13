@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@custom-variant dark (&:where(.dark, .dark *));
 @layer components {
   .nav-bar-text {
     @apply absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap;
@@ -11,6 +11,10 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: #9e2359 rgba(0, 0, 0, 0.9);
+}
+
+* {
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Works on Chrome, Edge, and Safari */

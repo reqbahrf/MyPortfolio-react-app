@@ -37,6 +37,17 @@
       type="image/webp"
     />
     <title>Reanz Arthur A. Monera</title>
+    <script>
+      (function () {
+        try {
+          const isDark =
+            localStorage.themeIsDark === 'true' ||
+            (!('themeIsDark' in localStorage) &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', isDark);
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body>
     <div
