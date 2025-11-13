@@ -1,10 +1,16 @@
 import type { ContributionsProps } from '../../../libs/types/stat';
 import { Component } from 'react';
 import Chart from 'react-apexcharts';
+import { ChartThemeManager } from '../../utils/chartUtil';
 
 export default class HeatMap extends Component<ContributionsProps, any> {
+  private chartThemeManager: ChartThemeManager;
+
   constructor(props: ContributionsProps) {
     super(props);
+    this.chartThemeManager = new ChartThemeManager(
+      this.handleThemeChange.bind(this)
+    );
     const { series, dayCategories } = HeatMap.getHeatMapSeries(props);
     this.state = {
       series: series,
@@ -17,7 +23,7 @@ export default class HeatMap extends Component<ContributionsProps, any> {
           background: 'transparent',
         },
         theme: {
-          mode: 'dark',
+          mode: this.chartThemeManager.getTheme(),
         },
         dataLabels: {
           enabled: false,
@@ -82,11 +88,29 @@ export default class HeatMap extends Component<ContributionsProps, any> {
           align: 'center',
           style: {
             fontSize: '15px',
-            color: '#ffffff',
           },
         },
       },
     };
+  }
+
+  handleThemeChange(theme: 'light' | 'dark') {
+    this.setState({
+      options: {
+        ...this.state.options,
+        theme: {
+          mode: theme,
+        },
+      },
+    });
+  }
+
+  componentDidMount(): void {
+    this.chartThemeManager.setupThemeObserver();
+  }
+
+  componentWillUnmount(): void {
+    this.chartThemeManager.cleanup();
   }
 
   static getHeatMapSeries(props: ContributionsProps) {
