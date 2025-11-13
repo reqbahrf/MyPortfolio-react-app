@@ -25,7 +25,7 @@ const NavigationBar = () => {
             <RiHomeLine className='text-xl' />
             <span className='nav-bar-text'>Home</span>
           </a>
-          <div className='border-r-zinc-950 border-r -ms-2'></div>
+          <div className='border-r-zinc-950 dark:border-r-zinc-50 border-r -ms-2'></div>
           <a
             href='#Project'
             className='relative group px-1 py-2 text-gray-800 dark:text-white flex items-center justify-center hover:scale-125 transition-all ease-in-out duration-300 hover:px-4 hover:rounded-full hover:bg-pink-700 hover:text-white'
@@ -42,7 +42,7 @@ const NavigationBar = () => {
             <RiAwardLine className='text-xl' />
             <span className='nav-bar-text'>Certificates</span>
           </a>
-          <div className='border-r-zinc-950 border-r -me-2'></div>
+          <div className='border-r-zinc-950 dark:border-r-zinc-50 border-r -me-2'></div>
           <a
             href='https://github.com/reqbahrf'
             target='_blank'
@@ -95,7 +95,7 @@ const NavigationBar = () => {
             />
             <span className='nav-bar-text'>Facebook</span>
           </a>
-          <div className='border-r-zinc-950 border-r -ms-2'></div>
+          <div className='border-r-zinc-950 dark:border-r-zinc-50 border-r -ms-2'></div>
           <ThemeToggle />
         </nav>
       </div>
