@@ -111,6 +111,18 @@ export default function HomeSection() {
           </div>
         </div>
         <h2 className='text-2xl font-bold text-center xl:text-start text-white'>
+          Work Experience
+        </h2>
+        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+          <InfoCard
+            title='DOST PSTO davao del norte'
+            subtitle='OJT Student | Full Stack Laravel Developer'
+            icon='/assets/pageImg/dost-logo.webp'
+            years='Feb 2025 - May 2025'
+            link='https://www.facebook.com/share/p/1H1CjfWftn/'
+          />
+        </div>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-white'>
           Education
         </h2>
         <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
