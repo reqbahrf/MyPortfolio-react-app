@@ -60,7 +60,7 @@ export default function HomeSection() {
           <div className='flex flex-col justify-center space-y-5'>
             <div>
               <h1 className='text-4xl font-bold text-center xl:text-start text-white'>
-                Hi I&apos;m Reanz Arthur A. Monera
+                Hi, I&apos;m Reanz Arthur
               </h1>
             </div>
             <div>
