@@ -1,5 +1,6 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { ThemeProvider } from './context/ThemeContext';
 import HomeSection from './HomeSection';
 import ProjectSection from './ProjectSection';
 import CertificatesSection from './CertificatesSection';
@@ -10,12 +11,14 @@ import Contact from './Contact';
 const App: React.FC = () => {
   return (
     <>
-      <HomeSection />
-      <GitHubStatSection />
-      <ProjectSection />
-      <CertificatesSection />
-      <NavigationBar />
-      <Contact />
+      <ThemeProvider>
+        <HomeSection />
+        <GitHubStatSection />
+        <ProjectSection />
+        <CertificatesSection />
+        <NavigationBar />
+        <Contact />
+      </ThemeProvider>
     </>
   );
 };

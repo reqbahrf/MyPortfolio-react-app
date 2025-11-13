@@ -62,12 +62,12 @@ export default function HomeSection() {
         <div className='flex flex-col-reverse lg:flex-row h-full w-auto px-10 sm:px-40'>
           <div className='flex flex-col justify-center space-y-5 flex-1'>
             <div>
-              <h1 className='text-4xl font-bold text-center xl:text-start text-white'>
+              <h1 className='text-4xl font-bold text-center xl:text-start text-black dark:text-white'>
                 Hi, I&apos;m Reanz Arthur
               </h1>
             </div>
             <div className='w-[96dvw] md:w-[40vw] lg:w-[30dvw]'>
-              <p className='text-justify indent-8 text-sm md:text-md text-white'>
+              <p className='text-justify indent-8 text-sm md:text-md text-black dark:text-white'>
                 I'm a self-taught web developer and graphic designer. I enjoy
                 building websites and apps that look good and work well. I'm now
                 looking for job opportunities where I can grow and keep learning
@@ -75,11 +75,11 @@ export default function HomeSection() {
               </p>
             </div>
 
-            <div className='text-center lg:text-start !mt-10'>
+            <div className='text-center lg:text-start mt-10!'>
               <a
                 href='https://docs.google.com/document/d/17s6o-BsEe8exWWh_qno_6BJzvd8nbuCJ/edit?usp=sharing&ouid=114884687085173552646&rtpof=true&sd=true'
                 target='_blank'
-                className='rounded-full bg-white hover:bg-pink-700 text-black font-bold py-2 px-9'
+                className='rounded-full bg-black/50 dark:bg-gray-800 hover:bg-pink-700 text-white font-bold py-2 px-9'
               >
                 View CV
               </a>
@@ -95,12 +95,12 @@ export default function HomeSection() {
           </div>
         </div>
       </div>
-      <section className='flex flex-col justify-center items-center w-full bg-black/70'>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-white'>
+      <section className='flex flex-col justify-center items-center w-full bg-white dark:bg-black'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
           About
         </h2>
         <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
-          <div className='text-white text-lg mb-7 indent-8 text-justify'>
+          <div className='text-black dark:text-white text-lg mb-7 indent-8 text-justify'>
             I graduated with a degree in Information System from Davao del Norte
             State College. Although the BS in Information System mainly focuses
             on designing and proposing systems, a change in our curriculum gave
@@ -110,7 +110,7 @@ export default function HomeSection() {
             developer.
           </div>
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-white'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
           Work Experience
         </h2>
         <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
@@ -122,7 +122,7 @@ export default function HomeSection() {
             link='https://www.facebook.com/share/p/1H1CjfWftn/'
           />
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-white'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
           Education
         </h2>
         <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
@@ -134,7 +134,7 @@ export default function HomeSection() {
             link='https://www.davadelnorte.edu.ph/'
           />
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-white'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
           Skills
         </h2>
         <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
@@ -157,7 +157,7 @@ export default function HomeSection() {
           ref={wrapperRef}
         >
           <div className='text-container'>
-            <p className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4'>
+            <p className='text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-4'>
               One of the Figma prototype designs I created for our subject group
               project
             </p>
