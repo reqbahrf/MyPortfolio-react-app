@@ -10,7 +10,7 @@ import {
 const NavigationBar = () => {
   return (
     <div className='fixed flex justify-center items-center bottom-2 left-0 right-0 z-50'>
-      <div className='bg-white/80 backdrop-blur-lg w-[95dvw] md:w-auto rounded-full h-10'>
+      <div className='bg-white/80 backdrop-blur-lg w-auto rounded-full h-10'>
         <nav
           id='nav-links'
           className='flex justify-center gap-1 hover:gap-2 sm:gap-3 sm:hover:gap-4 md:hover:gap-5 h-full transition-all ease-in-out duration-300'
@@ -53,7 +53,7 @@ const NavigationBar = () => {
             href='https://github.com/reqbahrf'
             target='_blank'
             rel='noopener noreferrer'
-            className='relative group py-2 text-gray-800 flex items-center justify-center hover:scale-125 transition-all ease-in-out duration-300 hover:px-4 hover:rounded-full hover:bg-pink-700 hover:text-white'
+            className='relative group ps-2 py-2 text-gray-800 flex items-center justify-center hover:scale-125 transition-all ease-in-out duration-300 hover:px-4 hover:rounded-full hover:bg-pink-700 hover:text-white'
             title='Github'
           >
             <RiGithubFill
