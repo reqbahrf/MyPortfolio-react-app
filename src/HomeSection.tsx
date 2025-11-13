@@ -5,12 +5,6 @@ import slide3 from '/assets/figma-project/slide3.webp';
 import slide4 from '/assets/figma-project/slide4.webp';
 import slide5 from '/assets/figma-project/slide5.webp';
 import { useEffect, useRef } from 'react';
-import {
-  RiGithubFill,
-  RiFacebookFill,
-  RiInstagramLine,
-  RiLinkedinFill,
-} from '@remixicon/react';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -75,32 +69,7 @@ export default function HomeSection() {
                 Editor
               </p>
             </div>
-            <div className='flex space-x-2 justify-center lg:justify-start'>
-              <a
-                href=''
-                className='group text-white hover:text-pink-700'
-              >
-                <RiGithubFill className='text-3xl'></RiGithubFill>
-              </a>
-              <a
-                href=''
-                className='group text-white hover:text-pink-700'
-              >
-                <RiLinkedinFill className='text-3xl'></RiLinkedinFill>
-              </a>
-              <a
-                href=''
-                className='group text-white hover:text-pink-700'
-              >
-                <RiFacebookFill className='text-3xl'></RiFacebookFill>
-              </a>
-              <a
-                href=''
-                className='group text-white hover:text-pink-700'
-              >
-                <RiInstagramLine className='text-3xl'></RiInstagramLine>
-              </a>
-            </div>
+
             <div className='text-center lg:text-start !mt-10'>
               <a
                 href='https://docs.google.com/document/d/17s6o-BsEe8exWWh_qno_6BJzvd8nbuCJ/edit?usp=sharing&ouid=114884687085173552646&rtpof=true&sd=true'
