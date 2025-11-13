@@ -1,21 +1,21 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import HomeSection from './HomeSection';
-import AboutSection from './AboutSection';
 import ProjectSection from './ProjectSection';
 import CertificatesSection from './CertificatesSection';
 import GitHubStatSection from './GitHubStatSection';
 import NavigationBar from './components/NavigationBar';
+import Contact from './Contact';
 
 const App: React.FC = () => {
   return (
     <>
       <HomeSection />
       <GitHubStatSection />
-      <AboutSection />
       <ProjectSection />
       <CertificatesSection />
       <NavigationBar />
+      <Contact />
     </>
   );
 };
