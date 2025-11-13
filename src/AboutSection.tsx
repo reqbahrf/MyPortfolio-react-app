@@ -1,5 +1,12 @@
 import profile2 from '/assets/pageImg/profile2.webp';
-
+import {
+  RiGithubFill,
+  RiFigmaFill,
+  RiBehanceFill,
+  RiMailFill,
+  RiFacebookFill,
+  RiInstagramLine,
+} from '@remixicon/react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
@@ -23,7 +30,7 @@ export default function AboutSection() {
           </div>
           <div className='mysocialMedia flex flex-row lg:flex-col my-10 gap-4'>
             <div className='flex flex-1 group'>
-              <i className='ri-github-fill text-3xl text-white group-hover:text-pink-700'></i>
+              <RiGithubFill className=' text-3xl text-white group-hover:text-pink-700'></RiGithubFill>
               <a
                 href='https://github.com/reqbahrf'
                 target='_blank'
@@ -33,7 +40,7 @@ export default function AboutSection() {
               </a>
             </div>
             <div className='flex flex-1 group'>
-              <i className='ri-figma-fill text-3xl text-white group-hover:text-pink-700'></i>
+              <RiFigmaFill className=' text-3xl text-white group-hover:text-pink-700'></RiFigmaFill>
               <a
                 href='https://www.figma.com/@reanzarthuramon'
                 target='_blank'
@@ -43,7 +50,7 @@ export default function AboutSection() {
               </a>
             </div>
             <div className='flex flex-1 group'>
-              <i className='ri-behance-fill text-3xl text-white group-hover:text-pink-700'></i>
+              <RiBehanceFill className=' text-3xl text-white group-hover:text-pink-700'></RiBehanceFill>
               <a
                 href='https://www.behance.net/reanzamonera'
                 target='_blank'
@@ -53,7 +60,7 @@ export default function AboutSection() {
               </a>
             </div>
             <div className='flex flex-1 group'>
-              <i className='ri-facebook-fill text-3xl text-white group-hover:text-pink-700'></i>
+              <RiFacebookFill className=' text-3xl text-white group-hover:text-pink-700'></RiFacebookFill>
               <a
                 href='https://www.facebook.com/profile.php?id=100008998324688'
                 target='_blank'
@@ -63,7 +70,7 @@ export default function AboutSection() {
               </a>
             </div>
             <div className='flex flex-1 group'>
-              <i className='ri-instagram-line text-3xl text-white group-hover:text-pink-700'></i>
+              <RiInstagramLine className=' text-3xl text-white group-hover:text-pink-700'></RiInstagramLine>
               <a
                 href='https://www.instagram.com/reanz_arthur/'
                 target='_blank'
@@ -75,7 +82,7 @@ export default function AboutSection() {
           </div>
           <hr />
           <div className='flex flex-1 group mt-5 lg:mt-0 justify-center lg:justify-start'>
-            <i className='ri-mail-fill text-3xl text-white group-hover:text-pink-700'></i>
+            <RiMailFill className=' text-3xl text-white group-hover:text-pink-700'></RiMailFill>
             <a
               href='mailto:reqbahrf@gmail.com'
               className='text-white ps-5 group-hover:text-pink-700'
