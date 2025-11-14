@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 
 interface ThemeContextType {
-  theme: boolean;
+  isDarkTheme: boolean;
   toggleTheme: () => void;
 }
 const useTheme: () => ThemeContextType = () => {
-  const [theme, setTheme] = useState(() => {
+  const [isDarkTheme, setIsDarkTheme] = useState(() => {
     return (
       localStorage.themeIsDark === 'true' ||
       (!('themeIsDark' in localStorage) &&
@@ -15,19 +15,19 @@ const useTheme: () => ThemeContextType = () => {
   useEffect(() => {
     const root = window.document.documentElement;
 
-    if (theme) {
+    if (isDarkTheme) {
       root.classList.add('dark');
       localStorage.themeIsDark = 'true';
     } else {
       root.classList.remove('dark');
       localStorage.themeIsDark = 'false';
     }
-  }, [theme]);
+  }, [isDarkTheme]);
   const toggleTheme = useCallback(() => {
-    setTheme(!theme);
-    localStorage.themeIsDark = !theme;
-  }, [theme]);
-  return { theme, toggleTheme };
+    setIsDarkTheme(!isDarkTheme);
+    localStorage.themeIsDark = !isDarkTheme;
+  }, [isDarkTheme]);
+  return { isDarkTheme, toggleTheme };
 };
 
 export default useTheme;
