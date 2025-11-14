@@ -1,4 +1,5 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { RiGithubFill } from '@remixicon/react';
 import { motion } from 'motion/react';
 import aiGeneration from '/assets/math-ai-project/index.webp';
 import sessionSettings from '/assets/math-ai-project/session-settings.webp';
@@ -62,7 +63,7 @@ const MathAIProject = () => {
 
   return (
     <div className='flex flex-col items-center space-y-5 p-4 w-full px-10 z-10 mainContent'>
-      <section className='py-20 px-6 md:px-20 bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300'>
+      <section className='py-20 px-6 md:px-20 bg-linear-to-b from-gray-400 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300'>
         {/* ---------- Project Intro ---------- */}
         <motion.div
           className='text-center mb-16'
@@ -98,7 +99,7 @@ const MathAIProject = () => {
               rel='noopener noreferrer'
               className='px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700 transition duration-200 font-medium'
             >
-              💻 View Source Code
+              <RiGithubFill /> View Source Code
             </a>
           </div>
         </motion.div>
@@ -117,7 +118,7 @@ const MathAIProject = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* Image */}
-              <div className='w-full md:w-1/2 flex justify-center'>
+              <div className='w-auto h-auto md:w-1/2 flex justify-center'>
                 <LazyLoadImage
                   effect='blur'
                   threshold={300}
