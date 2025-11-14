@@ -91,7 +91,7 @@ const NavIcon: React.FC<NavIconProps> = ({
     <>
       <motion.a
         href={href}
-        className={`relative group text-gray-800 dark:text-white flex items-center justify-center rounded-full hover:text-pink-700 ${customClass} hover:shadow-lg hover:shadow-pink-700/50`}
+        className={`relative group text-gray-800 dark:text-white flex items-center justify-center rounded-full hover:text-pink-700 ${customClass}`}
         whileHover={{
           scale: 1.25,
           marginRight: '0.2rem',
