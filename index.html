@@ -17,31 +17,28 @@
     />
     <link
       rel="preload"
-      href="/assets/pageImg/body.webp"
-      as="image"
-      fetchpriority="high"
-      type="image/webp"
-    />
-    <link
-      rel="preload"
-      href="/assets/pageImg/hero1.webp"
-      as="image"
-      fetchpriority="high"
-      type="image/webp"
-    />
-    <link
-      rel="preload"
       href="/assets/pageImg/profile.webp"
       as="image"
       fetchpriority="high"
       type="image/webp"
     />
     <title>Reanz Arthur A. Monera</title>
+    <script>
+      (function () {
+        try {
+          const isDark =
+            localStorage.themeIsDark === 'true' ||
+            (!('themeIsDark' in localStorage) &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', isDark);
+        } catch (_) {}
+      })();
+    </script>
   </head>
-  <body>
+  <body class="bg-white dark:bg-black">
     <div
       id="root"
-      class="overflow-x-hidden scroll-smooth"
+      class="overflow-x-hidden scroll-smooth relative"
     ></div>
     <script
       type="module"
