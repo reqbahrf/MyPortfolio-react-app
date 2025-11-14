@@ -20,7 +20,7 @@ const CertificatesSection = () => {
         {rows.map((row, rowIndex) => (
           <div
             key={rowIndex}
-            className='flex flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6'
+            className='flex flex-col lg:flex-row items-center justify-center gap-4'
           >
             {row.map((certificate) => (
               <CertificateCard

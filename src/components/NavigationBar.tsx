@@ -118,13 +118,13 @@ const NavIcon: React.FC<NavIconProps> = ({
 const NavigationBar = () => {
   return (
     <div className='fixed flex justify-center items-center bottom-2 left-0 right-0 z-50'>
-      <div className='bg-white/80 dark:bg-black/80 backdrop-blur-lg w-auto rounded-full h-10'>
+      <div className='bg-gray-200/80 dark:bg-black/70 backdrop-blur-lg w-auto rounded-full h-14 px-2 shadow-xs dark:shadow-pink-500/70 shadow-black/50'>
         <motion.nav
           id='nav-links'
-          className='flex justify-center gap-2 h-full'
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
+          className='flex justify-center gap-x-2 h-full'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9 }}
         >
           {navIcons.map((icon, index) => (
             <NavIcon

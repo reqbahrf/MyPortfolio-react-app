@@ -95,7 +95,7 @@ export default function HomeSection() {
           </div>
         </div>
       </div>
-      <section className='flex flex-col justify-center items-center w-full bg-white dark:bg-black'>
+      <section className='flex flex-col justify-center items-center w-full'>
         <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
           About
         </h2>

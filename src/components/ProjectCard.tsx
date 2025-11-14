@@ -78,7 +78,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
         }}
         whileHover={{ scale: 1.05, overflow: 'visible' }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className='group flex flex-col w-[95dvw] sm:w-[70dvw] md:w-[40dvw] lg:w-[30dvw] md:h-112 rounded-[20px] shadow-lg dark:bg-gray-800 bg-gray-200 transition-all duration-300 hover:shadow-xl relative cursor-pointer overflow-hidden'
+        className='group flex flex-col w-[95dvw] sm:w-[70dvw] md:w-[40dvw] lg:w-[30dvw] md:h-112 rounded-[20px] dark:bg-gray-900 bg-gray-200 transition-all duration-300 hover:shadow-md relative cursor-pointer overflow-hidden hover:dark:shadow-pink-500/50 hover:shadow-black/25'
       >
         <motion.div
           className='w-full h-48 transition-transform duration-500 transform-3d transform-[translateZ(0px)] group-hover:transform-[translateZ(100px)]'
