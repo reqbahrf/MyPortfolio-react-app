@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from './context/ThemeContext';
 import HomeSection from './HomeSection';
@@ -8,7 +8,7 @@ import GitHubStatSection from './GitHubStatSection';
 import NavigationBar from './components/NavigationBar';
 import Contact from './Contact';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <>
       <ThemeProvider>
