@@ -3,7 +3,9 @@ import { StatLocalState } from '../libs/types/stat';
 import HeatMap from '../src/components/chart/Heatmap';
 import Donut from '../src/components/chart/Donut';
 import GitHubStatLoading from './components/GitHubStatLoading';
+import { useThemeContext } from './context/ThemeContext';
 const GitHubStatSection = () => {
+  const { isDarkTheme } = useThemeContext();
   const [stat, setStat] = useState<StatLocalState | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedYear, setSelectedYear] = useState<string>('');
@@ -76,6 +78,7 @@ const GitHubStatSection = () => {
   }
 
   const topLanguages = stat?.topLanguages;
+  console.log('isDarkTheme: ', isDarkTheme);
   return (
     <section id='githubStatPin'>
       <div>
@@ -98,8 +101,14 @@ const GitHubStatSection = () => {
               </option>
             ))}
           </select>
-          <HeatMap contributions={filteredContributions} />
-          <Donut topLanguages={topLanguages} />
+          <HeatMap
+            contributions={filteredContributions}
+            theme={isDarkTheme ? 'dark' : 'light'}
+          />
+          <Donut
+            topLanguages={topLanguages}
+            theme={isDarkTheme ? 'dark' : 'light'}
+          />
           <p className='text-xs text-gray-400'>
             Note: Data provided by GitHub API. retrieved using{' '}
             <a
