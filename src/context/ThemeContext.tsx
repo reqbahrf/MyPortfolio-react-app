@@ -1,16 +1,16 @@
 import { createContext, useContext } from 'react';
 import useTheme from '../hooks/useTheme';
 interface ThemeContextType {
-  theme: boolean;
+  isDarkTheme: boolean;
   toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const { theme, toggleTheme } = useTheme();
+  const { isDarkTheme, toggleTheme } = useTheme();
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ isDarkTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
