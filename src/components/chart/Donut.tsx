@@ -1,20 +1,15 @@
 import { Component } from 'react';
 import Chart from 'react-apexcharts';
 import { TopLanguagesProps } from '../../../libs/types/stat';
-import { ChartThemeManager } from '../../utils/chartUtil';
 
 interface props {
   topLanguages: TopLanguagesProps[];
+  theme: 'light' | 'dark';
 }
 
 export default class Donut extends Component<props, any> {
-  private chartThemeManager: ChartThemeManager;
-
   constructor(props: props) {
     super(props);
-    this.chartThemeManager = new ChartThemeManager(
-      this.handleThemeChange.bind(this)
-    );
     this.state = {
       series: this.props.topLanguages.map((lang) => lang.percent),
       options: {
@@ -22,7 +17,7 @@ export default class Donut extends Component<props, any> {
           background: 'transparent',
         },
         theme: {
-          mode: this.chartThemeManager.getTheme(),
+          mode: this.props.theme,
         },
         labels: this.props.topLanguages.map((lang) => lang.name),
         colors: this.props.topLanguages.map((lang) => lang.color),
@@ -43,30 +38,30 @@ export default class Donut extends Component<props, any> {
           align: 'center',
           style: {
             fontSize: '15px',
-            color: '#ffffff',
           },
         },
       },
     };
   }
 
-  handleThemeChange(theme: 'light' | 'dark') {
-    this.setState({
-      options: {
-        ...this.state.options,
-        theme: {
-          mode: theme,
+  componentDidUpdate(prevProps: props) {
+    if (
+      prevProps.topLanguages !== this.props.topLanguages ||
+      prevProps.theme !== this.props.theme
+    ) {
+      console.log('Donut componentDidUpdate', this.props.theme);
+      this.setState({
+        series: this.props.topLanguages.map((lang) => lang.percent),
+        options: {
+          ...this.state.options,
+          theme: {
+            mode: this.props.theme,
+          },
+          labels: this.props.topLanguages.map((lang) => lang.name),
+          colors: this.props.topLanguages.map((lang) => lang.color),
         },
-      },
-    });
-  }
-
-  componentDidMount(): void {
-    this.chartThemeManager.setupThemeObserver();
-  }
-
-  componentWillUnmount(): void {
-    this.chartThemeManager.cleanup();
+      });
+    }
   }
 
   render() {

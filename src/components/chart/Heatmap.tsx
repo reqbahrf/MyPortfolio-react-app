@@ -1,16 +1,10 @@
 import type { ContributionsProps } from '../../../libs/types/stat';
 import { Component } from 'react';
 import Chart from 'react-apexcharts';
-import { ChartThemeManager } from '../../utils/chartUtil';
 
 export default class HeatMap extends Component<ContributionsProps, any> {
-  private chartThemeManager: ChartThemeManager;
-
   constructor(props: ContributionsProps) {
     super(props);
-    this.chartThemeManager = new ChartThemeManager(
-      this.handleThemeChange.bind(this)
-    );
     const { series, dayCategories } = HeatMap.getHeatMapSeries(props);
     this.state = {
       series: series,
@@ -23,7 +17,7 @@ export default class HeatMap extends Component<ContributionsProps, any> {
           background: 'transparent',
         },
         theme: {
-          mode: this.chartThemeManager.getTheme(),
+          mode: this.props.theme,
         },
         dataLabels: {
           enabled: false,
@@ -94,25 +88,6 @@ export default class HeatMap extends Component<ContributionsProps, any> {
     };
   }
 
-  handleThemeChange(theme: 'light' | 'dark') {
-    this.setState({
-      options: {
-        ...this.state.options,
-        theme: {
-          mode: theme,
-        },
-      },
-    });
-  }
-
-  componentDidMount(): void {
-    this.chartThemeManager.setupThemeObserver();
-  }
-
-  componentWillUnmount(): void {
-    this.chartThemeManager.cleanup();
-  }
-
   static getHeatMapSeries(props: ContributionsProps) {
     const MONTHS = [
       'Jan',
@@ -164,12 +139,18 @@ export default class HeatMap extends Component<ContributionsProps, any> {
   }
 
   componentDidUpdate(prevProps: ContributionsProps) {
-    if (prevProps.contributions !== this.props.contributions) {
+    if (
+      prevProps.contributions !== this.props.contributions ||
+      prevProps.theme !== this.props.theme
+    ) {
       const { series, dayCategories } = HeatMap.getHeatMapSeries(this.props);
       this.setState({
         series: series,
         options: {
           ...this.state.options,
+          theme: {
+            mode: this.props.theme,
+          },
           xaxis: {
             ...this.state.options.xaxis,
             categories: dayCategories,
