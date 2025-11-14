@@ -281,17 +281,6 @@ html,
   }
 }
 
-/* Mobile Navigation Styles */
-@media (max-width: 640px) {
-  nav {
-    display: none;
-  }
-
-  nav.nav-active {
-    display: flex !important;
-  }
-}
-
 .no-scroll {
   overflow: hidden;
 }
