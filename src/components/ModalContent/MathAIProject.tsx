@@ -62,7 +62,7 @@ const MathAIProject = () => {
 
   return (
     <div className='flex flex-col items-center space-y-5 p-4 w-full px-10 z-10 mainContent'>
-      <section className='py-20 px-6 md:px-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300'>
+      <section className='py-20 px-6 md:px-20 bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300'>
         {/* ---------- Project Intro ---------- */}
         <motion.div
           className='text-center mb-16'

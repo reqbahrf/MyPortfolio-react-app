@@ -5,10 +5,13 @@ import slide3 from '/assets/figma-project/slide3.webp';
 import slide4 from '/assets/figma-project/slide4.webp';
 import slide5 from '/assets/figma-project/slide5.webp';
 import { useEffect, useRef } from 'react';
+import InfoCard from './components/InfoCard';
+import skills from './content/skills.json';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
+import PillTag from './components/PillTag';
 
 export default function HomeSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -56,65 +59,95 @@ export default function HomeSection() {
   return (
     <section id='Home'>
       <div className='h-screen flex justify-center items-center hero'>
-        <div className='flex flex-col-reverse lg:flex-row h-full sm:h-2/4 w-auto px-10 sm:px-40'>
-          <div className='flex flex-col justify-center space-y-5'>
+        <div className='flex flex-col-reverse lg:flex-row h-full w-auto px-10 sm:px-40'>
+          <div className='flex flex-col justify-center space-y-5 flex-1'>
             <div>
-              <h1 className='text-4xl font-bold text-center xl:text-start text-white'>
-                Hi I&apos;m Reanz Arthur A. Monera
+              <h1 className='text-4xl font-bold text-center xl:text-start text-black dark:text-white'>
+                Hi, I&apos;m Reanz Arthur
               </h1>
             </div>
-            <div>
-              <p className='text-center text-md lg:text-start lg:text-2xl text-white'>
-                Full stack developer <span className='font-bold'>|</span> Photo
-                Editor
+            <div className='w-[96dvw] md:w-[40vw] lg:w-[30dvw]'>
+              <p className='text-justify indent-8 text-sm md:text-md text-black dark:text-white'>
+                I'm a self-taught web developer and graphic designer. I enjoy
+                building websites and apps that look good and work well. I'm now
+                looking for job opportunities where I can grow and keep learning
+                more about web development.
               </p>
             </div>
-            <div className='flex space-x-2 justify-center lg:justify-start'>
-              <a
-                href=''
-                className='group text-white hover:text-pink-700'
-              >
-                <i className='ri-github-fill text-3xl'></i>
-              </a>
-              <a
-                href=''
-                className='group text-white hover:text-pink-700'
-              >
-                <i className='ri-linkedin-fill text-3xl'></i>
-              </a>
-              <a
-                href=''
-                className='group text-white hover:text-pink-700'
-              >
-                <i className='ri-facebook-fill text-3xl'></i>
-              </a>
-              <a
-                href=''
-                className='group text-white hover:text-pink-700'
-              >
-                <i className='ri-instagram-line text-3xl'></i>
-              </a>
-            </div>
-            <div className='text-center lg:text-start !mt-10'>
+
+            <div className='text-center lg:text-start mt-10!'>
               <a
                 href='https://docs.google.com/document/d/17s6o-BsEe8exWWh_qno_6BJzvd8nbuCJ/edit?usp=sharing&ouid=114884687085173552646&rtpof=true&sd=true'
                 target='_blank'
-                className='rounded-full bg-white hover:bg-pink-700 text-black font-bold py-2 px-9'
+                className='rounded-full bg-black/50 dark:bg-gray-800 hover:bg-pink-700 text-white font-bold py-2 px-9'
               >
                 View CV
               </a>
             </div>
           </div>
-          <div className='m-5 '>
+          <div className='m-5 flex justify-center'>
             <img
               id='avatar'
               src={profile}
-              alt=''
-              className='w-[300px] h-[300px] rounded-full object-cover border-2 border-pink-700 shadow-lg m-auto'
+              alt='Profile'
+              className='w-[250px] h-[250px] rounded-full object-cover border-2 border-pink-700 shadow-lg m-auto'
             />
           </div>
         </div>
       </div>
+      <section className='flex flex-col justify-center items-center w-full'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+          About
+        </h2>
+        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+          <div className='text-black dark:text-white text-lg mb-7 indent-8 text-justify'>
+            I graduated with a degree in Information System from Davao del Norte
+            State College. Although the BS in Information System mainly focuses
+            on designing and proposing systems, a change in our curriculum gave
+            me the chance to actually build one too. This shift helped me learn
+            and explore web development more, especially through our Capstone
+            project, where I developed a web application as a full-stack
+            developer.
+          </div>
+        </div>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+          Work Experience
+        </h2>
+        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+          <InfoCard
+            title='DOST PSTO davao del norte'
+            subtitle='OJT Student | Full Stack Laravel Developer'
+            icon='/assets/pageImg/dost-logo.webp'
+            years='Feb 2025 - May 2025'
+            link='https://www.facebook.com/share/p/1H1CjfWftn/'
+          />
+        </div>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+          Education
+        </h2>
+        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+          <InfoCard
+            title='Davao del Norte State College'
+            subtitle='Bachelor of Science in Information System'
+            icon='/assets/pageImg/dnsc-logo.webp'
+            years='2021 - 2025'
+            link='https://www.davadelnorte.edu.ph/'
+          />
+        </div>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+          Skills
+        </h2>
+        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+          <div className='flex flex-wrap justify-center gap-2'>
+            {skills.skills.map((skill) => (
+              <PillTag
+                key={skill}
+                tag={skill}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
       <section
         id='sectionPin'
         ref={sectionRef}
@@ -124,7 +157,7 @@ export default function HomeSection() {
           ref={wrapperRef}
         >
           <div className='text-container'>
-            <p className='text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4'>
+            <p className='text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-4'>
               One of the Figma prototype designs I created for our subject group
               project
             </p>

@@ -78,10 +78,10 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
         }}
         whileHover={{ scale: 1.05, overflow: 'visible' }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className='group flex flex-col w-[95dvw] sm:w-[70dvw] md:w-[40dvw] lg:w-[30dvw] md:h-[28rem] rounded-[20px] shadow-lg bg-gray-800 transition-all duration-300 hover:shadow-xl relative cursor-pointer overflow-hidden'
+        className='group flex flex-col w-[95dvw] sm:w-[70dvw] md:w-[40dvw] lg:w-[30dvw] md:h-112 rounded-[20px] dark:bg-gray-900 bg-gray-200 transition-all duration-300 hover:shadow-md relative cursor-pointer overflow-hidden hover:dark:shadow-pink-500/50 hover:shadow-black/25'
       >
         <motion.div
-          className='w-full h-48 transition-transform duration-500 [transform-style:preserve-3d] [transform:translateZ(0px)] group-hover:[transform:translateZ(100px)]'
+          className='w-full h-48 transition-transform duration-500 transform-3d transform-[translateZ(0px)] group-hover:transform-[translateZ(100px)]'
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
           <LazyLoadImage
@@ -96,17 +96,17 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
           />
         </motion.div>
         <div className='pt-4 px-2 pb-4'>
-          <div className='font-bold text-white text-xl mb-4 line-clamp-1 group-hover:text-pink-700'>
+          <div className='font-bold dark:text-white text-black text-xl mb-4 line-clamp-1 group-hover:text-pink-700'>
             {title}
           </div>
-          <p className='text-gray-200 text-sm mb-3 text-justify overflow-hidden md:max-h-[35px] sm:max-h-[50px] group-hover:overflow-y-auto group-hover:max-h-[200px] transition-all duration-300 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800'>
+          <p className=' dark:text-white text-black text-sm mb-3 text-justify overflow-hidden md:max-h-[35px] sm:max-h-[50px] group-hover:overflow-y-auto group-hover:max-h-[200px] transition-all duration-300 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800'>
             {description}
           </p>
           <div className='flex flex-wrap gap-2'>
             {tags?.map((tag, index) => (
               <span
                 key={index}
-                className='bg-gray-700 text-white text-sm px-2 py-1 rounded'
+                className='dark:bg-gray-500 bg-gray-500  text-white text-sm px-2 py-1 rounded-sm'
               >
                 {tag}
               </span>

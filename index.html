@@ -11,23 +11,66 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+    <meta
+      name="title"
+      content="Reanz Arthur A. Monera — Portfolio"
+    />
+    <meta
+      name="description"
+      content="A modern and interactive portfolio showcasing web development projects, certifications, and GitHub activity. Built with React, Tailwind, and Vite."
+    />
+
+    <meta
+      property="og:type"
+      content="website"
+    />
+    <meta
+      property="og:title"
+      content="Reanz Arthur A. Monera — Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Explore my projects, certifications, and development journey. Modern UI with dynamic animations and charts."
+    />
+    <meta
+      property="og:image"
+      content="/assets/pageImg/site-img.png"
+    />
+    <meta
+      property="og:url"
+      content="https://your-domain-here.com"
+    />
+
+    <meta
+      property="twitter:card"
+      content="summary_large_image"
+    />
+    <meta
+      property="twitter:title"
+      content="Reanz Arthur A. Monera — Portfolio"
+    />
+    <meta
+      property="twitter:description"
+      content="Explore my projects, certifications, and interactive portfolio."
+    />
+    <meta
+      property="twitter:image"
+      content="/assets/pageImg/site-img.png"
+    />
+
+    <meta
+      name="keywords"
+      content="Reanz Arthur, Portfolio, Web Developer, React, Tailwind, JavaScript, TypeScript, Projects, GitHub Stats"
+    />
+
+    <meta
+      name="author"
+      content="Reanz Arthur A. Monera"
+    />
+
     <link
       rel="stylesheet"
       href="./src/App.css"
-    />
-    <link
-      rel="preload"
-      href="/assets/pageImg/body.webp"
-      as="image"
-      fetchpriority="high"
-      type="image/webp"
-    />
-    <link
-      rel="preload"
-      href="/assets/pageImg/hero1.webp"
-      as="image"
-      fetchpriority="high"
-      type="image/webp"
     />
     <link
       rel="preload"
@@ -37,11 +80,22 @@
       type="image/webp"
     />
     <title>Reanz Arthur A. Monera</title>
+    <script>
+      (function () {
+        try {
+          const isDark =
+            localStorage.themeIsDark === 'true' ||
+            (!('themeIsDark' in localStorage) &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', isDark);
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body>
     <div
       id="root"
-      class="overflow-x-hidden scroll-smooth"
+      class="overflow-x-hidden scroll-smooth relative"
     ></div>
     <script
       type="module"

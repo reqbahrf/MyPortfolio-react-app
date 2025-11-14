@@ -79,12 +79,12 @@ const GitHubStatSection = () => {
   return (
     <section id='githubStatPin'>
       <div>
-        <h2 className='text-2xl text-center font-bold text-white'>
+        <h2 className='text-2xl text-center font-bold dark:text-white text-black'>
           GitHub Stats
         </h2>
         <div className='flex flex-col items-center justify-center gap-2'>
           <select
-            className='bg-gray-800 text-white p-2 rounded'
+            className='bg-gray-800 text-white p-2 rounded-sm'
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
             disabled={availableYears.length <= 1}
