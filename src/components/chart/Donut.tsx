@@ -1,14 +1,20 @@
 import { Component } from 'react';
 import Chart from 'react-apexcharts';
 import { TopLanguagesProps } from '../../../libs/types/stat';
+import { ChartThemeManager } from '../../utils/chartUtil';
 
 interface props {
   topLanguages: TopLanguagesProps[];
 }
 
 export default class Donut extends Component<props, any> {
+  private chartThemeManager: ChartThemeManager;
+
   constructor(props: props) {
     super(props);
+    this.chartThemeManager = new ChartThemeManager(
+      this.handleThemeChange.bind(this)
+    );
     this.state = {
       series: this.props.topLanguages.map((lang) => lang.percent),
       options: {
@@ -16,7 +22,7 @@ export default class Donut extends Component<props, any> {
           background: 'transparent',
         },
         theme: {
-          mode: 'dark',
+          mode: this.chartThemeManager.getTheme(),
         },
         labels: this.props.topLanguages.map((lang) => lang.name),
         colors: this.props.topLanguages.map((lang) => lang.color),
@@ -42,6 +48,25 @@ export default class Donut extends Component<props, any> {
         },
       },
     };
+  }
+
+  handleThemeChange(theme: 'light' | 'dark') {
+    this.setState({
+      options: {
+        ...this.state.options,
+        theme: {
+          mode: theme,
+        },
+      },
+    });
+  }
+
+  componentDidMount(): void {
+    this.chartThemeManager.setupThemeObserver();
+  }
+
+  componentWillUnmount(): void {
+    this.chartThemeManager.cleanup();
   }
 
   render() {

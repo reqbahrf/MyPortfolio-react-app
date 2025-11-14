@@ -59,7 +59,7 @@ const ProjectSection = () => {
   }, [modal.isOpen]);
   return (
     <section id='Project'>
-      <h2 className='text-2xl text-center font-bold text-white pt-2'>
+      <h2 className='text-2xl text-center font-bold dark:text-white text-black pt-2'>
         Projects
       </h2>
       <div className='flex flex-col items-center justify-center py-10 gap-4 sm:gap-6'>

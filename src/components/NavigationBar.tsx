@@ -7,94 +7,137 @@ import {
   RiFacebookBoxFill,
   RiFigmaFill,
 } from '@remixicon/react';
+import { motion } from 'motion/react';
+import ThemeToggle from './ThemeToggle';
+
+interface NavIconProps {
+  href: string;
+  icon: React.ReactNode;
+  title: string;
+  separator?: boolean;
+  customClass?: string;
+}
+
+const navIcons: NavIconProps[] = [
+  {
+    href: '#Home',
+    icon: <RiHomeLine className='text-xl' />,
+    title: 'Home',
+    customClass: 'px-2',
+    separator: true,
+  },
+  {
+    href: '#Project',
+    icon: <RiFolderLine className=' text-xl' />,
+    title: 'Projects',
+  },
+  {
+    href: '#Certificates',
+    icon: <RiAwardLine className='text-xl' />,
+    title: 'Certificates',
+    separator: true,
+  },
+  {
+    href: 'https://github.com/reqbahrf',
+    icon: (
+      <RiGithubFill
+        size={25}
+        className=' text-xl'
+      />
+    ),
+    title: 'Github',
+  },
+  {
+    href: 'https://www.linkedin.com/in/reanz-arthur-monera-b20b89350',
+    icon: (
+      <RiLinkedinBoxFill
+        size={25}
+        className=' text-xl'
+      />
+    ),
+    title: 'Linkedin',
+  },
+  {
+    href: 'https://www.figma.com/@reanzarthuramon',
+    icon: (
+      <RiFigmaFill
+        size={25}
+        className=' text-xl'
+      />
+    ),
+    title: 'Figma',
+  },
+  {
+    href: 'https://www.facebook.com/reanz.arthur.antone.monera/',
+    icon: (
+      <RiFacebookBoxFill
+        size={25}
+        className=' text-xl'
+      />
+    ),
+    title: 'Facebook',
+    separator: true,
+  },
+];
+
+const NavIcon: React.FC<NavIconProps> = ({
+  href,
+  icon,
+  title,
+  customClass,
+  separator,
+}) => {
+  return (
+    <>
+      <motion.a
+        href={href}
+        className={`relative group text-gray-800 dark:text-white flex items-center justify-center rounded-full hover:text-pink-700 ${customClass} hover:shadow-lg hover:shadow-pink-700/50`}
+        whileHover={{
+          scale: 1.25,
+          marginRight: '0.2rem',
+          marginLeft: '0.2rem',
+          marginBottom: '0.5rem',
+          transition: {
+            type: 'spring',
+            stiffness: 400,
+            damping: 10,
+            duration: 0.9,
+          },
+        }}
+      >
+        {icon}
+        <span className='nav-bar-text'>{title}</span>
+      </motion.a>
+      {separator && (
+        <div className='border-r-zinc-950 dark:border-r-zinc-500 border-r -ms-1'></div>
+      )}
+    </>
+  );
+};
 
 const NavigationBar = () => {
   return (
     <div className='fixed flex justify-center items-center bottom-2 left-0 right-0 z-50'>
-      <div className='bg-white/80 backdrop-blur-lg w-auto rounded-full h-10'>
-        <nav
+      <div className='bg-white/80 dark:bg-black/80 backdrop-blur-lg w-auto rounded-full h-10'>
+        <motion.nav
           id='nav-links'
-          className='flex justify-center gap-1 hover:gap-2 sm:gap-3 sm:hover:gap-4 md:hover:gap-5 h-full transition-all ease-in-out duration-300'
+          className='flex justify-center gap-2 h-full'
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
         >
-          <a
-            href='#Home'
-            className='relative group ps-2 py-2 text-gray-800 flex items-center justify-center hover:scale-125 transition-all ease-in-out duration-300 hover:px-6 hover:rounded-full hover:bg-pink-700 hover:text-white'
-            title='Home'
-          >
-            <RiHomeLine className='text-xl' />
-            <span className='nav-bar-text'>Home</span>
-          </a>
-          <div className='border-r-zinc-950 border-r -ms-2'></div>
-          <a
-            href='#Project'
-            className='relative group px-1 py-2 text-gray-800 flex items-center justify-center hover:scale-125 transition-all ease-in-out duration-300 hover:px-4 hover:rounded-full hover:bg-pink-700 hover:text-white'
-            title='Projects'
-          >
-            <RiFolderLine className=' text-xl' />
-            <span className='nav-bar-text'>Projects</span>
-          </a>
-          <a
-            href='#Certificates'
-            className='relative group px-1 py-2 text-gray-800 flex items-center justify-center hover:scale-125 transition-all ease-in-out duration-300 hover:px-4 hover:rounded-full hover:bg-pink-700 hover:text-white'
-            title='Certificates'
-          >
-            <RiAwardLine className='text-xl' />
-            <span className='nav-bar-text'>Certificates</span>
-          </a>
-          <div className='border-r-zinc-950 border-r -me-2'></div>
-          <a
-            href='https://github.com/reqbahrf'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='relative group ps-1 py-2 text-gray-800 flex items-center justify-center hover:scale-125 transition-all ease-in-out duration-300 hover:px-4 hover:rounded-full hover:bg-pink-700 hover:text-white'
-            title='Github'
-          >
-            <RiGithubFill
-              size={25}
-              className=' text-xl'
+          {navIcons.map((icon, index) => (
+            <NavIcon
+              key={index}
+              href={icon.href}
+              icon={icon.icon}
+              title={icon.title}
+              customClass={icon.customClass}
+              separator={icon.separator}
             />
-            <span className='nav-bar-text'>Github</span>
-          </a>
-          <a
-            href='https://www.linkedin.com/in/reanz-arthur-monera-b20b89350'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='relative group py-2 px-1 text-gray-800 flex items-center justify-center hover:scale-125 transition-all ease-in-out duration-300 hover:px-4 hover:rounded-full hover:bg-pink-700 hover:text-white'
-            title='Linkedin'
-          >
-            <RiLinkedinBoxFill
-              size={25}
-              className=' text-xl'
-            />
-            <span className='nav-bar-text'>Linkedin</span>
-          </a>
-          <a
-            href='https://www.figma.com/@reanzarthuramon'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='relative group py-2 px-1 text-gray-800 flex items-center justify-center hover:scale-125 transition-all ease-in-out duration-300 hover:px-4 hover:rounded-full hover:bg-pink-700 hover:text-white'
-            title='Figma'
-          >
-            <RiFigmaFill
-              size={25}
-              className=' text-xl'
-            />
-            <span className='nav-bar-text'>Figma</span>
-          </a>
-          <a
-            href='https://www.facebook.com/reanz.arthur.antone.monera/'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='relative group py-2 pe-2 text-gray-800 flex items-center justify-center hover:scale-125 transition-all ease-in-out duration-300 hover:px-4 hover:rounded-full hover:bg-pink-700 hover:text-white'
-            title='Facebook'
-          >
-            <RiFacebookBoxFill
-              size={25}
-              className=' text-xl'
-            />
-            <span className='nav-bar-text'>Facebook</span>
-          </a>
-        </nav>
+          ))}
+          <ThemeToggle />
+        </motion.nav>
       </div>
     </div>
   );
