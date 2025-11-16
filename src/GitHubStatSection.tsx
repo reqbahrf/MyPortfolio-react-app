@@ -1,7 +1,9 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, lazy, Suspense } from 'react';
 import { StatLocalState } from '../libs/types/stat';
-import HeatMap from '../src/components/chart/Heatmap';
-import Donut from '../src/components/chart/Donut';
+import HeatMapSkeleton from './components/skeleton/chart/HeatMap';
+import DonutSkeleton from './components/skeleton/chart/Donut';
+const HeatMap = lazy(() => import('../src/components/chart/Heatmap'));
+const Donut = lazy(() => import('../src/components/chart/Donut'));
 import GitHubStatLoading from './components/GitHubStatLoading';
 import { useThemeContext } from './context/ThemeContext';
 const GitHubStatSection = () => {
@@ -65,10 +67,10 @@ const GitHubStatSection = () => {
     return (
       <div className='flex justify-center items-center h-96'>
         <div className='text-center'>
-          <h2 className='text-2xl text-center font-bold text-white mb-2'>
+          <h2 className='text-2xl text-center font-bold text-black dark:text-white mb-2'>
             No Data Available
           </h2>
-          <p className='text-xl text-white'>
+          <p className='text-xl text-black dark:text-white'>
             Unable to fetch GitHub statistics. The GitHub API provider might be
             temporarily unavailable.
           </p>
@@ -100,15 +102,19 @@ const GitHubStatSection = () => {
               </option>
             ))}
           </select>
-          <HeatMap
-            contributions={filteredContributions}
-            theme={isDarkTheme ? 'dark' : 'light'}
-          />
-          <Donut
-            topLanguages={topLanguages}
-            theme={isDarkTheme ? 'dark' : 'light'}
-          />
-          <p className='text-xs text-gray-400'>
+          <Suspense fallback={<HeatMapSkeleton />}>
+            <HeatMap
+              contributions={filteredContributions}
+              theme={isDarkTheme ? 'dark' : 'light'}
+            />
+          </Suspense>
+          <Suspense fallback={<DonutSkeleton />}>
+            <Donut
+              topLanguages={topLanguages}
+              theme={isDarkTheme ? 'dark' : 'light'}
+            />
+          </Suspense>
+          <p className='text-xs text-gray-400 dark:text-gray-800'>
             Note: Data provided by GitHub API. retrieved using{' '}
             <a
               href='https://docs.github.com/en/graphql'
