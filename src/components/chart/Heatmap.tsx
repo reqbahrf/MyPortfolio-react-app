@@ -136,20 +136,21 @@ export default class HeatMap extends Component<ContributionsProps, any> {
 
   render() {
     return (
-      <div className='w-full flex items-center justify-center'>
-        <div className='w-[95dvw] sm:w-[85dvw] md:w-[70dvw] lg:w-[60dvw]'>
-          {this.isLoading ? (
-            <HeatMapSkeleton />
-          ) : (
-            <Chart
-              options={this.state.options}
-              series={this.state.series}
-              type='heatmap'
-              width='100%'
-            />
-          )}
-        </div>
+      // <div className='w-full flex items-center justify-center'>
+      <div className='w-[95dvw] sm:w-[85dvw] md:w-[70dvw] lg:w-[60dvw]'>
+        {this.isLoading ? (
+          <HeatMapSkeleton />
+        ) : (
+          <Chart
+            options={this.state.options}
+            series={this.state.series}
+            type='heatmap'
+            width='100%'
+            minHeight={500}
+          />
+        )}
       </div>
+      // </div>
     );
   }
 }
