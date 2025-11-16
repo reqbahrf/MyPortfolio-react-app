@@ -95,7 +95,7 @@ export default class HeatMap extends Component<ContributionsProps, any> {
   componentDidMount(): void {
     this.worker = new Worker(
       new URL('../../workers/heatmap.worker', import.meta.url),
-      { type: 'module' }
+      { type: 'module' },
     );
     this.isLoading = true;
     this.worker.onmessage = (e: MessageEvent<HeatmapWorkerOut>) => {
@@ -136,7 +136,6 @@ export default class HeatMap extends Component<ContributionsProps, any> {
 
   render() {
     return (
-      // <div className='w-full flex items-center justify-center'>
       <div className='w-[95dvw] sm:w-[85dvw] md:w-[70dvw] lg:w-[60dvw]'>
         {this.isLoading ? (
           <HeatMapSkeleton />
@@ -150,7 +149,6 @@ export default class HeatMap extends Component<ContributionsProps, any> {
           />
         )}
       </div>
-      // </div>
     );
   }
 }

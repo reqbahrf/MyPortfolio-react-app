@@ -79,7 +79,7 @@ export default function HomeSection() {
               <a
                 href='https://docs.google.com/document/d/17s6o-BsEe8exWWh_qno_6BJzvd8nbuCJ/edit?usp=sharing&ouid=114884687085173552646&rtpof=true&sd=true'
                 target='_blank'
-                className='rounded-full bg-black/50 dark:bg-gray-800 hover:bg-pink-700 text-white font-bold py-2 px-9'
+                className='rounded-full hover:shadow-md hover:dark:shadow-pink-500/50 hover:shadow-black/25 bg-gray-200 dark:bg-gray-800 dark:text-white text-black font-bold py-2 px-9'
               >
                 View CV
               </a>

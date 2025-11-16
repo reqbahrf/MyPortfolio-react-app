@@ -14,8 +14,8 @@ import slide5Figma2 from '/assets/figma-project/2slide5.webp';
 const FigmaModalApp = () => {
   return (
     <>
-      <div className='flex flex-col items-center space-y-5 p-4 w-full px-10 z-10 mainContent'>
-        <div className='z-10 img-content'>
+      <div className='mainContent z-10 flex w-full flex-col items-center space-y-5 p-4 px-10'>
+        <div className='img-content z-10'>
           <div className='img-wrapper'>
             <LazyLoadImage
               effect='blur'
@@ -72,18 +72,18 @@ const FigmaModalApp = () => {
             />
           </div>
           <div className='img-wrapper'>
-            <div className='border border-white rounded-[45px] h-full w-full flex justify-center items-center'>
+            <div className='flex h-full w-full items-center justify-center rounded-[45px] border border-white'>
               <a
                 href='https://www.figma.com/proto/vNXOmiZr1qYqwrhGEvcvDx/CUAMAG-GARCIA-LANGAMON-MONERA?node-id=278-1450&t=iLTkKMWkZ5JL9CKL-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=278%3A1450'
                 target='_blank'
-                className='text-white font-bold text-lg hover:text-pink-700 hover:font-bold'
+                className='text-lg font-bold text-white hover:font-bold hover:text-pink-700'
               >
                 View Prototype
               </a>
             </div>
           </div>
         </div>
-        <div className='z-10 img-content'>
+        <div className='img-content z-10'>
           <div className='img-wrapper'>
             <LazyLoadImage
               effect='blur'
@@ -140,11 +140,11 @@ const FigmaModalApp = () => {
             />
           </div>
           <div className='img-wrapper'>
-            <div className='border border-white rounded-[45px] h-full w-full flex justify-center items-center'>
+            <div className='flex h-full w-full items-center justify-center rounded-[45px] border border-white'>
               <a
                 href='https://www.figma.com/proto/45kjCb71Vs8cQsjf3r7Mlr/MONERA-YU-Figma-Activity-%231?t=d4q8g4KxVsn7wm2u-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=1-648&starting-point-node-id=1%3A648&show-proto-sidebar=1'
                 target='_blank'
-                className='text-white font-bold text-lg hover:text-pink-700 hover:font-bold'
+                className='text-lg font-bold text-white hover:font-bold hover:text-pink-700'
               >
                 View Prototype
               </a>

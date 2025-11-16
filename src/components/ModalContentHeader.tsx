@@ -33,7 +33,7 @@ const ModalContentHeader = ({
   return (
     <>
       <div
-        className='flex flex-col overflow-x-hidden items-center w-screen h-screen'
+        className='flex h-screen w-screen flex-col items-center overflow-x-hidden'
         ref={modalContentRef}
         id='main-content-header'
       >

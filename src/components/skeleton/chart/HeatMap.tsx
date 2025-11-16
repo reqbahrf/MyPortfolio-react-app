@@ -1,6 +1,6 @@
 const HeatMap = () => {
   return (
-    <div className='bg-gray-700 w-[95dvw] sm:w-[85dvw] md:w-[70dvw] lg:w-[60dvw] min-h-[500px] rounded-sm animate-pulse'></div>
+    <div className='min-h-[500px] w-[95dvw] animate-pulse rounded-sm bg-gray-700 sm:w-[85dvw] md:w-[70dvw] lg:w-[60dvw]'></div>
   );
 };
 

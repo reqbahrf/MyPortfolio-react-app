@@ -59,14 +59,14 @@ const ProjectSection = () => {
   }, [modal.isOpen]);
   return (
     <section id='Project'>
-      <h2 className='text-2xl text-center font-bold dark:text-white text-black pt-2'>
+      <h2 className='pt-2 text-center text-2xl font-bold text-black dark:text-white'>
         Projects
       </h2>
-      <div className='flex flex-col items-center justify-center py-10 gap-4 sm:gap-6'>
+      <div className='flex flex-col items-center justify-center gap-4 py-10 sm:gap-6'>
         {rows.map((row, rowIndex) => (
           <div
             key={rowIndex}
-            className='flex flex-col sm:flex-col md:flex-col lg:flex-row items-center justify-center gap-4 sm:gap-6'
+            className='flex flex-col items-center justify-center gap-4 sm:flex-col sm:gap-6 md:flex-col lg:flex-row'
           >
             {row.map((project) => (
               <ProjectCard

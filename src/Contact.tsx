@@ -2,22 +2,19 @@ const Contact = () => {
   return (
     <section
       id='Contact'
-      className='flex flex-col justify-center items-center w-full mb-20'
+      className='mb-20 flex w-full flex-col items-center justify-center'
     >
-      <h2 className='text-2xl font-bold text-center xl:text-start dark:text-white text-black'>
+      <h2 className='text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
         Contact
       </h2>
-      <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18 dark:text-white text-black'>
-        <h3 className='text-xl font-bold text-center dark:text-white text-black'>
+      <div className='m-5 w-[95dvw] text-black md:m-12 lg:m-18 lg:w-1/2 dark:text-white'>
+        <h3 className='text-center text-xl font-bold text-black dark:text-white'>
           Let's Connect
         </h3>
-        <p className='text-center indent-8 text-sm md:text-md dark:text-white text-black'>
+        <p className='md:text-md text-center indent-8 text-sm text-black dark:text-white'>
           Got a project, question, or idea you'd like to share? Drop me a
           message at
-          <a
-            href='mailto:reqbahrf@gmail.com'
-            className='text-pink-700 '
-          >
+          <a href='mailto:reqbahrf@gmail.com' className='text-pink-700'>
             {' '}
             reqbahrf@gmail.com{' '}
           </a>

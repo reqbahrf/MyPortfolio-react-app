@@ -14,19 +14,19 @@ import dostStaff3 from '/assets/dost-setup-system/Staff3.webp';
 const DostSetupSystemProject = () => {
   return (
     <>
-      <div className='flex flex-col space-y-5 p-4 w-full px-10 mainContent'>
-        <div className='flex flex-col items-center py-40 h-auto space-y-10'>
-          <p className='text-black dark:text-white text-center text-lg mb-4 sm:w-full md:w-3/4'>
+      <div className='mainContent flex w-full flex-col space-y-5 p-4 px-10'>
+        <div className='flex h-auto flex-col items-center space-y-10 py-40'>
+          <p className='mb-4 text-center text-lg text-black sm:w-full md:w-3/4 dark:text-white'>
             The SETUP Management System is a web-based platform designed for the
             DOST (Department of Science and Technology) Small Enterprise
             Technology Upgrading Program (SETUP) in Davao del Norte,
             Philippines. This system streamlines the process of managing funding
             assistance for small enterprises.
           </p>
-          <p className='text-black dark:text-white text-center text-lg mb-4'>
+          <p className='mb-4 text-center text-lg text-black dark:text-white'>
             Key functionalities include:
           </p>
-          <ul className='text-black dark:text-white text-lg text-left space-y-2 sm:w-full md:w-3/4'>
+          <ul className='space-y-2 text-left text-lg text-black sm:w-full md:w-3/4 dark:text-white'>
             <li>
               <strong>Applicant Management:</strong> Allows applicants to submit
               their SETUP applications and upload all necessary personal and
@@ -63,7 +63,7 @@ const DostSetupSystemProject = () => {
                 style: { transitionDelay: '0.3s' },
               }}
               src={dostIndex}
-              className='w-4/5 sm:w-1/2 md:w-1/2 mx-auto'
+              className='mx-auto w-4/5 sm:w-1/2 md:w-1/2'
               alt='DOST SETUP System - Index Page'
             />
           </div>
@@ -75,7 +75,7 @@ const DostSetupSystemProject = () => {
                 style: { transitionDelay: '0.3s' },
               }}
               src={dostAdmin1_1}
-              className='w-4/5 sm:w-1/2 md:w-1/2 mx-auto'
+              className='mx-auto w-4/5 sm:w-1/2 md:w-1/2'
               alt='DOST SETUP System - Admin Page 1.1'
             />
           </div>
@@ -87,7 +87,7 @@ const DostSetupSystemProject = () => {
                 style: { transitionDelay: '0.3s' },
               }}
               src={dostAdmin1_2}
-              className='w-4/5 sm:w-1/2 md:w-1/2 mx-auto'
+              className='mx-auto w-4/5 sm:w-1/2 md:w-1/2'
               alt='DOST SETUP System - Admin Page 1.2'
             />
           </div>
@@ -99,7 +99,7 @@ const DostSetupSystemProject = () => {
                 style: { transitionDelay: '0.3s' },
               }}
               src={dostAppli1}
-              className='w-4/5 sm:w-1/2 md:w-1/2 mx-auto'
+              className='mx-auto w-4/5 sm:w-1/2 md:w-1/2'
               alt='DOST SETUP System - Application Page 1'
             />
           </div>
@@ -111,7 +111,7 @@ const DostSetupSystemProject = () => {
                 style: { transitionDelay: '0.3s' },
               }}
               src={dostApplicationForm1}
-              className='w-4/5 sm:w-1/2 md:w-1/2 mx-auto'
+              className='mx-auto w-4/5 sm:w-1/2 md:w-1/2'
               alt='DOST SETUP System - Application Form 1'
             />
           </div>
@@ -123,7 +123,7 @@ const DostSetupSystemProject = () => {
                 style: { transitionDelay: '0.3s' },
               }}
               src={dostApplicationForm1_1}
-              className='w-4/5 sm:w-1/2 md:w-1/2 mx-auto'
+              className='mx-auto w-4/5 sm:w-1/2 md:w-1/2'
               alt='DOST SETUP System - Application Form 1.1'
             />
           </div>
@@ -135,7 +135,7 @@ const DostSetupSystemProject = () => {
                 style: { transitionDelay: '0.3s' },
               }}
               src={dostCoop1}
-              className='w-4/5 sm:w-1/2 md:w-1/2 mx-auto'
+              className='mx-auto w-4/5 sm:w-1/2 md:w-1/2'
               alt='DOST SETUP System - Coop Page 1'
             />
           </div>
@@ -147,7 +147,7 @@ const DostSetupSystemProject = () => {
                 style: { transitionDelay: '0.3s' },
               }}
               src={dostCoop2}
-              className='w-4/5 sm:w-1/2 md:w-1/2 mx-auto'
+              className='mx-auto w-4/5 sm:w-1/2 md:w-1/2'
               alt='DOST SETUP System - Coop Page 2'
             />
           </div>
@@ -159,7 +159,7 @@ const DostSetupSystemProject = () => {
                 style: { transitionDelay: '0.3s' },
               }}
               src={dostStaff1}
-              className='w-4/5 sm:w-1/2 md:w-1/2 mx-auto'
+              className='mx-auto w-4/5 sm:w-1/2 md:w-1/2'
               alt='DOST SETUP System - Staff Page 1'
             />
           </div>
@@ -171,7 +171,7 @@ const DostSetupSystemProject = () => {
                 style: { transitionDelay: '0.3s' },
               }}
               src={dostStaff3}
-              className='w-4/5 sm:w-1/2 md:w-1/2 mx-auto'
+              className='mx-auto w-4/5 sm:w-1/2 md:w-1/2'
               alt='DOST SETUP System - Staff Page 3'
             />
           </div>

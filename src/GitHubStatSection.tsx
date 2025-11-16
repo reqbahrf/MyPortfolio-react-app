@@ -88,6 +88,8 @@ const GitHubStatSection = () => {
         </h2>
         <div className='flex flex-col items-center justify-center gap-2'>
           <select
+            id='yearSelector'
+            title='Year Selector'
             className='bg-gray-800 text-white p-2 rounded-sm'
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
