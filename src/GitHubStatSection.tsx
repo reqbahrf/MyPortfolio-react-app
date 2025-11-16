@@ -78,7 +78,6 @@ const GitHubStatSection = () => {
   }
 
   const topLanguages = stat?.topLanguages;
-  console.log('isDarkTheme: ', isDarkTheme);
   return (
     <section id='githubStatPin'>
       <div>
