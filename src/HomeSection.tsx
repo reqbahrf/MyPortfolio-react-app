@@ -110,10 +110,10 @@ export default function HomeSection() {
             developer.
           </div>
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white mb-3'>
           Work Experience
         </h2>
-        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+        <div className='w-[95dvw] lg:w-1/2 mb-5 md:mb-12 lg:mb-18'>
           <InfoCard
             title='DOST PSTO davao del norte'
             subtitle='OJT Student | Full Stack Laravel Developer'
@@ -122,10 +122,10 @@ export default function HomeSection() {
             link='https://www.facebook.com/share/p/1H1CjfWftn/'
           />
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white mb-3'>
           Education
         </h2>
-        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+        <div className='w-[95dvw] lg:w-1/2 mb-5 md:mb-12 lg:mb-18'>
           <InfoCard
             title='Davao del Norte State College'
             subtitle='Bachelor of Science in Information System'
@@ -134,10 +134,10 @@ export default function HomeSection() {
             link='https://www.davadelnorte.edu.ph/'
           />
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white mb-3'>
           Skills
         </h2>
-        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+        <div className='w-[95dvw] lg:w-1/2 mb-5 md:mb-12 lg:mb-18'>
           <div className='flex flex-wrap justify-center gap-2'>
             {skills.skills.map((skill) => (
               <PillTag
