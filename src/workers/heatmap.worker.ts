@@ -16,27 +16,23 @@ const MONTHS = [
   'Oct',
   'Nov',
   'Dec',
-];
+] as const;
 const DAYS_IN_MONTH = 31;
 const dayCategories = Array.from({ length: DAYS_IN_MONTH }, (_, i) =>
-  (i + 1).toString()
+  (i + 1).toString(),
 );
 self.onmessage = (e: MessageEvent<HeatmapWorkerIn['contributions']>) => {
   const contributions = e.data;
 
-  const contributionsByMonth = contributions.reduce<
-    Record<number, Record<number, number>>
-  >((acc, day) => {
-    const date = new Date(day.date);
+  const contributionsByMonth: Record<number, Record<number, number>> = {};
+
+  for (const item of contributions) {
+    const date = new Date(item.date);
     const month = date.getMonth();
     const dayOfMonth = date.getDate();
 
-    if (!acc[month]) {
-      acc[month] = {};
-    }
-    acc[month][dayOfMonth] = day.contributionCount;
-    return acc;
-  }, {});
+    (contributionsByMonth[month] ??= {})[dayOfMonth] = item.contributionCount;
+  }
 
   const series = MONTHS.map((monthName, monthIndex) => {
     const monthData = contributionsByMonth[monthIndex] || {};
