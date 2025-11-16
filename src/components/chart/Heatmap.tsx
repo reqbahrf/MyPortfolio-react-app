@@ -2,12 +2,14 @@ import type { ContributionsProps } from '../../../libs/types/stat';
 import { Component } from 'react';
 import Chart from 'react-apexcharts';
 import type { HeatmapWorkerOut } from '../../../libs/types/HeatmapWorker.types';
-
+import HeatMapSkeleton from '../../components/skeleton/chart/HeatMap';
 export default class HeatMap extends Component<ContributionsProps, any> {
   private worker: Worker | null;
+  private isLoading: boolean;
   constructor(props: ContributionsProps) {
     super(props);
     this.worker = null;
+    this.isLoading = true;
     this.state = {
       series: [],
       options: {
@@ -95,6 +97,7 @@ export default class HeatMap extends Component<ContributionsProps, any> {
       new URL('../../workers/heatmap.worker', import.meta.url),
       { type: 'module' }
     );
+    this.isLoading = true;
     this.worker.onmessage = (e: MessageEvent<HeatmapWorkerOut>) => {
       this.setState({
         series: e.data.series,
@@ -109,6 +112,7 @@ export default class HeatMap extends Component<ContributionsProps, any> {
           },
         },
       });
+      this.isLoading = false;
     };
     this.worker.postMessage(this.props.contributions);
   }
@@ -119,6 +123,7 @@ export default class HeatMap extends Component<ContributionsProps, any> {
       prevProps.theme !== this.props.theme
     ) {
       if (!this.worker) return;
+      this.isLoading = true;
       this.worker.postMessage(this.props.contributions);
     }
   }
@@ -133,12 +138,16 @@ export default class HeatMap extends Component<ContributionsProps, any> {
     return (
       <div className='w-full flex items-center justify-center'>
         <div className='w-[95dvw] sm:w-[85dvw] md:w-[70dvw] lg:w-[60dvw]'>
-          <Chart
-            options={this.state.options}
-            series={this.state.series}
-            type='heatmap'
-            width='100%'
-          />
+          {this.isLoading ? (
+            <HeatMapSkeleton />
+          ) : (
+            <Chart
+              options={this.state.options}
+              series={this.state.series}
+              type='heatmap'
+              width='100%'
+            />
+          )}
         </div>
       </div>
     );
