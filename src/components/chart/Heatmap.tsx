@@ -1,13 +1,17 @@
 import type { ContributionsProps } from '../../../libs/types/stat';
 import { Component } from 'react';
 import Chart from 'react-apexcharts';
-
+import type { HeatmapWorkerOut } from '../../../libs/types/HeatmapWorker.types';
+import HeatMapSkeleton from '../../components/skeleton/chart/HeatMap';
 export default class HeatMap extends Component<ContributionsProps, any> {
+  private worker: Worker | null;
+  private isLoading: boolean;
   constructor(props: ContributionsProps) {
     super(props);
-    const { series, dayCategories } = HeatMap.getHeatMapSeries(props);
+    this.worker = null;
+    this.isLoading = true;
     this.state = {
-      series: series,
+      series: [],
       options: {
         chart: {
           type: 'heatmap',
@@ -35,7 +39,7 @@ export default class HeatMap extends Component<ContributionsProps, any> {
         ],
         xaxis: {
           type: 'category',
-          categories: dayCategories,
+          categories: [],
           labels: {
             show: true,
             rotate: -90,
@@ -88,64 +92,15 @@ export default class HeatMap extends Component<ContributionsProps, any> {
     };
   }
 
-  static getHeatMapSeries(props: ContributionsProps) {
-    const MONTHS = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
-    const DAYS_IN_MONTH = 31;
-    const dayCategories = Array.from({ length: DAYS_IN_MONTH }, (_, i) =>
-      (i + 1).toString()
+  componentDidMount(): void {
+    this.worker = new Worker(
+      new URL('../../workers/heatmap.worker', import.meta.url),
+      { type: 'module' }
     );
-
-    const contributionsByMonth = props.contributions.reduce<
-      Record<number, Record<number, number>>
-    >((acc, day) => {
-      const date = new Date(day.date);
-      const month = date.getMonth();
-      const dayOfMonth = date.getDate();
-
-      if (!acc[month]) {
-        acc[month] = {};
-      }
-      acc[month][dayOfMonth] = day.contributionCount;
-      return acc;
-    }, {});
-
-    const series = MONTHS.map((monthName, monthIndex) => {
-      const monthData = contributionsByMonth[monthIndex] || {};
-      const data = dayCategories.map((day) => ({
-        x: day,
-        y: monthData[parseInt(day)] || 0,
-      }));
-
-      return {
-        name: monthName,
-        data: data,
-      };
-    }).reverse();
-
-    return { series, dayCategories };
-  }
-
-  componentDidUpdate(prevProps: ContributionsProps) {
-    if (
-      prevProps.contributions !== this.props.contributions ||
-      prevProps.theme !== this.props.theme
-    ) {
-      const { series, dayCategories } = HeatMap.getHeatMapSeries(this.props);
+    this.isLoading = true;
+    this.worker.onmessage = (e: MessageEvent<HeatmapWorkerOut>) => {
       this.setState({
-        series: series,
+        series: e.data.series,
         options: {
           ...this.state.options,
           theme: {
@@ -153,10 +108,29 @@ export default class HeatMap extends Component<ContributionsProps, any> {
           },
           xaxis: {
             ...this.state.options.xaxis,
-            categories: dayCategories,
+            categories: e.data.dayCategories,
           },
         },
       });
+      this.isLoading = false;
+    };
+    this.worker.postMessage(this.props.contributions);
+  }
+
+  componentDidUpdate(prevProps: ContributionsProps) {
+    if (
+      prevProps.contributions !== this.props.contributions ||
+      prevProps.theme !== this.props.theme
+    ) {
+      if (!this.worker) return;
+      this.isLoading = true;
+      this.worker.postMessage(this.props.contributions);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.worker) {
+      this.worker.terminate();
     }
   }
 
@@ -164,12 +138,16 @@ export default class HeatMap extends Component<ContributionsProps, any> {
     return (
       <div className='w-full flex items-center justify-center'>
         <div className='w-[95dvw] sm:w-[85dvw] md:w-[70dvw] lg:w-[60dvw]'>
-          <Chart
-            options={this.state.options}
-            series={this.state.series}
-            type='heatmap'
-            width='100%'
-          />
+          {this.isLoading ? (
+            <HeatMapSkeleton />
+          ) : (
+            <Chart
+              options={this.state.options}
+              series={this.state.series}
+              type='heatmap'
+              width='100%'
+            />
+          )}
         </div>
       </div>
     );

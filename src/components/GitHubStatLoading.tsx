@@ -1,3 +1,5 @@
+import HeatMap from '../components/skeleton/chart/HeatMap';
+import Donut from '../components/skeleton/chart/Donut';
 const GitHubStatLoading = () => {
   return (
     <section id='githubStatPin'>
@@ -9,9 +11,9 @@ const GitHubStatLoading = () => {
           {/* Year Selector Skeleton */}
           <div className='bg-gray-700 h-10 w-24 rounded-sm animate-pulse'></div>
           {/* Heatmap Skeleton */}
-          <div className='bg-gray-700 h-40 w-full max-w-4xl rounded-sm animate-pulse mt-4'></div>
+          <HeatMap />
           {/* Donut Chart Skeleton */}
-          <div className='bg-gray-700 h-64 w-64 rounded-full animate-pulse mt-4'></div>
+          <Donut />
         </div>
       </div>
     </section>

@@ -1,15 +1,17 @@
 import { Component } from 'react';
 import Chart from 'react-apexcharts';
 import { TopLanguagesProps } from '../../../libs/types/stat';
-
+import DonutSkeleton from '../skeleton/chart/Donut';
 interface props {
   topLanguages: TopLanguagesProps[];
   theme: 'light' | 'dark';
 }
 
 export default class Donut extends Component<props, any> {
+  private isLoading: boolean;
   constructor(props: props) {
     super(props);
+    this.isLoading = true;
     this.state = {
       series: this.props.topLanguages.map((lang) => lang.percent),
       options: {
@@ -44,35 +46,48 @@ export default class Donut extends Component<props, any> {
     };
   }
 
+  componentDidMount(): void {
+    this.isLoading = true;
+    this.setState({ ...this.state });
+    this.isLoading = false;
+  }
+
   componentDidUpdate(prevProps: props) {
     if (
       prevProps.topLanguages !== this.props.topLanguages ||
       prevProps.theme !== this.props.theme
     ) {
-      console.log('Donut componentDidUpdate', this.props.theme);
+      this.isLoading = true;
       this.setState({
-        series: this.props.topLanguages.map((lang) => lang.percent),
+        series: this.state.series,
         options: {
           ...this.state.options,
           theme: {
             mode: this.props.theme,
           },
-          labels: this.props.topLanguages.map((lang) => lang.name),
-          colors: this.props.topLanguages.map((lang) => lang.color),
+          labels: this.state.options.labels,
+          colors: this.state.options.colors,
         },
       });
+      this.isLoading = false;
     }
   }
 
   render() {
     return (
-      <Chart
-        options={this.state.options}
-        series={this.state.series}
-        type='donut'
-        height='400'
-        width='600'
-      />
+      <>
+        {this.isLoading ? (
+          <DonutSkeleton />
+        ) : (
+          <Chart
+            options={this.state.options}
+            series={this.state.series}
+            type='donut'
+            height='400'
+            width='600'
+          />
+        )}
+      </>
     );
   }
 }
