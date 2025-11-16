@@ -1,20 +1,17 @@
 import { Component } from 'react';
 import Chart from 'react-apexcharts';
 import { TopLanguagesProps } from '../../../libs/types/stat';
-import { ChartThemeManager } from '../../utils/chartUtil';
-
+import DonutSkeleton from '../skeleton/chart/Donut';
 interface props {
   topLanguages: TopLanguagesProps[];
+  theme: 'light' | 'dark';
 }
 
 export default class Donut extends Component<props, any> {
-  private chartThemeManager: ChartThemeManager;
-
+  private isLoading: boolean;
   constructor(props: props) {
     super(props);
-    this.chartThemeManager = new ChartThemeManager(
-      this.handleThemeChange.bind(this)
-    );
+    this.isLoading = true;
     this.state = {
       series: this.props.topLanguages.map((lang) => lang.percent),
       options: {
@@ -22,7 +19,7 @@ export default class Donut extends Component<props, any> {
           background: 'transparent',
         },
         theme: {
-          mode: this.chartThemeManager.getTheme(),
+          mode: this.props.theme,
         },
         labels: this.props.topLanguages.map((lang) => lang.name),
         colors: this.props.topLanguages.map((lang) => lang.color),
@@ -43,41 +40,54 @@ export default class Donut extends Component<props, any> {
           align: 'center',
           style: {
             fontSize: '15px',
-            color: '#ffffff',
           },
         },
       },
     };
   }
 
-  handleThemeChange(theme: 'light' | 'dark') {
-    this.setState({
-      options: {
-        ...this.state.options,
-        theme: {
-          mode: theme,
-        },
-      },
-    });
-  }
-
   componentDidMount(): void {
-    this.chartThemeManager.setupThemeObserver();
+    this.isLoading = true;
+    this.setState({ ...this.state });
+    this.isLoading = false;
   }
 
-  componentWillUnmount(): void {
-    this.chartThemeManager.cleanup();
+  componentDidUpdate(prevProps: props) {
+    if (
+      prevProps.topLanguages !== this.props.topLanguages ||
+      prevProps.theme !== this.props.theme
+    ) {
+      this.isLoading = true;
+      this.setState({
+        series: this.state.series,
+        options: {
+          ...this.state.options,
+          theme: {
+            mode: this.props.theme,
+          },
+          labels: this.state.options.labels,
+          colors: this.state.options.colors,
+        },
+      });
+      this.isLoading = false;
+    }
   }
 
   render() {
     return (
-      <Chart
-        options={this.state.options}
-        series={this.state.series}
-        type='donut'
-        height='400'
-        width='600'
-      />
+      <>
+        {this.isLoading ? (
+          <DonutSkeleton />
+        ) : (
+          <Chart
+            options={this.state.options}
+            series={this.state.series}
+            type='donut'
+            height='400'
+            width='600'
+          />
+        )}
+      </>
     );
   }
 }

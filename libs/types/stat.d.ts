@@ -55,6 +55,7 @@ export interface ContributionDay {
 
 export interface ContributionsProps {
   contributions: ContributionDay[];
+  theme: 'light' | 'dark';
 }
 
 export interface StatEndPointResponse {

@@ -16,6 +16,7 @@ interface NavIconProps {
   title: string;
   separator?: boolean;
   customClass?: string;
+  external?: boolean;
 }
 
 const navIcons: NavIconProps[] = [
@@ -46,6 +47,7 @@ const navIcons: NavIconProps[] = [
       />
     ),
     title: 'Github',
+    external: true,
   },
   {
     href: 'https://www.linkedin.com/in/reanz-arthur-monera-b20b89350',
@@ -56,6 +58,7 @@ const navIcons: NavIconProps[] = [
       />
     ),
     title: 'Linkedin',
+    external: true,
   },
   {
     href: 'https://www.figma.com/@reanzarthuramon',
@@ -66,6 +69,7 @@ const navIcons: NavIconProps[] = [
       />
     ),
     title: 'Figma',
+    external: true,
   },
   {
     href: 'https://www.facebook.com/reanz.arthur.antone.monera/',
@@ -76,9 +80,23 @@ const navIcons: NavIconProps[] = [
       />
     ),
     title: 'Facebook',
+    external: true,
     separator: true,
   },
 ];
+
+const ANIMATION_CONFIG = {
+  scale: 1.25,
+  marginRight: '0.2rem',
+  marginLeft: '0.2rem',
+  marginBottom: '0.5rem',
+  transition: {
+    type: 'spring',
+    stiffness: 400,
+    damping: 10,
+    duration: 0.9,
+  },
+} as const;
 
 const NavIcon: React.FC<NavIconProps> = ({
   href,
@@ -86,23 +104,20 @@ const NavIcon: React.FC<NavIconProps> = ({
   title,
   customClass,
   separator,
+  external = false,
 }) => {
   return (
     <>
       <motion.a
         href={href}
+        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className={`relative group text-gray-800 dark:text-white flex items-center justify-center rounded-full hover:text-pink-700 ${customClass}`}
         whileHover={{
-          scale: 1.25,
-          marginRight: '0.2rem',
-          marginLeft: '0.2rem',
-          marginBottom: '0.5rem',
-          transition: {
-            type: 'spring',
-            stiffness: 400,
-            damping: 10,
-            duration: 0.9,
-          },
+          ...ANIMATION_CONFIG,
+        }}
+        whileTap={{
+          ...ANIMATION_CONFIG,
+          scale: 0.9,
         }}
       >
         {icon}
@@ -129,11 +144,7 @@ const NavigationBar = () => {
           {navIcons.map((icon, index) => (
             <NavIcon
               key={index}
-              href={icon.href}
-              icon={icon.icon}
-              title={icon.title}
-              customClass={icon.customClass}
-              separator={icon.separator}
+              {...icon}
             />
           ))}
           <ThemeToggle />

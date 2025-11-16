@@ -16,17 +16,17 @@ const DostSetupSystemProject = () => {
     <>
       <div className='flex flex-col space-y-5 p-4 w-full px-10 mainContent'>
         <div className='flex flex-col items-center py-40 h-auto space-y-10'>
-          <p className='text-white text-center text-lg mb-4 sm:w-full md:w-3/4'>
+          <p className='text-black dark:text-white text-center text-lg mb-4 sm:w-full md:w-3/4'>
             The SETUP Management System is a web-based platform designed for the
             DOST (Department of Science and Technology) Small Enterprise
             Technology Upgrading Program (SETUP) in Davao del Norte,
             Philippines. This system streamlines the process of managing funding
             assistance for small enterprises.
           </p>
-          <p className='text-white text-center text-lg mb-4'>
+          <p className='text-black dark:text-white text-center text-lg mb-4'>
             Key functionalities include:
           </p>
-          <ul className='text-white text-lg text-left space-y-2 sm:w-full md:w-3/4'>
+          <ul className='text-black dark:text-white text-lg text-left space-y-2 sm:w-full md:w-3/4'>
             <li>
               <strong>Applicant Management:</strong> Allows applicants to submit
               their SETUP applications and upload all necessary personal and

@@ -40,7 +40,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
         ref={ref}
         className='modal show-modal'
       >
-        <div className='modal-content'>
+        <div className='modal-content bg-gray-200 dark:bg-gray-800'>
           <button
             className='close-button'
             onClick={onClose}
