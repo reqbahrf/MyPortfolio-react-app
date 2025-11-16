@@ -1,10 +1,11 @@
-import { StrictMode } from 'react';
+import { StrictMode, lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from './context/ThemeContext';
 import HomeSection from './HomeSection';
 import ProjectSection from './ProjectSection';
 import CertificatesSection from './CertificatesSection';
-import GitHubStatSection from './GitHubStatSection';
+import GitHubStatLoading from './components/GitHubStatLoading';
+const GitHubStatSection = lazy(() => import('./GitHubStatSection'));
 import NavigationBar from './components/NavigationBar';
 import Contact from './Contact';
 
@@ -13,7 +14,9 @@ const App = () => {
     <>
       <ThemeProvider>
         <HomeSection />
-        <GitHubStatSection />
+        <Suspense fallback={<GitHubStatLoading />}>
+          <GitHubStatSection />
+        </Suspense>
         <ProjectSection />
         <CertificatesSection />
         <NavigationBar />

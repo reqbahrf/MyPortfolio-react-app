@@ -26,7 +26,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
       techStack,
       openModal,
     },
-    ref
+    ref,
   ) => {
     const rotateX = useMotionValue(0);
     const rotateY = useMotionValue(0);
@@ -41,7 +41,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
           (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
         }
       },
-      [ref]
+      [ref],
     );
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -78,14 +78,14 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
         }}
         whileHover={{ scale: 1.05, overflow: 'visible' }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className='group flex flex-col w-[95dvw] sm:w-[70dvw] md:w-[40dvw] lg:w-[30dvw] md:h-112 rounded-[20px] dark:bg-gray-900 bg-gray-200 transition-all duration-300 hover:shadow-md relative cursor-pointer overflow-hidden hover:dark:shadow-pink-500/50 hover:shadow-black/25'
+        className='group relative flex w-[95dvw] cursor-pointer flex-col overflow-hidden rounded-[20px] bg-gray-200 transition-all duration-300 hover:shadow-md hover:shadow-black/25 sm:w-[70dvw] md:h-112 md:w-[40dvw] lg:w-[30dvw] dark:bg-gray-900 hover:dark:shadow-pink-500/50'
       >
         <motion.div
-          className='w-full h-48 transition-transform duration-500 transform-3d transform-[translateZ(0px)] group-hover:transform-[translateZ(100px)]'
+          className='h-48 w-full transform-[translateZ(0px)] transition-transform duration-500 transform-3d group-hover:transform-[translateZ(100px)]'
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
           <LazyLoadImage
-            className='w-full h-48 object-cover group-hover:brightness-75 group-hover:object-contain'
+            className='h-48 w-full object-cover group-hover:object-contain group-hover:brightness-75'
             effect='blur'
             threshold={300}
             wrapperProps={{
@@ -95,31 +95,31 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
             alt={title}
           />
         </motion.div>
-        <div className='pt-4 px-2 pb-4'>
-          <div className='font-bold dark:text-white text-black text-xl mb-4 line-clamp-1 group-hover:text-pink-700'>
+        <div className='px-2 pt-4 pb-4'>
+          <div className='mb-4 line-clamp-1 text-xl font-bold text-black group-hover:text-pink-700 dark:text-white'>
             {title}
           </div>
-          <p className=' dark:text-white text-black text-sm mb-3 text-justify overflow-hidden md:max-h-[35px] sm:max-h-[50px] group-hover:overflow-y-auto group-hover:max-h-[200px] transition-all duration-300 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800'>
+          <p className='scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 mb-3 overflow-hidden text-justify text-sm text-black transition-all duration-300 group-hover:max-h-[200px] group-hover:overflow-y-auto sm:max-h-[50px] md:max-h-[35px] dark:text-white'>
             {description}
           </p>
           <div className='flex flex-wrap gap-2'>
             {tags?.map((tag, index) => (
               <span
                 key={index}
-                className='dark:bg-gray-500 bg-gray-500  text-white text-sm px-2 py-1 rounded-sm'
+                className='rounded-sm bg-gray-500 px-2 py-1 text-sm text-white dark:bg-gray-500'
               >
                 {tag}
               </span>
             ))}
           </div>
           {techStack && techStack?.length > 0 && (
-            <div className='text-white text-xs mt-2'>
-              <span className='font-semibold mr-1'>Stack:</span>
-              <div className='flex flex-wrap gap-2 mt-1'>
+            <div className='mt-2 text-xs text-white'>
+              <span className='mr-1 font-semibold'>Stack:</span>
+              <div className='mt-1 flex flex-wrap gap-2'>
                 {techStack.map((tech) => (
                   <span
                     key={tech}
-                    className='bg-pink-700 text-white text-xs p-1 rounded-full cursor-default hover:bg-pink-600 transition'
+                    className='cursor-default rounded-full bg-pink-700 p-1 text-xs text-white transition hover:bg-pink-600'
                   >
                     {tech}
                   </span>
@@ -130,7 +130,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
         </div>
       </motion.div>
     );
-  }
+  },
 );
 
 export default memo(ProjectCard);

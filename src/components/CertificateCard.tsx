@@ -20,7 +20,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
 
   return (
     <motion.div
-      className='group certificate-card w-[95dvw] md:w-[45dvw] h-52 rounded-[20px] shadow-lg dark:bg-gray-900 bg-gray-200 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-md flex flex-row hover:dark:shadow-pink-500/50 hover:shadow-black/25'
+      className='group certificate-card flex h-52 w-[95dvw] flex-row overflow-hidden rounded-[20px] bg-gray-200 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-md hover:shadow-black/25 md:w-[45dvw] dark:bg-gray-900 hover:dark:shadow-pink-500/50'
       style={{
         transformStyle: 'preserve-3d',
         perspective: 1000,
@@ -28,9 +28,9 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
       whileHover={{ scale: 1.005, overflow: 'visible' }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
-      <div className='w-1/2 h-full transition-transform duration-500 transform-3d transform-[translateZ(0px)] group-hover:transform-[translateZ(150px)]'>
+      <div className='h-full w-1/2 transform-[translateZ(0px)] transition-transform duration-500 transform-3d group-hover:transform-[translateZ(150px)]'>
         <LazyLoadImage
-          className='w-full h-full object-cover group-hover:object-contain'
+          className='h-full w-full object-cover group-hover:object-contain'
           effect='blur'
           threshold={300}
           wrapperProps={{
@@ -40,15 +40,15 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
           alt={title}
         />
       </div>
-      <div className='certificate-details w-1/2 p-4 flex flex-col justify-between transition-all duration-300 overflow-y-auto'>
-        <h1 className='font-bold dark:text-white text-black text-xl mb-4 line-clamp-none whitespace-normal md:line-clamp-1 group-hover:text-pink-700 md:group-hover:line-clamp-none md:group-hover:whitespace-normal md:group-hover:overflow-visible'>
+      <div className='certificate-details flex w-1/2 flex-col justify-between overflow-y-auto p-4 transition-all duration-300'>
+        <h1 className='mb-4 line-clamp-none text-xl font-bold whitespace-normal text-black group-hover:text-pink-700 md:line-clamp-1 md:group-hover:line-clamp-none md:group-hover:overflow-visible md:group-hover:whitespace-normal dark:text-white'>
           {title}
         </h1>
-        <p className=' dark:text-white text-black text-sm mb-4 line-clamp-none whitespace-normal md:line-clamp-3 md:group-hover:line-clamp-none md:group-hover:whitespace-normal md:group-hover:overflow-visible overflow-y-auto'>
+        <p className='mb-4 line-clamp-none overflow-y-auto text-sm whitespace-normal text-black md:line-clamp-3 md:group-hover:line-clamp-none md:group-hover:overflow-visible md:group-hover:whitespace-normal dark:text-white'>
           {description}
         </p>
         <button
-          className='text-pink-500 hover:text-pink-700 flex items-center mt-auto'
+          className='mt-auto flex items-center text-pink-500 hover:text-pink-700'
           onClick={handleViewDetailsClick}
         >
           View Certificate

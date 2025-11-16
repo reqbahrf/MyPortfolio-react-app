@@ -11,9 +11,9 @@ import otherPhoto from '/assets/Photo_project/raw_photos/1641457957683.webp';
 const PhotoEditProject = () => {
   return (
     <>
-      <div className='flex flex-col items-center space-y-5 p-4 w-full h-full px-10 z-10 mainContent'>
-        <div className='flex flex-col flex-wrap items-center py-40 space-y-10 z-10'>
-          <div className='flex flex-col relative w-4/5 group mb-8 ring-2 ring-pink-700'>
+      <div className='mainContent z-10 flex h-full w-full flex-col items-center space-y-5 p-4 px-10'>
+        <div className='z-10 flex flex-col flex-wrap items-center space-y-10 py-40'>
+          <div className='group relative mb-8 flex w-4/5 flex-col ring-2 ring-pink-700'>
             <div>
               <LazyLoadImage
                 effect='blur'
@@ -26,8 +26,8 @@ const PhotoEditProject = () => {
                 alt=''
               />
             </div>
-            <div className='flex flex-col flex-wrap items-start justify-center absolute w-full h-full opacity-0 group-hover:opacity-100'>
-              <div className='flex flex-col justify-center items-center flex-wrap w-1/4 p-1 bg-gray-900 h-full'>
+            <div className='absolute flex h-full w-full flex-col flex-wrap items-start justify-center opacity-0 group-hover:opacity-100'>
+              <div className='flex h-full w-1/4 flex-col flex-wrap items-center justify-center bg-gray-900 p-1'>
                 <div className='w-4/6'>
                   <LazyLoadImage
                     effect='blur'
@@ -66,20 +66,20 @@ const PhotoEditProject = () => {
                 </div>
               </div>
               <div className='flex flex-col items-center'>
-                <span className='text-base md:text-5xl text-white text-center font-bold'>
+                <span className='text-center text-base font-bold text-white md:text-5xl'>
                   Raw Images
                 </span>
                 <a
                   href='https://www.behance.net/gallery/134511573/Module-3-L4-Photo-Manipulation%28MONERA-RA%29'
                   target='_blank'
-                  className='text-white text-xs font-semibold hover:text-pink-700 hover:font-bold'
+                  className='text-xs font-semibold text-white hover:font-bold hover:text-pink-700'
                 >
                   Click for Info
                 </a>
               </div>
             </div>
           </div>
-          <div className='flex flex-col justify-center items-center py-4 ring-2 ring-pink-700'>
+          <div className='flex flex-col items-center justify-center py-4 ring-2 ring-pink-700'>
             <div className='w-4/5'>
               <LazyLoadImage
                 effect='blur'
@@ -113,11 +113,11 @@ const PhotoEditProject = () => {
                 alt=''
               />
             </div>
-            <div className='w-4/5 flex justify-center items-center my-10'>
+            <div className='my-10 flex w-4/5 items-center justify-center'>
               <a
                 href='https://www.behance.net/gallery/133686225/module-3-lesson-1-Application-%28MONERA-RA%29'
                 target='_blank'
-                className='flex items-center text-white font-bold space-x-2 hover:text-pink-700'
+                className='flex items-center space-x-2 font-bold text-white hover:text-pink-700'
               >
                 <span>Click for Info</span>
               </a>

@@ -11,8 +11,8 @@ import slide6Java from '/assets/java-project/slide6.webp';
 const POSJavaProject = () => {
   return (
     <>
-      <div className='flex flex-col space-y-5 p-4 w-full px-10 mainContent'>
-        <div className='flex flex-col items-center py-40 h-auto space-y-10'>
+      <div className='mainContent flex w-full flex-col space-y-5 p-4 px-10'>
+        <div className='flex h-auto flex-col items-center space-y-10 py-40'>
           <LazyLoadImage
             effect='blur'
             threshold={300}

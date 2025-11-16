@@ -29,7 +29,7 @@ const navIcons: NavIconProps[] = [
   },
   {
     href: '#Project',
-    icon: <RiFolderLine className=' text-xl' />,
+    icon: <RiFolderLine className='text-xl' />,
     title: 'Projects',
   },
   {
@@ -40,45 +40,25 @@ const navIcons: NavIconProps[] = [
   },
   {
     href: 'https://github.com/reqbahrf',
-    icon: (
-      <RiGithubFill
-        size={25}
-        className=' text-xl'
-      />
-    ),
+    icon: <RiGithubFill size={25} className='text-xl' />,
     title: 'Github',
     external: true,
   },
   {
     href: 'https://www.linkedin.com/in/reanz-arthur-monera-b20b89350',
-    icon: (
-      <RiLinkedinBoxFill
-        size={25}
-        className=' text-xl'
-      />
-    ),
+    icon: <RiLinkedinBoxFill size={25} className='text-xl' />,
     title: 'Linkedin',
     external: true,
   },
   {
     href: 'https://www.figma.com/@reanzarthuramon',
-    icon: (
-      <RiFigmaFill
-        size={25}
-        className=' text-xl'
-      />
-    ),
+    icon: <RiFigmaFill size={25} className='text-xl' />,
     title: 'Figma',
     external: true,
   },
   {
     href: 'https://www.facebook.com/reanz.arthur.antone.monera/',
-    icon: (
-      <RiFacebookBoxFill
-        size={25}
-        className=' text-xl'
-      />
-    ),
+    icon: <RiFacebookBoxFill size={25} className='text-xl' />,
     title: 'Facebook',
     external: true,
     separator: true,
@@ -111,7 +91,7 @@ const NavIcon: React.FC<NavIconProps> = ({
       <motion.a
         href={href}
         {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-        className={`relative group text-gray-800 dark:text-white flex items-center justify-center rounded-full hover:text-pink-700 ${customClass}`}
+        className={`group relative flex items-center justify-center rounded-full text-gray-800 hover:text-pink-700 dark:text-white ${customClass}`}
         whileHover={{
           ...ANIMATION_CONFIG,
         }}
@@ -124,7 +104,7 @@ const NavIcon: React.FC<NavIconProps> = ({
         <span className='nav-bar-text'>{title}</span>
       </motion.a>
       {separator && (
-        <div className='border-r-zinc-950 dark:border-r-zinc-500 border-r -ms-1'></div>
+        <div className='-ms-1 border-r border-r-zinc-950 dark:border-r-zinc-500'></div>
       )}
     </>
   );
@@ -132,20 +112,17 @@ const NavIcon: React.FC<NavIconProps> = ({
 
 const NavigationBar = () => {
   return (
-    <div className='fixed flex justify-center items-center bottom-2 left-0 right-0 z-50'>
-      <div className='bg-gray-200/80 dark:bg-black/70 backdrop-blur-lg w-auto rounded-full h-14 px-2 shadow-xs dark:shadow-pink-500/70 shadow-black/50'>
+    <div className='fixed right-0 bottom-2 left-0 z-50 flex items-center justify-center'>
+      <div className='h-14 w-auto rounded-full bg-gray-200/80 px-2 shadow-xs shadow-black/50 backdrop-blur-lg dark:bg-black/70 dark:shadow-pink-500/70'>
         <motion.nav
           id='nav-links'
-          className='flex justify-center gap-x-2 h-full'
+          className='flex h-full justify-center gap-x-2'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9 }}
         >
           {navIcons.map((icon, index) => (
-            <NavIcon
-              key={index}
-              {...icon}
-            />
+            <NavIcon key={index} {...icon} />
           ))}
           <ThemeToggle />
         </motion.nav>

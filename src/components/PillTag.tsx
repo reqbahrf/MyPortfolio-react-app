@@ -6,7 +6,7 @@ interface PillTagProps {
 
 const PillTag: React.FC<PillTagProps> = ({ tag }) => {
   return (
-    <span className='bg-gray-700 text-white text-sm font-semibold px-2 py-1 rounded-sm dark:bg-gray-200 dark:text-black'>
+    <span className='rounded-sm bg-gray-200 px-2 py-1 text-sm font-semibold text-black dark:bg-gray-800 dark:text-white'>
       {tag}
     </span>
   );

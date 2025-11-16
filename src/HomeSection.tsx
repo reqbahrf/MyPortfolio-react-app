@@ -79,7 +79,7 @@ export default function HomeSection() {
               <a
                 href='https://docs.google.com/document/d/17s6o-BsEe8exWWh_qno_6BJzvd8nbuCJ/edit?usp=sharing&ouid=114884687085173552646&rtpof=true&sd=true'
                 target='_blank'
-                className='rounded-full bg-black/50 dark:bg-gray-800 hover:bg-pink-700 text-white font-bold py-2 px-9'
+                className='rounded-full hover:shadow-md hover:dark:shadow-pink-500/50 hover:shadow-black/25 bg-gray-200 dark:bg-gray-800 dark:text-white text-black font-bold py-2 px-9'
               >
                 View CV
               </a>
@@ -110,10 +110,10 @@ export default function HomeSection() {
             developer.
           </div>
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white mb-3'>
           Work Experience
         </h2>
-        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+        <div className='w-[95dvw] lg:w-1/2 mb-5 md:mb-12 lg:mb-18'>
           <InfoCard
             title='DOST PSTO davao del norte'
             subtitle='OJT Student | Full Stack Laravel Developer'
@@ -122,10 +122,10 @@ export default function HomeSection() {
             link='https://www.facebook.com/share/p/1H1CjfWftn/'
           />
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white mb-3'>
           Education
         </h2>
-        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+        <div className='w-[95dvw] lg:w-1/2 mb-5 md:mb-12 lg:mb-18'>
           <InfoCard
             title='Davao del Norte State College'
             subtitle='Bachelor of Science in Information System'
@@ -134,10 +134,10 @@ export default function HomeSection() {
             link='https://www.davadelnorte.edu.ph/'
           />
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white mb-3'>
           Skills
         </h2>
-        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
+        <div className='w-[95dvw] lg:w-1/2 mb-5 md:mb-12 lg:mb-18'>
           <div className='flex flex-wrap justify-center gap-2'>
             {skills.skills.map((skill) => (
               <PillTag
