@@ -58,7 +58,7 @@ const ProjectSection = () => {
     return () => document.body.classList.remove('no-scroll');
   }, [modal.isOpen]);
   return (
-    <section id='Project'>
+    <section id='Project' className='mb-16'>
       <h2 className='pt-2 text-center text-2xl font-bold text-black dark:text-white'>
         Projects
       </h2>

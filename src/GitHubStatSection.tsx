@@ -16,7 +16,7 @@ const GitHubStatSection = () => {
     setLoading(true);
     const worker = new Worker(
       new URL('./workers/githubStat.worker', import.meta.url),
-      { type: 'module' }
+      { type: 'module' },
     );
     worker.onmessage = (e: MessageEvent) => {
       const { topLanguages, contributions } = e.data as StatLocalState;
@@ -65,9 +65,9 @@ const GitHubStatSection = () => {
 
   if (!stat?.contributions?.weeks || !stat?.topLanguages) {
     return (
-      <div className='flex justify-center items-center h-96'>
+      <div className='flex h-96 items-center justify-center'>
         <div className='text-center'>
-          <h2 className='text-2xl text-center font-bold text-black dark:text-white mb-2'>
+          <h2 className='mb-2 text-center text-2xl font-bold text-black dark:text-white'>
             No Data Available
           </h2>
           <p className='text-xl text-black dark:text-white'>
@@ -81,25 +81,22 @@ const GitHubStatSection = () => {
 
   const topLanguages = stat?.topLanguages;
   return (
-    <section id='githubStatPin'>
+    <section id='githubStatPin' className='mb-16'>
       <div>
-        <h2 className='text-2xl text-center font-bold dark:text-white text-black'>
+        <h2 className='text-center text-2xl font-bold text-black dark:text-white'>
           GitHub Stats
         </h2>
         <div className='flex flex-col items-center justify-center gap-2'>
           <select
             id='yearSelector'
             title='Year Selector'
-            className='bg-gray-800 text-white p-2 rounded-sm'
+            className='rounded-sm bg-gray-800 p-2 text-white'
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
             disabled={availableYears.length <= 1}
           >
             {availableYears.map((year) => (
-              <option
-                key={year}
-                value={year}
-              >
+              <option key={year} value={year}>
                 {year}
               </option>
             ))}
@@ -116,7 +113,7 @@ const GitHubStatSection = () => {
               theme={isDarkTheme ? 'dark' : 'light'}
             />
           </Suspense>
-          <p className='text-xs text-gray-400 dark:text-gray-800'>
+          <p className='text-xs text-gray-500 dark:text-gray-400'>
             Note: Data provided by GitHub API. retrieved using{' '}
             <a
               href='https://docs.github.com/en/graphql'

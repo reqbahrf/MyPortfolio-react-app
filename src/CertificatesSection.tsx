@@ -12,7 +12,7 @@ const CertificatesSection = () => {
   }, [Certificates.certificates]);
 
   return (
-    <section id='Certificates'>
+    <section id='Certificates' className='mb-16'>
       <h2 className='pt-2 text-center text-2xl font-bold text-black dark:text-white'>
         Certificates
       </h2>
