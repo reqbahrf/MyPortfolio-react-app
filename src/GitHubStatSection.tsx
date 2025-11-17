@@ -81,25 +81,22 @@ const GitHubStatSection = () => {
 
   const topLanguages = stat?.topLanguages;
   return (
-    <section id='githubStatPin'>
+    <section id='githubStatPin' className='mb-16'>
       <div>
-        <h2 className='text-2xl text-center font-bold dark:text-white text-black'>
+        <h2 className='text-center text-2xl font-bold text-black dark:text-white'>
           GitHub Stats
         </h2>
         <div className='flex flex-col items-center justify-center gap-2'>
           <select
             id='yearSelector'
             title='Year Selector'
-            className='bg-gray-800 text-white p-2 rounded-sm'
+            className='rounded-sm bg-gray-800 p-2 text-white'
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
             disabled={availableYears.length <= 1}
           >
             {availableYears.map((year) => (
-              <option
-                key={year}
-                value={year}
-              >
+              <option key={year} value={year}>
                 {year}
               </option>
             ))}
