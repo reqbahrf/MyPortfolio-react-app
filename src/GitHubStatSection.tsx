@@ -16,7 +16,7 @@ const GitHubStatSection = () => {
     setLoading(true);
     const worker = new Worker(
       new URL('./workers/githubStat.worker', import.meta.url),
-      { type: 'module' }
+      { type: 'module' },
     );
     worker.onmessage = (e: MessageEvent) => {
       const { topLanguages, contributions } = e.data as StatLocalState;
