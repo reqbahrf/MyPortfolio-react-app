@@ -65,9 +65,9 @@ const GitHubStatSection = () => {
 
   if (!stat?.contributions?.weeks || !stat?.topLanguages) {
     return (
-      <div className='flex justify-center items-center h-96'>
+      <div className='flex h-96 items-center justify-center'>
         <div className='text-center'>
-          <h2 className='text-2xl text-center font-bold text-black dark:text-white mb-2'>
+          <h2 className='mb-2 text-center text-2xl font-bold text-black dark:text-white'>
             No Data Available
           </h2>
           <p className='text-xl text-black dark:text-white'>
@@ -113,7 +113,7 @@ const GitHubStatSection = () => {
               theme={isDarkTheme ? 'dark' : 'light'}
             />
           </Suspense>
-          <p className='text-xs text-gray-400 dark:text-gray-800'>
+          <p className='text-xs text-gray-500 dark:text-gray-400'>
             Note: Data provided by GitHub API. retrieved using{' '}
             <a
               href='https://docs.github.com/en/graphql'
