@@ -3,7 +3,7 @@ import { RiGithubFill } from '@remixicon/react';
 import { motion } from 'motion/react';
 import aiGeneration from '/assets/math-ai-project/index.webp';
 import sessionSettings from '/assets/math-ai-project/session-settings.webp';
-import aistepByStep from '/assets/math-ai-project/ai-step-by-step.webp';
+import aistepByStep from '/assets/math-ai-project/ai-step-by-step-enhanced.webp';
 import aiFeedback from '/assets/math-ai-project/ai-instant-feedback.webp';
 import aiResultSummary from '/assets/math-ai-project/ai-view-summary.webp';
 import aiChart from '/assets/math-ai-project/ai-chart-insight.webp';
