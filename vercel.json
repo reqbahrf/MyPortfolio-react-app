@@ -15,7 +15,7 @@
       ]
     },
     {
-      "source": "assets/(.*)",
+      "source": "assets/math-ai-project/(.*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
