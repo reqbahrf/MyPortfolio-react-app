@@ -3,12 +3,12 @@ import { RiGithubFill } from '@remixicon/react';
 import { motion } from 'motion/react';
 import aiGeneration from '/assets/math-ai-project/index.webp';
 import sessionSettings from '/assets/math-ai-project/session-settings.webp';
-import aistepByStep from '/assets/math-ai-project/ai-step-by-step.gif';
-import aiFeedback from '/assets/math-ai-project/ai-instant-feedback.gif';
-import aiResultSummary from '/assets/math-ai-project/ai-view-summary.gif';
-import aiChart from '/assets/math-ai-project/ai-chart-insight.gif';
-import aiSessionManagement from '/assets/math-ai-project/ai-session-management.gif';
-import aiDarkModeShowcase from '/assets/math-ai-project/ai-darkmode-showcase.gif';
+import aistepByStep from '/assets/math-ai-project/ai-step-by-step.webp';
+import aiFeedback from '/assets/math-ai-project/ai-instant-feedback.webp';
+import aiResultSummary from '/assets/math-ai-project/ai-view-summary.webp';
+import aiChart from '/assets/math-ai-project/ai-chart-insight.webp';
+import aiSessionManagement from '/assets/math-ai-project/ai-session-management.webp';
+import aiDarkModeShowcase from '/assets/math-ai-project/ai-darkmode.webp';
 const MathAIProject = () => {
   const features = [
     {
