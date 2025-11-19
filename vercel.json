@@ -13,6 +13,23 @@
           "value": "public, s-maxage=3600, stale-while-revalidate=3600"
         }
       ]
+    },
+    {
+      "source": "assets/math-ai-project/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://mathgenai.vercel.app/"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type"
+        }
+      ]
     }
   ]
 }

@@ -3,12 +3,13 @@ import { RiGithubFill } from '@remixicon/react';
 import { motion } from 'motion/react';
 import aiGeneration from '/assets/math-ai-project/index.webp';
 import sessionSettings from '/assets/math-ai-project/session-settings.webp';
-import aistepByStep from '/assets/math-ai-project/ai-step-by-step.gif';
-import aiFeedback from '/assets/math-ai-project/ai-instant-feedback.gif';
-import aiResultSummary from '/assets/math-ai-project/ai-view-summary.gif';
-import aiChart from '/assets/math-ai-project/ai-chart-insight.gif';
-import aiSessionManagement from '/assets/math-ai-project/ai-session-management.gif';
-import aiDarkModeShowcase from '/assets/math-ai-project/ai-darkmode-showcase.gif';
+import aistepByStep from '/assets/math-ai-project/ai-step-by-step-enhanced.webp';
+import aiFeedback from '/assets/math-ai-project/ai-instant-feedback.webp';
+import aiResultSummary from '/assets/math-ai-project/ai-view-summary.webp';
+import aiChart from '/assets/math-ai-project/ai-chart-insight.webp';
+import aiSessionManagement from '/assets/math-ai-project/ai-session-management.webp';
+import aiExport from '/assets/math-ai-project/ai-export-session-as-pdf.webp';
+import aiDarkModeShowcase from '/assets/math-ai-project/ai-darkmode.webp';
 const MathAIProject = () => {
   const features = [
     {
@@ -52,6 +53,12 @@ const MathAIProject = () => {
       description:
         'Visualize your progress with interactive line and pie charts that show accuracy trends and problem distributions.',
       image: aiChart,
+    },
+    {
+      title: 'Export Session as PDF',
+      description:
+        'Export your session as a PDF file for easy sharing and reference. ',
+      image: aiExport,
     },
     {
       title: 'Dark / Light Mode',
