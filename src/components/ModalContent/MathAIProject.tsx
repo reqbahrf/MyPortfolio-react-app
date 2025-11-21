@@ -143,7 +143,7 @@ const MathAIProject = () => {
                 <h3 className='mb-3 text-2xl font-semibold text-gray-800 dark:text-white'>
                   {feature.title}
                 </h3>
-                <p className='text-base leading-relaxed text-gray-600 md:text-lg dark:text-gray-300'>
+                <p className='indent-6 text-base leading-relaxed text-gray-600 md:text-lg dark:text-gray-300'>
                   {feature.description}
                 </p>
               </div>
