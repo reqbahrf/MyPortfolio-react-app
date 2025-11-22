@@ -10,22 +10,12 @@ interface ProjectCardProps {
   targetModal_id: string;
   description?: string;
   tags: string[];
-  techStack?: string[];
   openModal: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
   (
-    {
-      id,
-      targetModal_id,
-      coverImg,
-      title,
-      description,
-      tags,
-      techStack,
-      openModal,
-    },
+    { id, targetModal_id, coverImg, title, description, tags, openModal },
     ref,
   ) => {
     const rotateX = useMotionValue(0);
