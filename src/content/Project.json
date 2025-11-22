@@ -25,8 +25,11 @@
       "title": "DOST SETUP System",
       "description": "A System for the Department of Science and Technology (DOST) – SETUP program, created as part of our BS in Information System Capstone requirement.",
       "targetModal_id": "dostSetupSystemModal",
-      "tags": ["DOST", "SETUP", "Capstone", "Development"],
-      "techStack": [
+      "tags": [
+        "DOST",
+        "SETUP",
+        "Capstone",
+        "Full-Stack Development",
         "PHP",
         "Laravel",
         "MySQL",
