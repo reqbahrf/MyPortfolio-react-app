@@ -112,21 +112,6 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
               </span>
             ))}
           </div>
-          {techStack && techStack?.length > 0 && (
-            <div className='mt-2 text-xs text-white'>
-              <span className='mr-1 font-semibold'>Stack:</span>
-              <div className='mt-1 flex flex-wrap gap-2'>
-                {techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className='cursor-default rounded-full bg-pink-700 p-1 text-xs text-white transition hover:bg-pink-600'
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </motion.div>
     );
