@@ -6,13 +6,14 @@
       "title": "Math Problem Generator",
       "description": "An AI-assisted math learning platform that generates adaptive math problems, evaluates answers instantly, and provides step-by-step feedback using Google Gemini AI. Built with modern web technologies for a smooth, engaging learning experience.",
       "targetModal_id": "mathProblemGeneratorModal",
-      "tags": ["AI", "Education", "Next.js", "Portfolio"],
-      "techStack": [
+      "tags": [
+        "Google Gemini AI",
+        "Education",
+        "Full-Stack Development",
         "Next.js 14",
         "React 18",
         "Tailwind CSS",
         "Supabase",
-        "Google Gemini AI",
         "Framer Motion",
         "ApexCharts.js",
         "TypeScript"
@@ -24,8 +25,11 @@
       "title": "DOST SETUP System",
       "description": "A System for the Department of Science and Technology (DOST) – SETUP program, created as part of our BS in Information System Capstone requirement.",
       "targetModal_id": "dostSetupSystemModal",
-      "tags": ["DOST", "SETUP", "Capstone", "Development"],
-      "techStack": [
+      "tags": [
+        "DOST",
+        "SETUP",
+        "Capstone",
+        "Full-Stack Development",
         "PHP",
         "Laravel",
         "MySQL",
