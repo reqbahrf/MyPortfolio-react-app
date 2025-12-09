@@ -32,7 +32,7 @@ export default function HomeSection() {
 
       let scrollProgress = Math.max(
         0,
-        Math.min(1, -sectionTop / (sectionHeight - windowHeight))
+        Math.min(1, -sectionTop / (sectionHeight - windowHeight)),
       );
       const animationSpeed = 0.1; // Adjust this value to control the animation speed (0 to 1)
       progressRef.current =
@@ -58,16 +58,16 @@ export default function HomeSection() {
 
   return (
     <section id='Home'>
-      <div className='h-screen flex justify-center items-center hero'>
-        <div className='flex flex-col-reverse lg:flex-row h-full w-auto px-10 sm:px-40'>
-          <div className='flex flex-col justify-center space-y-5 flex-1'>
+      <div className='hero flex h-screen items-center justify-center'>
+        <div className='flex h-full w-auto flex-col-reverse px-10 sm:px-40 lg:flex-row'>
+          <div className='flex flex-1 flex-col justify-center space-y-5'>
             <div>
-              <h1 className='text-4xl font-bold text-center xl:text-start text-black dark:text-white'>
+              <h1 className='text-center text-4xl font-bold text-black xl:text-start dark:text-white'>
                 Hi, I&apos;m Reanz Arthur
               </h1>
             </div>
             <div className='w-[96dvw] md:w-[40vw] lg:w-[30dvw]'>
-              <p className='text-justify indent-8 text-sm md:text-md text-black dark:text-white'>
+              <p className='md:text-md text-justify indent-8 text-sm text-black dark:text-white'>
                 I'm a self-taught web developer and graphic designer. I enjoy
                 building websites and apps that look good and work well. I'm now
                 looking for job opportunities where I can grow and keep learning
@@ -75,11 +75,11 @@ export default function HomeSection() {
               </p>
             </div>
 
-            <div className='text-center lg:text-start mt-10!'>
+            <div className='mt-10! text-center lg:text-start'>
               <a
-                href='https://docs.google.com/document/d/17s6o-BsEe8exWWh_qno_6BJzvd8nbuCJ/edit?usp=sharing&ouid=114884687085173552646&rtpof=true&sd=true'
+                href='https://drive.google.com/file/d/16y7aByAf2mYG719OlLFlXsJDRDJVUM6p/view?usp=sharing'
                 target='_blank'
-                className='rounded-full hover:shadow-md hover:dark:shadow-pink-500/50 hover:shadow-black/25 bg-gray-200 dark:bg-gray-800 dark:text-white text-black font-bold py-2 px-9'
+                className='rounded-full bg-gray-200 px-9 py-2 font-bold text-black hover:shadow-md hover:shadow-black/25 dark:bg-gray-800 dark:text-white hover:dark:shadow-pink-500/50'
               >
                 View CV
               </a>
@@ -90,17 +90,17 @@ export default function HomeSection() {
               id='avatar'
               src={profile}
               alt='Profile'
-              className='w-[250px] h-[250px] rounded-full object-cover border-2 border-pink-700 shadow-lg m-auto'
+              className='m-auto h-[250px] w-[250px] rounded-full border-2 border-pink-700 object-cover shadow-lg'
             />
           </div>
         </div>
       </div>
-      <section className='flex flex-col justify-center items-center w-full'>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white'>
+      <section className='flex w-full flex-col items-center justify-center'>
+        <h2 className='text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
           About
         </h2>
-        <div className='w-[95dvw] lg:w-1/2 m-5 md:m-12 lg:m-18'>
-          <div className='text-black dark:text-white text-lg mb-7 indent-8 text-justify'>
+        <div className='m-5 w-[95dvw] md:m-12 lg:m-18 lg:w-1/2'>
+          <div className='mb-7 text-justify indent-8 text-lg text-black dark:text-white'>
             I graduated with a degree in Information System from Davao del Norte
             State College. Although the BS in Information System mainly focuses
             on designing and proposing systems, a change in our curriculum gave
@@ -110,10 +110,10 @@ export default function HomeSection() {
             developer.
           </div>
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white mb-3'>
+        <h2 className='mb-3 text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
           Work Experience
         </h2>
-        <div className='w-[95dvw] lg:w-1/2 mb-5 md:mb-12 lg:mb-18'>
+        <div className='mb-5 w-[95dvw] md:mb-12 lg:mb-18 lg:w-1/2'>
           <InfoCard
             title='DOST PSTO davao del norte'
             subtitle='OJT Student | Full Stack Laravel Developer'
@@ -122,10 +122,10 @@ export default function HomeSection() {
             link='https://www.facebook.com/share/p/1H1CjfWftn/'
           />
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white mb-3'>
+        <h2 className='mb-3 text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
           Education
         </h2>
-        <div className='w-[95dvw] lg:w-1/2 mb-5 md:mb-12 lg:mb-18'>
+        <div className='mb-5 w-[95dvw] md:mb-12 lg:mb-18 lg:w-1/2'>
           <InfoCard
             title='Davao del Norte State College'
             subtitle='Bachelor of Science in Information System'
@@ -134,30 +134,21 @@ export default function HomeSection() {
             link='https://www.davadelnorte.edu.ph/'
           />
         </div>
-        <h2 className='text-2xl font-bold text-center xl:text-start text-black dark:text-white mb-3'>
+        <h2 className='mb-3 text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
           Skills
         </h2>
-        <div className='w-[95dvw] lg:w-1/2 mb-5 md:mb-12 lg:mb-18'>
+        <div className='mb-5 w-[95dvw] md:mb-12 lg:mb-18 lg:w-1/2'>
           <div className='flex flex-wrap justify-center gap-2'>
             {skills.skills.map((skill) => (
-              <PillTag
-                key={skill}
-                tag={skill}
-              />
+              <PillTag key={skill} tag={skill} />
             ))}
           </div>
         </div>
       </section>
-      <section
-        id='sectionPin'
-        ref={sectionRef}
-      >
-        <div
-          className='pin-wrap-sticky'
-          ref={wrapperRef}
-        >
+      <section id='sectionPin' ref={sectionRef}>
+        <div className='pin-wrap-sticky' ref={wrapperRef}>
           <div className='text-container'>
-            <p className='text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-4'>
+            <p className='mb-4 text-2xl font-bold text-black sm:text-3xl md:text-4xl dark:text-white'>
               One of the Figma prototype designs I created for our subject group
               project
             </p>
