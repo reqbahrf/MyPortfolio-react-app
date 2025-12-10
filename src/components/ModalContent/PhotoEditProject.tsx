@@ -1,6 +1,4 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
+import { motion } from 'motion/react';
 import slide1Photo from '/assets/Photo_project/slide1.jpg';
 import slide2Photo from '/assets/Photo_project/slide2.jpg';
 import slide3Photo from '/assets/Photo_project/slide3.jpg';
@@ -8,124 +6,87 @@ import slide4Photo from '/assets/Photo_project/slide4.jpg';
 import backgroundPhoto from '/assets/Photo_project/raw_photos/backgroundImg.webp';
 import floridaPhoto from '/assets/Photo_project/raw_photos/florida-kennedy-space-center-rocket-launch.webp';
 import otherPhoto from '/assets/Photo_project/raw_photos/1641457957683.webp';
+import ShowcaseGenerator from '../ShowcaseGenerator';
+import BreakdownShowcase from '../BreakdownShowcase';
+
 const PhotoEditProject = () => {
+  const editShowcase = {
+    final: {
+      title: 'Final Edited Photo',
+      description:
+        'A scene capturing a rocket launch in the distance, viewed by a solitary person, all set against an intense, fiery sunset. It perfectly blends the raw beauty of nature with the awe of human achievement.',
+      image: slide1Photo,
+    },
+    rawAssets: [
+      {
+        title: 'Raw Background Photo',
+        description: 'Used as the sunset + environment base.',
+        image: backgroundPhoto,
+      },
+      {
+        title: 'Raw Rocket Launch Photo',
+        description: 'Rocket asset extracted and blended into scene.',
+        image: floridaPhoto,
+      },
+      {
+        title: 'Raw Person Standing Photo',
+        description: 'Foreground silhouette subject.',
+        image: otherPhoto,
+      },
+    ],
+  };
+  const showcase = [
+    {
+      title: 'Gaming Keyboard with Smartwatch',
+      description:
+        'This image is a striking, low-light shot focused on a gaming keyboard lit up by vibrant RGB lights, with a smartwatch face digitally composited onto the keys, giving it a cool, slightly surreal, tech-heavy atmosphere.',
+      image: slide2Photo,
+    },
+    {
+      title: 'Woody Plant in Container',
+      description:
+        'This is a macro or close-up photograph centered on a small, woody plant, likely a bonsai starter or a rooted cutting, which is being grown in a bright blue plastic pipe or container, all set against a lush, green background.',
+      image: slide3Photo,
+    },
+    {
+      title: 'Farm Landscape Shot',
+      description:
+        'A peaceful landscape of rice fields, with a path winding through the vibrant greenery, backed by a mountain range.',
+      image: slide4Photo,
+    },
+  ];
   return (
-    <>
-      <div className='mainContent z-10 flex h-full w-full flex-col items-center space-y-5 p-4 px-10'>
-        <div className='z-10 flex flex-col flex-wrap items-center space-y-10 py-40'>
-          <div className='group relative mb-8 flex w-4/5 flex-col ring-2 ring-pink-700'>
-            <div>
-              <LazyLoadImage
-                effect='blur'
-                threshold={300}
-                wrapperProps={{
-                  style: { transitionDelay: '0.3s' }, // Adjust transition delay
-                }}
-                className='group-hover:blur-[2px] group-hover:brightness-75'
-                src={slide1Photo}
-                alt=''
-              />
-            </div>
-            <div className='absolute flex h-full w-full flex-col flex-wrap items-start justify-center opacity-0 group-hover:opacity-100'>
-              <div className='flex h-full w-1/4 flex-col flex-wrap items-center justify-center bg-gray-900 p-1'>
-                <div className='w-4/6'>
-                  <LazyLoadImage
-                    effect='blur'
-                    threshold={300}
-                    wrapperProps={{
-                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
-                    }}
-                    className='object-cover object-center'
-                    src={backgroundPhoto}
-                    alt=''
-                  />
-                </div>
-                <div className='w-4/6'>
-                  <LazyLoadImage
-                    effect='blur'
-                    threshold={300}
-                    wrapperProps={{
-                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
-                    }}
-                    className='object-cover object-center'
-                    src={floridaPhoto}
-                    alt=''
-                  />
-                </div>
-                <div className='w-4/6'>
-                  <LazyLoadImage
-                    effect='blur'
-                    threshold={300}
-                    wrapperProps={{
-                      style: { transitionDelay: '0.3s' }, // Adjust transition delay
-                    }}
-                    className='object-cover object-center'
-                    src={otherPhoto}
-                    alt=''
-                  />
-                </div>
-              </div>
-              <div className='flex flex-col items-center'>
-                <span className='text-center text-base font-bold text-white md:text-5xl'>
-                  Raw Images
-                </span>
-                <a
-                  href='https://www.behance.net/gallery/134511573/Module-3-L4-Photo-Manipulation%28MONERA-RA%29'
-                  target='_blank'
-                  className='text-xs font-semibold text-white hover:font-bold hover:text-pink-700'
-                >
-                  Click for Info
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className='flex flex-col items-center justify-center py-4 ring-2 ring-pink-700'>
-            <div className='w-4/5'>
-              <LazyLoadImage
-                effect='blur'
-                threshold={300}
-                wrapperProps={{
-                  style: { transitionDelay: '0.3s' }, // Adjust transition delay
-                }}
-                src={slide2Photo}
-                alt=''
-              />
-            </div>
-            <div className='w-4/5'>
-              <LazyLoadImage
-                effect='blur'
-                threshold={300}
-                wrapperProps={{
-                  style: { transitionDelay: '0.3s' }, // Adjust transition delay
-                }}
-                src={slide3Photo}
-                alt=''
-              />
-            </div>
-            <div className='w-4/5'>
-              <LazyLoadImage
-                effect='blur'
-                threshold={300}
-                wrapperProps={{
-                  style: { transitionDelay: '0.3s' }, // Adjust transition delay
-                }}
-                src={slide4Photo}
-                alt=''
-              />
-            </div>
-            <div className='my-10 flex w-4/5 items-center justify-center'>
-              <a
-                href='https://www.behance.net/gallery/133686225/module-3-lesson-1-Application-%28MONERA-RA%29'
-                target='_blank'
-                className='flex items-center space-x-2 font-bold text-white hover:text-pink-700'
-              >
-                <span>Click for Info</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <div className='mainContent z-10 flex w-full flex-col items-center space-y-5 p-4 px-10'>
+      <section className='bg-linear-to-b from-gray-400 to-white px-6 py-20 transition-colors duration-300 md:px-20 dark:from-gray-900 dark:to-gray-800'>
+        {/* ---------- Project Intro ---------- */}
+        <motion.div
+          className='mb-16 text-center'
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className='mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
+            Photo Editing Project
+          </h2>
+          <p className='mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
+            This project showcases advanced photo manipulation techniques using
+            Adobe Photoshop, combining raw images into final compositions that
+            convey powerful narratives.
+          </p>
+          <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
+            The images demonstrate various editing styles, from surreal tech
+            integrations to natural scene enhancements, highlighting the
+            creative process of transforming ordinary photos into striking
+            visual stories.
+          </p>
+        </motion.div>
+
+        {/* ---------- Feature List (Showcase) ---------- */}
+        <BreakdownShowcase {...editShowcase} />
+        <ShowcaseGenerator items={showcase} />
+      </section>
+    </div>
   );
 };
 

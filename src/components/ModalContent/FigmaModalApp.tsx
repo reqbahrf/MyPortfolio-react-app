@@ -1,6 +1,4 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
 import slide1Figma from '/assets/figma-project/slide1.webp';
 import slide2Figma from '/assets/figma-project/slide2.webp';
 import slide3Figma from '/assets/figma-project/slide3.webp';

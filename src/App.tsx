@@ -8,6 +8,8 @@ import GitHubStatLoading from './components/GitHubStatLoading';
 const GitHubStatSection = lazy(() => import('./GitHubStatSection'));
 import NavigationBar from './components/NavigationBar';
 import Contact from './Contact';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
 
 const App = () => {
   return (
@@ -33,5 +35,5 @@ const root = createRoot(rootElement);
 root.render(
   <StrictMode>
     <App />
-  </StrictMode>
+  </StrictMode>,
 );
