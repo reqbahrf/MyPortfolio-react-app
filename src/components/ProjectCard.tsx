@@ -1,7 +1,6 @@
 import { forwardRef, memo, useRef, useCallback } from 'react';
 import { motion, useMotionValue } from 'motion/react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 interface ProjectCardProps {
   id: string;
