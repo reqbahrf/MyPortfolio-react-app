@@ -1,5 +1,4 @@
 import ShowcaseGenerator from '../ShowcaseGenerator';
-import { RiGithubFill } from '@remixicon/react';
 import { motion } from 'motion/react';
 import slide1Java from '/assets/java-project/slide1.webp';
 import slide2Java from '/assets/java-project/slide2.webp';
