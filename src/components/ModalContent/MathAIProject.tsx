@@ -69,52 +69,49 @@ const MathAIProject = () => {
   ];
 
   return (
-    <div className='mainContent z-10 flex w-full flex-col items-center space-y-5 p-4 px-10'>
-      <section className='bg-linear-to-b from-gray-400 to-white px-6 py-20 transition-colors duration-300 md:px-20 dark:from-gray-900 dark:to-gray-800'>
-        {/* ---------- Project Intro ---------- */}
-        <motion.div
-          className='mb-16 text-center'
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className='mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
-            Math Problem Generator
-          </h2>
-          <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-            An AI-assisted math learning tool built with{' '}
-            <strong>Next.js</strong>,<strong> Supabase</strong>, and{' '}
-            <strong>Google Gemini AI</strong>. It generates adaptive math
-            problems, evaluates answers instantly, and visualizes performance
-            trends through charts and feedback.
-          </p>
+    <section className='bg-linear-to-b from-gray-400 to-white px-6 py-20 transition-colors duration-300 md:px-20 dark:from-gray-900 dark:to-gray-800'>
+      {/* ---------- Project Intro ---------- */}
+      <motion.div
+        className='mb-16 text-center'
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className='mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
+          Math Problem Generator
+        </h2>
+        <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
+          An AI-assisted math learning tool built with <strong>Next.js</strong>,
+          <strong> Supabase</strong>, and <strong>Google Gemini AI</strong>. It
+          generates adaptive math problems, evaluates answers instantly, and
+          visualizes performance trends through charts and feedback.
+        </p>
 
-          {/* Buttons */}
-          <div className='mt-10 flex flex-wrap justify-center gap-4'>
-            <a
-              href='https://mathgenai.vercel.app/'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='rounded-lg bg-blue-600 px-6 py-3 font-medium text-white shadow-md transition duration-200 hover:bg-blue-700'
-            >
-              🚀 View Live Demo
-            </a>
-            <a
-              href='https://github.com/reqbahrf/math-problem-generator'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='rounded-lg border border-blue-600 px-6 py-3 font-medium text-blue-600 transition duration-200 hover:bg-blue-50 dark:hover:bg-gray-700'
-            >
-              <RiGithubFill /> View Source Code
-            </a>
-          </div>
-        </motion.div>
+        {/* Buttons */}
+        <div className='mt-10 flex flex-wrap justify-center gap-4'>
+          <a
+            href='https://mathgenai.vercel.app/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='rounded-lg bg-blue-600 px-6 py-3 font-medium text-white shadow-md transition duration-200 hover:bg-blue-700'
+          >
+            🚀 View Live Demo
+          </a>
+          <a
+            href='https://github.com/reqbahrf/math-problem-generator'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='rounded-lg border border-blue-600 px-6 py-3 font-medium text-blue-600 transition duration-200 hover:bg-blue-50 dark:hover:bg-gray-700'
+          >
+            <RiGithubFill /> View Source Code
+          </a>
+        </div>
+      </motion.div>
 
-        {/* ---------- Feature List ---------- */}
-        <ShowcaseGenerator items={features} />
-      </section>
-    </div>
+      {/* ---------- Feature List ---------- */}
+      <ShowcaseGenerator items={features} />
+    </section>
   );
 };
 
