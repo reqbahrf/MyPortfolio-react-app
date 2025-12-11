@@ -1,5 +1,4 @@
 import ShowcaseGenerator from '../ShowcaseGenerator';
-import { RiGithubFill } from '@remixicon/react';
 import { motion } from 'motion/react';
 import slide1Java from '/assets/java-project/slide1.webp';
 import slide2Java from '/assets/java-project/slide2.webp';
@@ -49,29 +48,27 @@ const POSJavaProject = () => {
   ];
 
   return (
-    <div className='mainContent z-10 flex w-full flex-col items-center space-y-5 p-4 px-10'>
-      <section className='bg-linear-to-b from-gray-400 to-white px-6 py-20 transition-colors duration-300 md:px-20 dark:from-gray-900 dark:to-gray-800'>
-        {/* ---------- Project Intro ---------- */}
-        <motion.div
-          className='mb-16 text-center'
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className='mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
-            Toppings Express POS & Admin
-          </h2>
-          <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-            First Java GUI Application Project as one of requirement from the
-            System Analysis and Design(SAD) subject during my second year.
-          </p>
-        </motion.div>
+    <section className='bg-linear-to-b from-gray-400 to-white px-6 py-20 transition-colors duration-300 md:px-20 dark:from-gray-900 dark:to-gray-800'>
+      {/* ---------- Project Intro ---------- */}
+      <motion.div
+        className='mb-16 text-center'
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className='mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
+          Toppings Express POS & Admin
+        </h2>
+        <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
+          First Java GUI Application Project as one of requirement from the
+          System Analysis and Design(SAD) subject during my second year.
+        </p>
+      </motion.div>
 
-        {/* ---------- Feature List ---------- */}
-        <ShowcaseGenerator items={features} />
-      </section>
-    </div>
+      {/* ---------- Feature List ---------- */}
+      <ShowcaseGenerator items={features} />
+    </section>
   );
 };
 

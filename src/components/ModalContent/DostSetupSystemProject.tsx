@@ -76,45 +76,43 @@ const DostSetupSystemProject = () => {
   ];
 
   return (
-    <div className='mainContent z-10 flex w-full flex-col items-center space-y-5 p-4 px-10'>
-      <section className='bg-linear-to-b from-gray-400 to-white px-6 py-20 transition-colors duration-300 md:px-20 dark:from-gray-900 dark:to-gray-800'>
-        {/* ---------- Project Intro ---------- */}
-        <motion.div
-          className='mb-16 text-center'
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className='mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
-            DOST SETUP Management System
-          </h2>
-          <p className='mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-            The project involves creating a web-based platform for the DOST
-            (Department of Science and Technology) Small Enterprise Technology
-            Upgrading Program (SETUP) in Davao del Norte. This system was
-            developed as a Capstone Project Requirement for a Bachelor of
-            Science in Information System.
-          </p>
-          <p className='mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-            Its primary purpose is to streamline the process of managing funding
-            assistance for small enterprises, improving efficiency and project
-            tracking for DOST staff.
-          </p>
-          <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-            The system is built using <strong>Laravel 11</strong>. The source
-            code has since been turned over to the Regional Knowledge Management
-            System (KMS) of DOST for integration and synchronization with their
-            existing systems.
-          </p>
+    <section className='bg-linear-to-b from-gray-400 to-white px-6 py-20 transition-colors duration-300 md:px-20 dark:from-gray-900 dark:to-gray-800'>
+      {/* ---------- Project Intro ---------- */}
+      <motion.div
+        className='mb-16 text-center'
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className='mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
+          DOST SETUP Management System
+        </h2>
+        <p className='mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
+          The project involves creating a web-based platform for the DOST
+          (Department of Science and Technology) Small Enterprise Technology
+          Upgrading Program (SETUP) in Davao del Norte. This system was
+          developed as a Capstone Project Requirement for a Bachelor of Science
+          in Information System.
+        </p>
+        <p className='mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
+          Its primary purpose is to streamline the process of managing funding
+          assistance for small enterprises, improving efficiency and project
+          tracking for DOST staff.
+        </p>
+        <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
+          The system is built using <strong>Laravel 11</strong>. The source code
+          has since been turned over to the Regional Knowledge Management System
+          (KMS) of DOST for integration and synchronization with their existing
+          systems.
+        </p>
 
-          {/* Note: Links are omitted as per project details (source code turned over, no public demo). */}
-        </motion.div>
+        {/* Note: Links are omitted as per project details (source code turned over, no public demo). */}
+      </motion.div>
 
-        {/* ---------- Feature List (Showcase) ---------- */}
-        <ShowcaseGenerator items={showcase} />
-      </section>
-    </div>
+      {/* ---------- Feature List (Showcase) ---------- */}
+      <ShowcaseGenerator items={showcase} />
+    </section>
   );
 };
 
