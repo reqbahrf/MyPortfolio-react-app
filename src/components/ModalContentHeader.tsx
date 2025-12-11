@@ -43,7 +43,9 @@ const ModalContentHeader = ({
         >
           {title}
         </div>
-        {children}
+        <div className='mainContent z-10 flex w-full flex-col items-center space-y-5 p-2 md:p-4 md:px-10'>
+          {children}
+        </div>
       </div>
     </>
   );
