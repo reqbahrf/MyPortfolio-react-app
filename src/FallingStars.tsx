@@ -167,10 +167,12 @@ export default function FallingStars() {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '100dvw',
-        height: '100dvh',
+        width: '100vw',
+        height: '100vh',
         zIndex: -1,
         pointerEvents: 'none',
+        backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
+        transition: 'background-color 0.3s ease',
       }}
     />
   );
