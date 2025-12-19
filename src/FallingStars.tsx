@@ -162,6 +162,7 @@ export default function FallingStars() {
         const endX = star.x + star.len;
         const endY = star.y - star.len;
 
+        // 1. Draw the Tail (Gradient Line)
         const gradient = ctx.createLinearGradient(startX, startY, endX, endY);
         gradient.addColorStop(0, `rgba(${starColor}, 1)`);
         gradient.addColorStop(1, `rgba(${starColor}, 0)`);
@@ -169,11 +170,26 @@ export default function FallingStars() {
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 1.5;
         ctx.lineCap = 'round';
-        ctx.globalAlpha = 1; // Reset alpha for the streak
         ctx.beginPath();
         ctx.moveTo(startX, startY);
         ctx.lineTo(endX, endY);
         ctx.stroke();
+
+        const headGlow = ctx.createRadialGradient(
+          startX,
+          startY,
+          0,
+          startX,
+          startY,
+          4,
+        );
+        headGlow.addColorStop(0, `rgba(${starColor}, 1)`);
+        headGlow.addColorStop(1, `rgba(${starColor}, 0)`);
+
+        ctx.fillStyle = headGlow;
+        ctx.beginPath();
+        ctx.arc(startX, startY, 4, 0, Math.PI * 2);
+        ctx.fill();
       });
 
       animationFrameId = requestAnimationFrame(animate);
