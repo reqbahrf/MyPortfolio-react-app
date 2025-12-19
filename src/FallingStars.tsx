@@ -139,8 +139,6 @@ export default function FallingStars() {
     handleResize();
     window.addEventListener('resize', handleResize);
     animate();
-
-    console.log('Stars', stars);
     return () => {
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
