@@ -1,6 +1,7 @@
 import { StrictMode, lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from './context/ThemeContext';
+import FallingStars from './FallingStars';
 import HomeSection from './HomeSection';
 import ProjectSection from './ProjectSection';
 import CertificatesSection from './CertificatesSection';
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <>
       <ThemeProvider>
+        <FallingStars />
         <HomeSection />
         <Suspense fallback={<GitHubStatLoading />}>
           <GitHubStatSection />
