@@ -21,6 +21,8 @@ export default function FallingStars() {
 
     const MIN_WAIT = 5000;
     const MAX_WAIT = 15000;
+    const MIN_FLARE_SIZE = 5;
+    const MAX_FLARE_SIZE = 10;
 
     const handleResize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -41,6 +43,7 @@ export default function FallingStars() {
       public twinklePhase: number = 0;
       public waitDuration: number = 0;
       public spawnTime: number = 0;
+      public flareSize: number = 0;
       constructor() {
         this.reset();
       }
@@ -61,6 +64,8 @@ export default function FallingStars() {
         this.waitDuration = Math.random() * (MAX_WAIT - MIN_WAIT) + MIN_WAIT;
         this.spawnTime = performance.now();
         this.state = 'idle';
+        this.flareSize =
+          Math.random() * (MAX_FLARE_SIZE - MIN_FLARE_SIZE) + MIN_FLARE_SIZE;
       }
 
       update(now: number, dt: number) {
