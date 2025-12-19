@@ -145,7 +145,6 @@ export default class HeatMap extends Component<ContributionsProps, any> {
             series={this.state.series}
             type='heatmap'
             width='100%'
-            minHeight={500}
           />
         )}
       </div>
