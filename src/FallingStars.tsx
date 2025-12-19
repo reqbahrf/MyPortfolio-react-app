@@ -17,6 +17,9 @@ export default function FallingStars() {
     const SPEED_BASE = 0.6; // Base speed
     const LENGTH_BASE = 15; // Length of the star trail
 
+    const MIN_WAIT = 5000;
+    const MAX_WAIT = 15000;
+
     const backgroundColor = isDarkTheme ? '#000000' : '#ffffff';
     const starColor = isDarkTheme ? '#ffffff' : '#000000';
 
@@ -30,73 +33,100 @@ export default function FallingStars() {
     class Star {
       public speed: number;
       public len: number;
-      public opacity: number;
       public x: number;
       public y: number;
+      public state: 'idle' | 'falling';
+      public opacity: number;
+      public baseOpacity: number;
+      public twinkleSpeed: number;
+      public twinklePhase: number;
+      public waitDuration: number;
+      public spawnTime: number;
       constructor() {
         this.speed = 0;
         this.len = 0;
         this.opacity = 0;
+        this.baseOpacity = 0;
         this.y = 0;
         this.x = 0;
-        this.reset(true);
+        this.state = 'idle';
+        this.twinklePhase = 0;
+        this.twinkleSpeed = 0;
+        this.waitDuration = 0;
+        this.spawnTime = 0;
+        this.reset();
       }
 
-      reset(initial = false) {
-        const w = canvas.width;
-        const h = canvas.height;
+      reset() {
+        this.state = 'idle';
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
 
         // Randomize speed and length for variety
         this.speed = Math.random() * 2 + SPEED_BASE;
         this.len = Math.random() * 20 + LENGTH_BASE;
-        this.opacity = Math.random() * 0.5 + 0.2;
 
-        if (initial) {
-          // Spawn randomly anywhere on screen initially
-          this.x = w;
-          this.y = h;
-        } else {
-          // Logic to spawn from Top or Right side only
-          // This creates the continuous flow from Upper-Right
-          const spawnSide = Math.random() > 0.5 ? 'top' : 'right';
+        this.baseOpacity = Math.random() * 0.5 + 0.1;
+        this.twinkleSpeed = Math.random() * 0.05 + 0.02; // How fast it pulses
+        this.twinklePhase = Math.random() * Math.PI * 2; // Random starting point in sine wave
 
-          if (spawnSide === 'top') {
-            // Spawn above the canvas
-            this.x = Math.random() * w * 1.5; // * 1.5 to cover the corner
-            this.y = -this.len;
-          } else {
-            // Spawn to the right of the canvas
-            this.x = w + this.len;
-            this.y = Math.random() * h;
-          }
-        }
+        this.waitDuration = Math.random() * (MAX_WAIT - MIN_WAIT) + MIN_WAIT;
+        this.spawnTime = Date.now();
       }
 
       update() {
-        // Move diagonally: Upper Right -> Lower Left
-        this.x -= this.speed;
-        this.y += this.speed;
+        const now = Date.now();
 
-        // Reset if goes off screen (Left side or Bottom side)
-        if (this.x < -this.len || this.y > canvas.height + this.len) {
-          this.reset();
+        if (this.state === 'idle') {
+          // CHECK: Has the wait time passed?
+          if (now - this.spawnTime > this.waitDuration) {
+            this.state = 'falling';
+          }
+
+          // ANIMATION: Twinkle (Sine wave based on time)
+          // Creates a smooth pulsing effect
+          this.opacity =
+            this.baseOpacity + Math.sin(now * 0.005 + this.twinklePhase) * 0.2;
+
+          // Clamp opacity between 0 and 1
+          if (this.opacity < 0) this.opacity = 0;
+          if (this.opacity > 1) this.opacity = 1;
+        } else if (this.state === 'falling') {
+          // MOVEMENT: Diagonal Upper Right -> Lower Left
+          this.x -= this.speed;
+          this.y += this.speed;
+
+          // Increase opacity for the "shooting" effect
+          this.opacity = 1;
+
+          // RESET: If off-screen (left or bottom)
+          if (this.x < -this.len || this.y > canvas.height + this.len) {
+            this.reset();
+          }
         }
       }
 
       draw() {
         if (!ctx) return;
+        ctx.fillStyle = starColor;
         ctx.strokeStyle = starColor;
-        ctx.lineWidth = 1.5;
-        ctx.lineCap = 'round';
         ctx.globalAlpha = this.opacity;
 
-        ctx.beginPath();
-        // Start of line
-        ctx.moveTo(this.x, this.y);
-        // End of line (angled up and right relative to the head to create trail)
-        // Since we move (-x, +y), the tail should be at (+x, -y)
-        ctx.lineTo(this.x + this.len, this.y - this.len);
-        ctx.stroke();
+        if (this.state === 'idle') {
+          // DRAW: A simple dot for stationary stars
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, 1.5, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // DRAW: A streak for falling stars
+          ctx.lineWidth = 1.5;
+          ctx.lineCap = 'round';
+          ctx.beginPath();
+          ctx.moveTo(this.x, this.y);
+          // Tail is opposite to movement (-x, +y movement -> +x, -y tail)
+          ctx.lineTo(this.x + this.len, this.y - this.len);
+          ctx.stroke();
+        }
       }
     }
 
