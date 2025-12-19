@@ -92,6 +92,35 @@ export default function FallingStars() {
       }
     }
 
+    const drawFlare = (x: number, y: number, opacity: number, size: number) => {
+      if (opacity <= 0) return;
+
+      const glow = ctx.createRadialGradient(x, y, 0, x, y, size);
+      glow.addColorStop(0, `rgba(${starColor}, ${opacity})`);
+      glow.addColorStop(0.5, `rgba(${starColor}, ${opacity * 0.3})`);
+      glow.addColorStop(1, `rgba(${starColor}, 0)`);
+
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(x, y, size, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (opacity > 0.3) {
+        const spikeLen = size * 1.5;
+        const thickness = 0.5;
+
+        ctx.fillStyle = `rgba(${starColor}, ${opacity * 0.8})`;
+        ctx.beginPath();
+        ctx.moveTo(x - spikeLen, y);
+        ctx.lineTo(x + spikeLen, y);
+        ctx.moveTo(x, y - spikeLen);
+        ctx.lineTo(x, y + spikeLen);
+        ctx.strokeStyle = `rgba(${starColor}, ${opacity * 0.6})`;
+        ctx.lineWidth = thickness;
+        ctx.stroke();
+      }
+    };
+
     const initStars = () => {
       stars = [];
       for (let i = 0; i < STAR_COUNT; i++) {
@@ -123,10 +152,8 @@ export default function FallingStars() {
       ctx.fillStyle = `rgb(${starColor})`;
 
       idleStars.forEach((star) => {
-        ctx.globalAlpha = star.opacity;
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, 1.5, 0, Math.PI * 2);
-        ctx.fill();
+        const currentSize = star.flareSize * (0.5 + star.opacity * 0.5);
+        drawFlare(star.x, star.y, star.opacity, currentSize);
       });
 
       fallingStars.forEach((star) => {
