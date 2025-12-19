@@ -4,10 +4,12 @@ import { useThemeContext } from './context/ThemeContext';
 export default function FallingStars() {
   const { isDarkTheme } = useThemeContext();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const previousTimeRef = useRef<number>(0);
 
+  const starColor = isDarkTheme ? '255, 255, 255' : '0, 0, 0';
   useEffect(() => {
     const canvas = canvasRef.current!;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: true })!;
 
     let animationFrameId: number;
     let stars: Array<Star> = [];
@@ -20,13 +22,11 @@ export default function FallingStars() {
     const MIN_WAIT = 5000;
     const MAX_WAIT = 15000;
 
-    const backgroundColor = isDarkTheme ? '#000000' : '#ffffff';
-    const starColor = isDarkTheme ? '255, 255, 255' : '0, 0, 0';
-
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initStars();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx?.scale(dpr, dpr);
     };
 
     class Star {
@@ -57,60 +57,30 @@ export default function FallingStars() {
         this.twinklePhase = Math.random() * Math.PI * 2;
 
         this.waitDuration = Math.random() * (MAX_WAIT - MIN_WAIT) + MIN_WAIT;
-        this.spawnTime = Date.now();
+        this.spawnTime = performance.now();
         this.state = 'idle';
       }
 
-      update() {
-        const now = Date.now();
-
+      update(now: number, dt: number) {
         if (this.state === 'idle') {
           if (now - this.spawnTime > this.waitDuration) {
             this.state = 'falling';
+            this.opacity = 1;
+          } else {
+            this.opacity =
+              this.baseOpacity +
+              Math.sin(now * 0.005 + this.twinklePhase) * 0.2;
+
+            if (this.opacity < 0) this.opacity = 0;
+            if (this.opacity > 1) this.opacity = 1;
           }
+        } else {
+          this.x -= this.speed * dt;
+          this.y += this.speed * dt;
 
-          this.opacity =
-            this.baseOpacity + Math.sin(now * 0.005 + this.twinklePhase) * 0.2;
-
-          if (this.opacity < 0) this.opacity = 0;
-          if (this.opacity > 1) this.opacity = 1;
-        } else if (this.state === 'falling') {
-          this.x -= this.speed;
-          this.y += this.speed;
-
-          this.opacity = 1;
-
-          if (this.x < -this.len || this.y > canvas.height + this.len) {
+          if (this.x < -this.len || this.y > window.innerHeight + this.len) {
             this.reset();
           }
-        }
-      }
-
-      draw() {
-        if (!ctx) return;
-
-        if (this.state === 'idle') {
-          ctx.fillStyle = `rgba(${starColor}, ${this.opacity})`;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, 1.5, 0, Math.PI * 2);
-          ctx.fill();
-        } else {
-          const startX = this.x;
-          const startY = this.y;
-          const endX = this.x + this.len;
-          const endY = this.y - this.len;
-
-          const gradient = ctx.createLinearGradient(startX, startY, endX, endY);
-          gradient.addColorStop(0, `rgba(${starColor}, 1)`);
-          gradient.addColorStop(1, `rgba(${starColor}, 0)`);
-
-          ctx.strokeStyle = gradient;
-          ctx.lineWidth = 1.5;
-          ctx.lineCap = 'round';
-          ctx.beginPath();
-          ctx.moveTo(startX, startY);
-          ctx.lineTo(endX, endY);
-          ctx.stroke();
         }
       }
     }
@@ -122,14 +92,54 @@ export default function FallingStars() {
       }
     };
 
-    const animate = () => {
-      if (!ctx) return;
-      ctx.fillStyle = backgroundColor;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    const animate = (time: number) => {
+      if (!previousTimeRef.current) previousTimeRef.current = time;
+
+      const deltaTime = time - previousTimeRef.current;
+
+      let fpsCorrection = deltaTime / 16.67;
+
+      if (fpsCorrection > 2) fpsCorrection = 1;
+
+      previousTimeRef.current = time;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      const idleStars: Star[] = [];
+      const fallingStars: Star[] = [];
 
       stars.forEach((star) => {
-        star.update();
-        star.draw();
+        star.update(time, fpsCorrection);
+        if (star.state === 'idle') idleStars.push(star);
+        else fallingStars.push(star);
+      });
+
+      ctx.fillStyle = `rgb(${starColor})`;
+
+      idleStars.forEach((star) => {
+        ctx.globalAlpha = star.opacity;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      fallingStars.forEach((star) => {
+        const startX = star.x;
+        const startY = star.y;
+        const endX = star.x + star.len;
+        const endY = star.y - star.len;
+
+        const gradient = ctx.createLinearGradient(startX, startY, endX, endY);
+        gradient.addColorStop(0, `rgba(${starColor}, 1)`);
+        gradient.addColorStop(1, `rgba(${starColor}, 0)`);
+
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 1.5;
+        ctx.lineCap = 'round';
+        ctx.globalAlpha = 1; // Reset alpha for the streak
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
       });
 
       animationFrameId = requestAnimationFrame(animate);
@@ -137,13 +147,15 @@ export default function FallingStars() {
 
     // Initialize
     handleResize();
+    initStars();
     window.addEventListener('resize', handleResize);
-    animate();
+
+    animationFrameId = requestAnimationFrame(animate);
     return () => {
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isDarkTheme]);
+  }, [isDarkTheme, starColor]);
 
   return (
     <canvas
