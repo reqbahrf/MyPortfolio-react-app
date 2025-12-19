@@ -46,8 +46,10 @@ export default function FallingStars() {
       }
 
       reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
 
         this.speed = Math.random() * 2 + SPEED_BASE;
         this.len = Math.random() * 20 + LENGTH_BASE;
