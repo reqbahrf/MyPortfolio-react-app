@@ -10,6 +10,7 @@ import skills from './content/skills.json';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import PillTag from './components/PillTag';
+import SkillCategoryCard from './components/SkillCategoryCard';
 
 export default function HomeSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -132,15 +133,19 @@ export default function HomeSection() {
             link='https://www.davadelnorte.edu.ph/'
           />
         </div>
-        <h2 className='mb-3 text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
+        <h2 className='mb-6 text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
           Skills
         </h2>
-        <div className='mb-5 w-[95dvw] md:mb-12 lg:mb-18 lg:w-1/2'>
-          <div className='flex flex-wrap justify-center gap-2'>
-            {skills.skills.map((skill) => (
-              <PillTag key={skill} tag={skill} />
-            ))}
-          </div>
+        <div className='mb-5 grid w-[95dvw] grid-cols-1 gap-4 md:mb-12 md:grid-cols-3 lg:mb-18 lg:w-1/2'>
+          {Object.entries(skills.skills).map(([category, categorySkills]) => (
+            <SkillCategoryCard
+              key={category}
+              categoryName={
+                category as 'frontend' | 'backend' | 'testingAndtools'
+              }
+              skills={categorySkills}
+            />
+          ))}
         </div>
       </section>
       <section id='sectionPin' ref={sectionRef}>

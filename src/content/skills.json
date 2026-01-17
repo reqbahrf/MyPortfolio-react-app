@@ -1,21 +1,22 @@
 {
-  "skills": [
-    "PHP",
-    "Laravel",
-    "JavaScript",
-    "TypeScript",
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Figma",
-    "Git",
-    "GitHub",
-    "HTML",
-    "CSS",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "MySQL",
-    "Supabase"
-  ]
+  "skills": {
+    "frontend": [
+      "Tailwind CSS",
+      "HTML & CSS",
+      "React",
+      "TypeScript",
+      "Next.js"
+    ],
+    "backend": [
+      "PHP",
+      "Laravel",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "MySQL",
+      "PostgreSQL",
+      "Supabase"
+    ],
+    "testingAndtools": ["Vitest", "Figma", "Postman & EchoAPI", "Git", "GitHub"]
+  }
 }
