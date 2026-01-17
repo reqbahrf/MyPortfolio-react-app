@@ -1,6 +1,7 @@
 import { forwardRef, memo, useRef, useCallback } from 'react';
 import { motion, useMotionValue } from 'motion/react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import PillTag from './PillTag';
 
 interface ProjectCardProps {
   id: string;
@@ -93,12 +94,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
           </p>
           <div className='flex flex-wrap gap-2'>
             {tags?.map((tag, index) => (
-              <span
-                key={index}
-                className='rounded-sm bg-gray-500 px-2 py-1 text-sm text-white dark:bg-gray-500'
-              >
-                {tag}
-              </span>
+              <PillTag key={index} tag={tag} />
             ))}
           </div>
         </div>
