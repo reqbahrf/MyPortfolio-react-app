@@ -22,7 +22,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
       href={link}
       target='_blank'
       rel='noopener noreferrer'
-      className='group flex w-full cursor-pointer items-center justify-between rounded-xl bg-gray-200 px-4 py-3 text-white transition-all duration-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700'
+      className='group flex w-full cursor-pointer items-center justify-between rounded-xl bg-gray-200/50 px-4 py-3 text-white transition-all duration-200 hover:bg-gray-300 dark:bg-gray-800/50 dark:hover:bg-gray-700'
     >
       <div className='flex items-center space-x-4'>
         <LazyLoadImage
