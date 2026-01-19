@@ -9,7 +9,6 @@ import InfoCard from './components/InfoCard';
 import skills from './content/skills.json';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import PillTag from './components/PillTag';
 import SkillCategoryCard from './components/SkillCategoryCard';
 
 export default function HomeSection() {
