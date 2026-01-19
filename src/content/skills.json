@@ -17,6 +17,14 @@
       "PostgreSQL",
       "Supabase"
     ],
-    "testingAndtools": ["Vitest", "Figma", "Postman & EchoAPI", "Git", "GitHub"]
+    "testingAndtools": [
+      "Figma",
+      "Canva",
+      "Adobe Photoshop & Illustrator",
+      "Stitch",
+      "Postman & EchoAPI",
+      "Vite & Vitest",
+      "Git & GitHub"
+    ]
   }
 }
