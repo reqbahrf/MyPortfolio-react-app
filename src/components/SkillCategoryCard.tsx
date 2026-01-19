@@ -19,7 +19,7 @@ export default function SkillCategoryCard({
     testingAndtools: <RiToolsFill />,
   };
   return (
-    <div className='rounded-xl bg-gray-200 p-4 md:p-5 dark:bg-gray-800'>
+    <div className='rounded-xl bg-gray-200/50 p-4 md:p-5 dark:bg-gray-800/50'>
       <div className='flex items-center gap-2 text-black dark:text-white'>
         {categoryIcons[categoryName]}
         <h2 className='text-lg font-semibold'>{categoryNames[categoryName]}</h2>
