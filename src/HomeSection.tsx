@@ -108,9 +108,9 @@ export default function HomeSection() {
             developer.
           </div>
         </div>
-        <h2 className='mb-3 text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
+        <h3 className='mb-3 text-center text-xl font-bold text-black xl:text-start dark:text-white'>
           Work Experience
-        </h2>
+        </h3>
         <div className='mb-5 w-[95dvw] md:mb-12 lg:mb-18 lg:w-1/2'>
           <InfoCard
             title='DOST PSTO davao del norte'
@@ -120,9 +120,9 @@ export default function HomeSection() {
             link='https://www.facebook.com/share/p/1H1CjfWftn/'
           />
         </div>
-        <h2 className='mb-3 text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
+        <h3 className='mb-3 text-center text-xl font-bold text-black xl:text-start dark:text-white'>
           Education
-        </h2>
+        </h3>
         <div className='mb-5 w-[95dvw] md:mb-12 lg:mb-18 lg:w-1/2'>
           <InfoCard
             title='Davao del Norte State College'
@@ -132,10 +132,10 @@ export default function HomeSection() {
             link='https://www.davadelnorte.edu.ph/'
           />
         </div>
-        <h2 className='mb-6 text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
+        <h3 className='mb-6 text-center text-xl font-bold text-black xl:text-start dark:text-white'>
           Skills
-        </h2>
-        <div className='mb-5 grid w-[95dvw] grid-cols-1 gap-4 md:mb-12 md:grid-cols-3 lg:mb-18 lg:w-1/2'>
+        </h3>
+        <div className='mb-5 grid w-[95dvw] grid-cols-1 gap-4 md:mb-12 md:grid-cols-3 lg:mb-18 lg:w-3/5'>
           {Object.entries(skills.skills).map(([category, categorySkills]) => (
             <SkillCategoryCard
               key={category}
