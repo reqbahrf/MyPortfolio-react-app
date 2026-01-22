@@ -4,12 +4,12 @@ const GitHubStatLoading = () => {
   return (
     <section id='githubStatPin'>
       <div>
-        <h2 className='text-center text-2xl font-bold text-black dark:text-white'>
+        <h2 className='font-display text-center text-2xl font-bold text-black dark:text-white'>
           GitHub Stats
         </h2>
         <div className='flex flex-col items-center justify-center gap-2'>
           {/* Year Selector Skeleton */}
-          <div className='h-10 w-24 animate-pulse rounded-sm bg-gray-700'></div>
+          <div className='bg-sage h-10 w-24 animate-pulse rounded-sm'></div>
           {/* Heatmap Skeleton */}
           <HeatMap />
           {/* Donut Chart Skeleton */}
