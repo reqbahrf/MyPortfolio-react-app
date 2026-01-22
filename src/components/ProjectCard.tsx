@@ -68,14 +68,14 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
         }}
         whileHover={{ scale: 1.05, overflow: 'visible' }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className='group relative flex w-[95dvw] cursor-pointer flex-col overflow-hidden rounded-[20px] bg-gray-200/50 transition-all duration-300 hover:shadow-md hover:shadow-black/25 sm:w-[70dvw] md:h-112 md:w-[40dvw] lg:w-[30dvw] dark:bg-gray-900/50 hover:dark:shadow-pink-500/50'
+        className='group bg-sage/5 border-sage/10 hover:shadow-clay/20 hover:border-clay/50 relative flex w-[95dvw] cursor-pointer flex-col overflow-hidden rounded-[20px] border transition-all duration-300 hover:shadow-xl sm:w-[70dvw] md:h-112 md:w-[40dvw] lg:w-[30dvw]'
       >
         <motion.div
           className='h-48 w-full transform-[translateZ(0px)] transition-transform duration-500 transform-3d group-hover:transform-[translateZ(100px)]'
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
           <LazyLoadImage
-            className='h-48 w-full object-cover group-hover:object-contain group-hover:brightness-75'
+            className='h-48 w-full object-cover group-hover:object-contain'
             effect='blur'
             threshold={300}
             wrapperProps={{
@@ -85,11 +85,11 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
             alt={title}
           />
         </motion.div>
-        <div className='px-2 pt-4 pb-4'>
-          <div className='mb-4 line-clamp-1 text-xl font-bold text-black group-hover:text-pink-700 dark:text-white'>
+        <div className='px-4 pt-4 pb-4'>
+          <div className='font-display group-hover:text-clay mb-4 line-clamp-1 text-xl font-bold text-black transition-colors dark:text-white'>
             {title}
           </div>
-          <p className='scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-800 mb-3 overflow-hidden text-justify text-sm text-black transition-all duration-300 group-hover:max-h-[200px] group-hover:overflow-y-auto sm:max-h-[50px] md:max-h-[35px] dark:text-white'>
+          <p className='font-body scrollbar-thin scrollbar-thumb-clay/30 scrollbar-track-transparent mb-3 overflow-hidden text-justify text-sm leading-relaxed text-black transition-all duration-300 group-hover:max-h-[200px] group-hover:overflow-y-auto sm:max-h-[50px] md:max-h-[35px] dark:text-white'>
             {description}
           </p>
           <div className='flex flex-wrap gap-2'>
