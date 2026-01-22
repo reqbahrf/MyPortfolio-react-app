@@ -45,7 +45,7 @@
 }
 
 @utility nav-bar-text {
-  @apply absolute bottom-full left-1/2 mb-2 -translate-x-1/2 translate-y-2 scale-90 transform rounded-sm bg-gray-800 px-2 py-1 text-sm whitespace-nowrap text-white opacity-0 shadow-md transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100;
+  @apply bg-clay text-bone absolute bottom-full left-1/2 mb-2 -translate-x-1/2 translate-y-2 scale-90 transform rounded-sm px-2 py-1 text-sm whitespace-nowrap opacity-0 shadow-md transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100;
 }
 
 body {
@@ -75,7 +75,7 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #9e2359;
+  background-color: var(--color-clay);
   border-radius: 20px;
   border: 3px solid rgba(0, 0, 0, 0.5);
 }
@@ -110,7 +110,7 @@ body {
 }
 
 #sectionPin::-webkit-scrollbar-thumb {
-  background-color: #9e2359;
+  background-color: var(--color-clay);
   border-radius: 4px;
 }
 
@@ -152,7 +152,7 @@ body {
 }
 
 .slides-container::-webkit-scrollbar-thumb {
-  background-color: #9e2359;
+  background-color: var(--color-clay);
   border-radius: 4px;
 }
 
@@ -322,7 +322,7 @@ body {
   text-shadow: 1px 1px 3px #000000;
   font-size: 40px;
   font-weight: bold;
-  color: #9e2359;
+  color: var(--color-sage);
   z-index: 20;
 }
 
@@ -362,7 +362,8 @@ body {
   display: grid;
   place-items: center;
   text-align: center;
-  font: bold;
+  font-family: var(--font-display);
+  font-weight: bold;
   text-shadow: 2px 2px 4px #000000;
   font-size: calc(4vw + 1em);
   align-content: center;
@@ -385,7 +386,7 @@ body {
 
 .is-sticky #modal-content-header {
   background-position: 50% 100%;
-  background-color: #9e2359;
+  background-color: var(--color-clay);
   height: 10vh;
   font-size: 2em;
   z-index: 2;
