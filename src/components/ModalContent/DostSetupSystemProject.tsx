@@ -76,38 +76,43 @@ const DostSetupSystemProject = () => {
   ];
 
   return (
-    <section className='bg-linear-to-b from-gray-400 to-white px-6 py-20 transition-colors duration-300 md:px-20 dark:from-gray-900 dark:to-gray-800'>
+    <section className='px-6 py-20 md:px-20'>
       {/* ---------- Project Intro ---------- */}
       <motion.div
-        className='mb-16 text-center'
+        className='mb-24 text-center'
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className='mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
+        <span className='font-body text-clay mb-4 block text-xs tracking-[0.3em] uppercase'>
+          Capstone Project • Laravel 11
+        </span>
+
+        <h2 className='font-display mb-6 text-4xl font-extrabold text-black md:text-6xl dark:text-white'>
           DOST SETUP Management System
         </h2>
-        <p className='mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-          The project involves creating a web-based platform for the DOST
-          (Department of Science and Technology) Small Enterprise Technology
-          Upgrading Program (SETUP) in Davao del Norte. This system was
-          developed as a Capstone Project Requirement for a Bachelor of Science
-          in Information System.
-        </p>
-        <p className='mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-          Its primary purpose is to streamline the process of managing funding
-          assistance for small enterprises, improving efficiency and project
-          tracking for DOST staff.
-        </p>
-        <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-          The system is built using <strong>Laravel 11</strong>. The source code
-          has since been turned over to the Regional Knowledge Management System
-          (KMS) of DOST for integration and synchronization with their existing
-          systems.
-        </p>
 
-        {/* Note: Links are omitted as per project details (source code turned over, no public demo). */}
+        <div className='mx-auto max-w-3xl space-y-6'>
+          <p className='font-body text-lg leading-relaxed text-black/80 dark:text-white/80'>
+            Developed as a Capstone Project for the Department of Science and
+            Technology (DOST), this platform streamlines funding assistance for
+            small enterprises in Davao del Norte.
+          </p>
+
+          <p className='font-body text-lg leading-relaxed text-black/80 dark:text-white/80'>
+            The system tracks multi-year project statuses, financial balances,
+            and payment history, significantly improving efficiency for DOST
+            staff and cooperators.
+          </p>
+
+          <div className='pt-6'>
+            <p className='font-body text-sage border-app-text/10 inline-block border-t pt-6 text-sm italic'>
+              Note: Source code has been turned over to the Regional Knowledge
+              Management System (KMS) for official integration.
+            </p>
+          </div>
+        </div>
       </motion.div>
 
       {/* ---------- Feature List (Showcase) ---------- */}

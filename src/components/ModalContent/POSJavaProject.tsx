@@ -48,7 +48,7 @@ const POSJavaProject = () => {
   ];
 
   return (
-    <section className='bg-linear-to-b from-gray-400 to-white px-6 py-20 transition-colors duration-300 md:px-20 dark:from-gray-900 dark:to-gray-800'>
+    <section className='px-6 py-20 md:px-20'>
       {/* ---------- Project Intro ---------- */}
       <motion.div
         className='mb-16 text-center'
@@ -57,10 +57,14 @@ const POSJavaProject = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className='mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
+        <span className='font-body text-clay mb-4 block text-xs tracking-[0.3em] uppercase'>
+          School Project • Java GUI
+        </span>
+
+        <h2 className='font-display mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
           Toppings Express POS & Admin
         </h2>
-        <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
+        <p className='font-body mx-auto max-w-2xl text-lg leading-relaxed text-black/80 dark:text-white/80'>
           First Java GUI Application Project as one of requirement from the
           System Analysis and Design(SAD) subject during my second year.
         </p>
