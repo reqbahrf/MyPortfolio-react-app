@@ -1,4 +1,27 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Work+Sans:wght@300;400;600&display=swap');
+:root {
+  --app-text: 12 12 12; /* obsidian */
+}
+
+.dark {
+  --app-text: 244 241 234; /* bone */
+}
+@theme {
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Work Sans', sans-serif;
+
+  --color-black: rgb(var(--app-text));
+  --color-white: rgb(var(--app-text));
+
+  --color-obsidian: #0c0c0c;
+  --color-bone: #f4f1ea;
+  --color-clay: #c18a63;
+  --color-sage: #7e9c76;
+
+  --color-app-bg: var(--color-bone);
+  --color-app-text: var(--color-obsidian);
+}
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant dark (&:where(.dark, .dark *));
@@ -25,15 +48,15 @@
   @apply absolute bottom-full left-1/2 mb-2 -translate-x-1/2 translate-y-2 scale-90 transform rounded-sm bg-gray-800 px-2 py-1 text-sm whitespace-nowrap text-white opacity-0 shadow-md transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100;
 }
 
-@layer utilities {
-  body {
-    @apply overflow-x-hidden bg-white dark:bg-black/95;
-  }
+body {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  overflow-x: hidden;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #9e2359 rgba(0, 0, 0, 0.9);
+  scrollbar-color: var(--color-clay) rgba(0, 0, 0, 0.9);
 }
 
 * {
