@@ -22,7 +22,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
       href={link}
       target='_blank'
       rel='noopener noreferrer'
-      className='group flex w-full cursor-pointer items-center justify-between rounded-xl bg-gray-200/50 px-4 py-3 text-white transition-all duration-200 hover:bg-gray-300 dark:bg-gray-800/50 dark:hover:bg-gray-700'
+      className='group border-sage/10 bg-sage/5 hover:border-clay/50 hover:bg-clay/10 flex w-full cursor-pointer items-center justify-between rounded-xl border px-4 py-3 transition-all duration-300'
     >
       <div className='flex items-center space-x-4'>
         <LazyLoadImage
@@ -40,15 +40,15 @@ const InfoCard: React.FC<InfoCardProps> = ({
             {title}
             <RiArrowRightSLine
               size={20}
-              className='hidden ps-1 transition-all delay-100 duration-100 ease-in-out group-hover:inline'
+              className='text-clay hidden ps-1 transition-all delay-100 duration-100 ease-in-out group-hover:inline'
             />
           </span>
-          <span className='text-xs text-black md:text-sm dark:text-white'>
+          <span className='text-xs text-black/70 italic md:text-sm dark:text-white/70'>
             {subtitle}
           </span>
         </div>
       </div>
-      <div className='text-xs text-black md:text-sm dark:text-white'>
+      <div className='text-xs text-black/60 md:text-sm dark:text-white/60'>
         {years}
       </div>
     </a>

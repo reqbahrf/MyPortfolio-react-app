@@ -67,10 +67,10 @@ const GitHubStatSection = () => {
     return (
       <div className='flex h-96 items-center justify-center'>
         <div className='text-center'>
-          <h2 className='mb-2 text-center text-2xl font-bold text-black dark:text-white'>
+          <h2 className='font-display mb-2 text-center text-2xl font-bold text-black dark:text-white'>
             No Data Available
           </h2>
-          <p className='text-xl text-black dark:text-white'>
+          <p className='text-xl text-black/80 dark:text-white/80'>
             Unable to fetch GitHub statistics. The GitHub API provider might be
             temporarily unavailable.
           </p>
@@ -83,14 +83,14 @@ const GitHubStatSection = () => {
   return (
     <section id='githubStatPin' className='mb-16'>
       <div>
-        <h2 className='text-center text-2xl font-bold text-black dark:text-white'>
+        <h2 className='font-display text-center text-2xl font-bold text-black dark:text-white'>
           GitHub Stats
         </h2>
         <div className='flex flex-col items-center justify-center gap-2'>
           <select
             id='yearSelector'
             title='Year Selector'
-            className='rounded-sm bg-gray-800 p-2 text-white'
+            className='bg-sage rounded-sm p-2 text-white'
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
             disabled={availableYears.length <= 1}
@@ -113,7 +113,7 @@ const GitHubStatSection = () => {
               theme={isDarkTheme ? 'dark' : 'light'}
             />
           </Suspense>
-          <p className='text-xs text-gray-500 dark:text-gray-400'>
+          <p className='font-body text-xs text-gray-500 dark:text-gray-400'>
             Note: Data provided by GitHub API. retrieved using{' '}
             <a
               href='https://docs.github.com/en/graphql'

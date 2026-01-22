@@ -6,7 +6,7 @@ const ThemeToggle = () => {
     <button
       title='Toggle Theme'
       onClick={toggleTheme}
-      className='relative group px-2 text-gray-800 dark:text-white flex items-center justify-center hover:scale-125 transition-transform ease-in-out duration-300  rounded-full hover:text-pink-700'
+      className='group text-app-text hover:text-clay relative flex items-center justify-center rounded-full px-2 transition-transform duration-300 ease-in-out hover:scale-125'
     >
       {isDarkTheme ? <RiSunFill /> : <RiMoonFill />}
       <span className='nav-bar-text'>Toggle Theme</span>

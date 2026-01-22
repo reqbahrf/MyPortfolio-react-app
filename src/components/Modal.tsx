@@ -36,7 +36,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
     };
     return (
       <div id={modalId} ref={ref} className='modal show-modal'>
-        <div className='modal-content bg-gray-200 dark:bg-gray-800'>
+        <div className='modal-content bg-app-bg dark:bg-obsidian'>
           <button className='close-button' onClick={onClose}>
             ×
           </button>

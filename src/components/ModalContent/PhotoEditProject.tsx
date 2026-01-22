@@ -56,28 +56,35 @@ const PhotoEditProject = () => {
     },
   ];
   return (
-    <section className='bg-linear-to-b from-gray-400 to-white px-6 py-20 transition-colors duration-300 md:px-20 dark:from-gray-900 dark:to-gray-800'>
+    <section className='px-6 py-20 md:px-20'>
       {/* ---------- Project Intro ---------- */}
       <motion.div
-        className='mb-16 text-center'
+        className='mb-24 text-center'
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className='mb-4 text-4xl font-extrabold text-gray-800 md:text-5xl dark:text-white'>
+        <span className='font-body text-clay mb-4 block text-xs tracking-[0.3em] uppercase'>
+          School Projects • Photo Manipulation
+        </span>
+        <h2 className='font-display mb-6 text-4xl font-extrabold text-black md:text-6xl dark:text-white'>
           Photo Editing Project
         </h2>
-        <p className='mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-          This project showcases advanced photo manipulation techniques using
-          Adobe Photoshop, combining raw images into final compositions that
-          convey powerful narratives.
-        </p>
-        <p className='mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-          The images demonstrate various editing styles, from surreal tech
-          integrations to natural scene enhancements, highlighting the creative
-          process of transforming ordinary photos into striking visual stories.
-        </p>
+
+        <div className='mx-auto max-w-3xl space-y-6'>
+          <p className='font-body text-lg leading-relaxed text-black/80 dark:text-white/80'>
+            This project showcases advanced photo manipulation techniques using
+            Adobe Photoshop, combining raw images into final compositions that
+            convey powerful narratives.
+          </p>
+          <p className='font-body text-lg leading-relaxed text-black/80 dark:text-white/80'>
+            The images demonstrate various editing styles, from surreal tech
+            integrations to natural scene enhancements, highlighting the
+            creative process of transforming ordinary photos into striking
+            visual stories.
+          </p>
+        </div>
       </motion.div>
 
       {/* ---------- Feature List (Showcase) ---------- */}

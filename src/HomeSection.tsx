@@ -55,17 +55,17 @@ export default function HomeSection() {
   }, []);
 
   return (
-    <section id='Home'>
+    <section id='Home' className='min-h-screen transition-colors duration-300'>
       <div className='hero flex h-screen items-center justify-center'>
         <div className='flex h-full w-auto flex-col-reverse px-10 sm:px-40 lg:flex-row'>
           <div className='flex flex-1 flex-col justify-center space-y-5'>
             <div>
-              <h1 className='text-center text-4xl font-bold text-black xl:text-start dark:text-white'>
+              <h1 className='font-display text-center text-4xl font-bold text-black xl:text-start dark:text-white'>
                 Hi, I&apos;m Reanz Arthur
               </h1>
             </div>
             <div className='w-[96dvw] md:w-[40vw] lg:w-[30dvw]'>
-              <p className='md:text-md text-justify indent-8 text-sm text-black dark:text-white'>
+              <p className='font-body md:text-md text-justify indent-8 text-sm text-black/80 dark:text-white/80'>
                 I'm a self-taught web developer and graphic designer. I enjoy
                 building websites and apps that look good and work well. I'm now
                 looking for job opportunities where I can grow and keep learning
@@ -75,9 +75,9 @@ export default function HomeSection() {
 
             <div className='mt-10! text-center lg:text-start'>
               <a
-                href='https://drive.google.com/file/d/16y7aByAf2mYG719OlLFlXsJDRDJVUM6p/view?usp=sharing'
+                href='https://www.canva.com/design/DAG-88qGjys/rK8aZjvFAJGLZVuRuuzi-A/view?utm_content=DAG-88qGjys&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6ea70ffd6a'
                 target='_blank'
-                className='rounded-full bg-gray-200 px-9 py-2 font-bold text-black hover:shadow-md hover:shadow-black/25 dark:bg-gray-800 dark:text-white hover:dark:shadow-pink-500/50'
+                className='bg-clay font-body hover:bg-sage text-bone rounded-full px-9 py-2 font-bold transition-all hover:shadow-lg dark:text-white'
               >
                 View CV
               </a>
@@ -88,17 +88,17 @@ export default function HomeSection() {
               id='avatar'
               src={profile}
               alt='Profile'
-              className='m-auto h-[250px] w-[250px] rounded-full border-2 border-pink-700 object-cover shadow-lg'
+              className='border-clay m-auto h-[250px] w-[250px] rounded-full border-2 object-cover shadow-lg'
             />
           </div>
         </div>
       </div>
       <section className='flex w-full flex-col items-center justify-center'>
-        <h2 className='text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
+        <h2 className='font-display text-center text-2xl font-bold text-black xl:text-start dark:text-white'>
           About
         </h2>
         <div className='m-5 w-[95dvw] md:m-12 lg:m-18 lg:w-1/2'>
-          <div className='mb-7 text-justify indent-8 text-lg text-black dark:text-white'>
+          <p className='font-body mb-7 text-justify indent-8 text-lg text-black/80 dark:text-white/80'>
             I graduated with a degree in Information System from Davao del Norte
             State College. Although the BS in Information System mainly focuses
             on designing and proposing systems, a change in our curriculum gave
@@ -106,9 +106,9 @@ export default function HomeSection() {
             and explore web development more, especially through our Capstone
             project, where I developed a web application as a full-stack
             developer.
-          </div>
+          </p>
         </div>
-        <h3 className='mb-3 text-center text-xl font-bold text-black xl:text-start dark:text-white'>
+        <h3 className='font-display mb-3 text-center text-xl font-bold text-black xl:text-start dark:text-white'>
           Work Experience
         </h3>
         <div className='mb-5 w-[95dvw] md:mb-12 lg:mb-18 lg:w-1/2'>
@@ -120,7 +120,7 @@ export default function HomeSection() {
             link='https://www.facebook.com/share/p/1H1CjfWftn/'
           />
         </div>
-        <h3 className='mb-3 text-center text-xl font-bold text-black xl:text-start dark:text-white'>
+        <h3 className='font-display mb-3 text-center text-xl font-bold text-black xl:text-start dark:text-white'>
           Education
         </h3>
         <div className='mb-5 w-[95dvw] md:mb-12 lg:mb-18 lg:w-1/2'>
@@ -132,7 +132,7 @@ export default function HomeSection() {
             link='https://www.davadelnorte.edu.ph/'
           />
         </div>
-        <h3 className='mb-6 text-center text-xl font-bold text-black xl:text-start dark:text-white'>
+        <h3 className='font-display mb-6 text-center text-xl font-bold text-black xl:text-start dark:text-white'>
           Skills
         </h3>
         <div className='mb-5 grid w-[95dvw] grid-cols-1 gap-4 md:mb-12 md:grid-cols-3 lg:mb-18 lg:w-3/5'>
@@ -150,7 +150,7 @@ export default function HomeSection() {
       <section id='sectionPin' ref={sectionRef}>
         <div className='pin-wrap-sticky' ref={wrapperRef}>
           <div className='text-container'>
-            <p className='mb-4 text-2xl font-bold text-black sm:text-3xl md:text-4xl dark:text-white'>
+            <p className='mb-4 text-2xl font-bold text-black/80 sm:text-3xl md:text-4xl dark:text-white/80'>
               One of the Figma prototype designs I created for our subject group
               project
             </p>
