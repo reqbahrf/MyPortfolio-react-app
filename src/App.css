@@ -1,23 +1,17 @@
 @import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Work+Sans:wght@300;400;600&display=swap');
-:root {
-  --app-text: 12 12 12; /* obsidian */
-}
 
-.dark {
-  --app-text: 244 241 234; /* bone */
-}
 @theme {
   --font-display: 'Playfair Display', serif;
   --font-body: 'Work Sans', sans-serif;
-
-  --color-black: rgb(var(--app-text));
-  --color-white: rgb(var(--app-text));
 
   --color-obsidian: #0c0c0c;
   --color-bone: #f4f1ea;
   --color-clay: #c18a63;
   --color-sage: #7e9c76;
+
+  --color-black: var(--color-obsidian);
+  --color-white: var(--color-bone);
 
   --color-app-bg: var(--color-bone);
   --color-app-text: var(--color-obsidian);
