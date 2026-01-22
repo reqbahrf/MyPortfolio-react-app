@@ -91,7 +91,7 @@ const NavIcon: React.FC<NavIconProps> = ({
       <motion.a
         href={href}
         {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-        className={`group relative flex items-center justify-center rounded-full text-gray-800 hover:text-pink-700 dark:text-white ${customClass}`}
+        className={`group hover:text-clay text-obsidian relative flex items-center justify-center rounded-full transition-colors ${customClass}`}
         whileHover={{
           ...ANIMATION_CONFIG,
         }}
@@ -101,10 +101,10 @@ const NavIcon: React.FC<NavIconProps> = ({
         }}
       >
         {icon}
-        <span className='nav-bar-text'>{title}</span>
+        <span className='nav-bar-text font-body text-sm'>{title}</span>
       </motion.a>
       {separator && (
-        <div className='-ms-1 border-r border-r-zinc-950 dark:border-r-zinc-500'></div>
+        <div className='border-obsidian mx-1 h-1/2 self-center border-r'></div>
       )}
     </>
   );
@@ -113,7 +113,7 @@ const NavIcon: React.FC<NavIconProps> = ({
 const NavigationBar = () => {
   return (
     <div className='fixed right-0 bottom-2 left-0 z-50 flex items-center justify-center'>
-      <div className='h-14 w-auto rounded-full bg-gray-200/80 px-2 shadow-xs shadow-black/50 backdrop-blur-lg dark:bg-black/70 dark:shadow-pink-500/70'>
+      <div className='border-app-text/10 bg-app-bg/70 dark:shadow-clay/5 h-14 w-auto rounded-full border px-4 shadow-lg shadow-black/10 backdrop-blur-xl'>
         <motion.nav
           id='nav-links'
           className='flex h-full justify-center gap-x-2'
