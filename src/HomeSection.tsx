@@ -75,9 +75,9 @@ export default function HomeSection() {
 
             <div className='mt-10! text-center lg:text-start'>
               <a
-                href='https://drive.google.com/file/d/16y7aByAf2mYG719OlLFlXsJDRDJVUM6p/view?usp=sharing'
+                href='https://www.canva.com/design/DAG-88qGjys/rK8aZjvFAJGLZVuRuuzi-A/view?utm_content=DAG-88qGjys&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6ea70ffd6a'
                 target='_blank'
-                className='bg-sage font-body hover:bg-clay hover:text-bone rounded-full px-9 py-2 font-bold transition-all hover:shadow-lg dark:text-white'
+                className='bg-clay font-body hover:bg-sage text-bone rounded-full px-9 py-2 font-bold transition-all hover:shadow-lg dark:text-white'
               >
                 View CV
               </a>
