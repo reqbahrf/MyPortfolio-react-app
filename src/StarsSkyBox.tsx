@@ -135,7 +135,7 @@ export default function StarsSkyBox() {
       public flareSize: number = 0;
       constructor() {
         this.reset();
-        // this.spawnTime = performance.now() - Math.random() * 10000;
+        this.spawnTime = performance.now() - Math.random() * 10000;
       }
 
       reset() {
