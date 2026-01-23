@@ -13,6 +13,13 @@ export default function FallingStars() {
   const starColor = isDarkTheme ? '255, 255, 255' : '0, 0, 0';
 
   useEffect(() => {
+    // -----------------------------------------------------------------
+    // RESET STATE ON THEME CHANGE
+    // -----------------------------------------------------------------
+    hasWarpedRef.current = false; // Allow warp to happen again
+    startTimeRef.current = null; // Reset the animation timer to 0
+    previousTimeRef.current = 0; // Reset delta time calculator
+    // -----------------------------------------------------------------
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext('2d', { alpha: true })!;
 
@@ -128,7 +135,7 @@ export default function FallingStars() {
       public flareSize: number = 0;
       constructor() {
         this.reset();
-        this.spawnTime = performance.now() - Math.random() * 10000;
+        // this.spawnTime = performance.now() - Math.random() * 10000;
       }
 
       reset() {
@@ -293,7 +300,6 @@ export default function FallingStars() {
 
         warpStars.forEach((star) => {
           star.update(speed);
-          // Fade out slightly at max speed so it's not just white noise
           star.draw(cx, cy, 1);
         });
       }
@@ -309,9 +315,9 @@ export default function FallingStars() {
         // Only shake during the initial impact (first 20% of arrival)
         if (arrivalProgress < 0.2) {
           // Calculate intensity: starts strong, fades to 0
-          const shakeIntensity = 20 * (1 - arrivalProgress / 0.2);
-          const dx = (Math.random() - 0.9) * shakeIntensity;
-          const dy = (Math.random() - 0.9) * shakeIntensity;
+          const shakeIntensity = 40 * (1 - arrivalProgress / 0.2);
+          const dx = (Math.random() - 0.5) * shakeIntensity;
+          const dy = (Math.random() - 0.5) * shakeIntensity;
           ctx.translate(dx, dy); // Move the entire canvas view
         }
 
@@ -331,7 +337,7 @@ export default function FallingStars() {
         ctx.globalAlpha = arrivalProgress;
         normalStars.forEach((star) => {
           star.update(time, fpsCorrection);
-          if (star.state === 'idle') drawIdleStar(star);
+          drawIdleStar(star);
         });
         ctx.restore();
 
