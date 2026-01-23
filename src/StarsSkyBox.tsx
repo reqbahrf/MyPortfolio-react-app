@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useThemeContext } from './context/ThemeContext';
 
-export default function FallingStars() {
+export default function StarsSkyBox() {
   const { isDarkTheme } = useThemeContext();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
