@@ -306,42 +306,79 @@ export default function FallingStars() {
 
       // --- PHASE 3: ARRIVAL (Decelerate & Fade Out) ---
       else if (shouldWarp && elapsed >= T_WARP_END && elapsed < T_NORMAL) {
-        const arrivalProgress = (elapsed - T_WARP_END) / FADE_DURATION; // 0 to 1
+        const arrivalProgress = (elapsed - T_WARP_END) / FADE_DURATION; // 0 → 1
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
 
-        // 1. START GLOBAL TRANSFORM (Required for Shake)
         ctx.save();
 
-        // --- SHAKE LOGIC ---
-        // Only shake during the initial impact (first 20% of arrival)
-        if (arrivalProgress < 0.2) {
-          // Calculate intensity: starts strong, fades to 0
-          const shakeIntensity = 40 * (1 - arrivalProgress / 0.2);
-          const dx = (Math.random() - 0.5) * shakeIntensity;
-          const dy = (Math.random() - 0.5) * shakeIntensity;
-          ctx.translate(dx, dy); // Move the entire canvas view
+        // -------------------------------------------------
+        // 1. SPATIAL COMPRESSION CLAMP (Reality locks in)
+        // -------------------------------------------------
+        if (arrivalProgress < 0.3) {
+          const t = arrivalProgress / 0.3;
+          const scale = 1.08 - t * 0.08; // 1.08 → 1.0
+
+          ctx.translate(cx, cy);
+          ctx.scale(scale, scale);
+          ctx.translate(-cx, -cy);
         }
 
-        // --- DRAW STARS (Warp & Normal) ---
+        // -------------------------------------------------
+        // 2. STAR DENSITY SHOCKWAVE (Energy redistribution)
+        // -------------------------------------------------
+        if (arrivalProgress < 0.2) {
+          const wave = 1 - arrivalProgress / 0.2; // 1 → 0
 
-        // Warp Stars (Slowing down)
+          warpStars.forEach((star) => {
+            const x2d = (star.x / star.z) * window.innerWidth + cx;
+            const y2d = (star.y / star.z) * window.innerHeight + cy;
+
+            const dx = x2d - cx;
+            const dy = y2d - cy;
+            const dist = Math.sqrt(dx * dx + dy * dy) + 0.001;
+
+            const force = (wave * 80) / dist;
+            const depthScale = Math.min(1, 500 / star.z);
+
+            star.x += (dx / dist) * force * depthScale;
+            star.y += (dy / dist) * force * depthScale;
+          });
+        }
+
+        // -------------------------------------------------
+        // 3. CAMERA Z-SNAP (Hard stop)
+        // -------------------------------------------------
         const decel = 1 - Math.pow(arrivalProgress, 0.5);
-        const warpSpeed = decel * 150 * fpsCorrection;
+        let warpSpeed = decel * 150 * fpsCorrection;
 
+        const freeze = arrivalProgress < 0.04;
+
+        if (arrivalProgress < 0.05) {
+          warpSpeed = 0;
+          warpStars.forEach((star) => {
+            star.prevZ = star.z;
+          });
+        }
+
+        // -------------------------------------------------
+        // 4. DRAW WARP STARS (Collapse & fade)
+        // -------------------------------------------------
         warpStars.forEach((star) => {
-          star.update(warpSpeed);
+          if (!freeze) star.update(warpSpeed);
           star.draw(cx, cy, 1 - arrivalProgress);
         });
 
-        // Normal Stars (Fading In)
-        ctx.save();
+        // -------------------------------------------------
+        // 5. FADE IN NORMAL STARS
+        // -------------------------------------------------
         ctx.globalAlpha = arrivalProgress;
+
         normalStars.forEach((star) => {
           star.update(time, fpsCorrection);
           drawIdleStar(star);
         });
-        ctx.restore();
 
-        // 2. END GLOBAL TRANSFORM (Stop Shaking)
         ctx.restore();
       }
 
