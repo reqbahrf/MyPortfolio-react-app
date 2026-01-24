@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react';
-import { useThemeContext } from './context/ThemeContext';
-
+import { useThemeContext } from '../../context/ThemeContext';
+import { useWarp } from '../../context/WarpContext';
+import type WarpPhase from '../../../libs/types/WarpPhase';
 export default function StarsSkyBox() {
+  const { setPhase } = useWarp();
   const { isDarkTheme } = useThemeContext();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -274,12 +276,19 @@ export default function StarsSkyBox() {
 
       const idleStars: Star[] = [];
       const fallingStars: Star[] = [];
+      let nextPhase: WarpPhase;
 
       // Current exact time in timeline
       const elapsed = time - startTimeRef.current;
       const cx = window.innerWidth / 2;
       const cy = window.innerHeight / 2;
 
+      if (elapsed < T_WARP_START) nextPhase = 'idle';
+      else if (elapsed < T_WARP_END) nextPhase = 'warp';
+      else if (elapsed < T_NORMAL) nextPhase = 'arrival';
+      else nextPhase = 'normal';
+
+      setPhase(nextPhase);
       // --- PHASE 1: PAUSE (Drifting stars) ---
       if (shouldWarp && elapsed >= T_START && elapsed < T_WARP_START) {
         // Just drift slowly

@@ -90,7 +90,7 @@ const GitHubStatSection = () => {
           <select
             id='yearSelector'
             title='Year Selector'
-            className='bg-sage rounded-sm p-2 text-white'
+            className='bg-clay rounded-sm p-2 text-white'
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
             disabled={availableYears.length <= 1}
