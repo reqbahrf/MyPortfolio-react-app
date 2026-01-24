@@ -1,7 +1,10 @@
 import { StrictMode, lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from './context/ThemeContext';
-import StarsSkyBox from './StarsSkyBox';
+import StarsSkyBox from './components/background/StarsSkyBox';
+import { WarpProvider } from './context/WarpContext';
+import WarpViewport from './components/WarpViewPort';
+import WarpedUI from './components/WarpedUI';
 import HomeSection from './HomeSection';
 import ProjectSection from './ProjectSection';
 import CertificatesSection from './CertificatesSection';
@@ -16,15 +19,21 @@ const App = () => {
   return (
     <>
       <ThemeProvider>
-        <StarsSkyBox />
-        <HomeSection />
-        <Suspense fallback={<GitHubStatLoading />}>
-          <GitHubStatSection />
-        </Suspense>
-        <ProjectSection />
-        <CertificatesSection />
-        <NavigationBar />
-        <Contact />
+        <WarpProvider>
+          <StarsSkyBox />
+          <WarpViewport>
+            <WarpedUI>
+              <HomeSection />
+              <Suspense fallback={<GitHubStatLoading />}>
+                <GitHubStatSection />
+              </Suspense>
+              <ProjectSection />
+              <CertificatesSection />
+              <Contact />
+            </WarpedUI>
+            <NavigationBar />
+          </WarpViewport>
+        </WarpProvider>
       </ThemeProvider>
     </>
   );

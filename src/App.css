@@ -38,13 +38,12 @@
 }
 
 @utility nav-bar-text {
-  @apply bg-clay text-bone absolute bottom-full left-1/2 mb-2 -translate-x-1/2 translate-y-2 scale-90 transform rounded-sm px-2 py-1 text-sm whitespace-nowrap opacity-0 shadow-md transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100;
+  @apply bg-sage text-bone absolute bottom-full left-1/2 mb-2 -translate-x-1/2 translate-y-2 scale-90 transform rounded-sm px-2 py-1 text-sm whitespace-nowrap opacity-0 shadow-md transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100;
 }
 
 body {
   background-color: var(--app-bg);
   color: var(--app-text);
-  overflow-x: hidden;
 }
 
 * {

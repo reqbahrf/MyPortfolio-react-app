@@ -9,7 +9,7 @@ const GitHubStatLoading = () => {
         </h2>
         <div className='flex flex-col items-center justify-center gap-2'>
           {/* Year Selector Skeleton */}
-          <div className='bg-sage h-10 w-24 animate-pulse rounded-sm'></div>
+          <div className='bg-clay h-10 w-24 animate-pulse rounded-sm'></div>
           {/* Heatmap Skeleton */}
           <HeatMap />
           {/* Donut Chart Skeleton */}
