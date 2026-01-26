@@ -1,32 +1,21 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import ProjectCard from './components/ProjectCard';
 import Projects from './content/Project.json';
-
-import Modal from './components/Modal';
+import { useModal } from './context/ModalContext';
 
 const ProjectSection = () => {
-  const [modal, setModal] = useState({
-    isOpen: false,
-    modalId: '',
-    contentCoverImg: '',
-    title: '',
-  });
+  const { openModal } = useModal();
   const triggeredDivRef = useRef<Record<string, HTMLDivElement | null>>({});
-  const lastClickedTriggerId = useRef<string | null>(null);
-  const modalRef = useRef<HTMLDivElement | null>(null);
-  const handleOpenModal = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const refTriggerId = e.currentTarget.id;
-    const modalId = e.currentTarget.dataset.targetModalid;
-    const contentCoverImg = e.currentTarget.dataset.coverImg;
-    const title = e.currentTarget.dataset.title;
-    if (!refTriggerId || !modalId || !contentCoverImg || !title) return;
-    lastClickedTriggerId.current = refTriggerId;
-    setModal({ isOpen: true, modalId, contentCoverImg, title });
-  }, []);
-
-  const handleOnCloseModal = useCallback(() => {
-    setModal({ isOpen: false, modalId: '', contentCoverImg: '', title: '' });
-  }, []);
+  const handleOpenModal = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const modalId = e.currentTarget.dataset.targetModalid;
+      const contentCoverImg = e.currentTarget.dataset.coverImg;
+      const title = e.currentTarget.dataset.title;
+      if (!modalId || !contentCoverImg || !title) return;
+      openModal(modalId, contentCoverImg, title);
+    },
+    [openModal],
+  );
 
   const rows = useMemo(() => {
     const arr = [];
@@ -36,27 +25,6 @@ const ProjectSection = () => {
     return arr;
   }, []);
 
-  useEffect(() => {
-    if (modal.isOpen && modalRef.current && lastClickedTriggerId.current) {
-      const cardElement =
-        triggeredDivRef.current?.[lastClickedTriggerId.current];
-      const modalElement = modalRef.current;
-
-      if (!cardElement || !modalElement) return;
-
-      const cardRect = cardElement.getBoundingClientRect();
-      const cardCenterX = cardRect.left + cardRect.width / 2;
-      const cardCenterY = cardRect.top + cardRect.height / 2;
-      modalElement.style.transformOrigin = `${cardCenterX}px ${cardCenterY}px`;
-    }
-  }, [modal.isOpen]);
-
-  useEffect(() => {
-    if (modal.isOpen) {
-      document.body.classList.add('no-scroll');
-    }
-    return () => document.body.classList.remove('no-scroll');
-  }, [modal.isOpen]);
   return (
     <section id='Project' className='mb-16'>
       <h2 className='font-display pt-2 text-center text-2xl font-bold text-black dark:text-white'>
@@ -79,15 +47,6 @@ const ProjectSection = () => {
           </div>
         ))}
       </div>
-      {modal.isOpen && (
-        <Modal
-          modalId={modal.modalId}
-          title={modal.title}
-          contentCoverImg={modal.contentCoverImg}
-          ref={modalRef}
-          onClose={handleOnCloseModal}
-        />
-      )}
     </section>
   );
 };
