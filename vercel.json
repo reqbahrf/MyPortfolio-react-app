@@ -2,19 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
-      "source": "/api/github/stat",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, s-maxage=3600, stale-while-revalidate=3600"
-        },
-        {
-          "key": "Vercel-CDN-Cache-Control",
-          "value": "public, s-maxage=3600, stale-while-revalidate=3600"
-        }
-      ]
-    },
-    {
       "source": "assets/math-ai-project/(.*)",
       "headers": [
         {
