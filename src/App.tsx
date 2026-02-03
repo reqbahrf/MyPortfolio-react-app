@@ -1,4 +1,4 @@
-import { StrictMode, lazy, Suspense } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from './context/ThemeContext';
 import { ModalProvider } from './context/ModalContext';
@@ -9,8 +9,6 @@ import WarpedUI from './components/WarpedUI';
 import HomeSection from './HomeSection';
 import ProjectSection from './ProjectSection';
 import CertificatesSection from './CertificatesSection';
-import GitHubStatLoading from './components/GitHubStatLoading';
-const GitHubStatSection = lazy(() => import('./GitHubStatSection'));
 import NavigationBar from './components/NavigationBar';
 import Contact from './Contact';
 import GlobalModal from './components/GlobalModal';
@@ -27,9 +25,6 @@ const App = () => {
             <WarpViewport>
               <WarpedUI>
                 <HomeSection />
-                <Suspense fallback={<GitHubStatLoading />}>
-                  <GitHubStatSection />
-                </Suspense>
                 <ProjectSection />
                 <CertificatesSection />
                 <Contact />
