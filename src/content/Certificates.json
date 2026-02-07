@@ -1,6 +1,13 @@
 {
   "certificates": [
     {
+      "id": "introductionToCybersecurity",
+      "coverImg": "/assets/cert/introduction_to_cybersecurity.webp",
+      "title": "Introduction to Cybersecurity",
+      "description": "Successfully completed the Introduction to Cybersecurity course offered by DICT-ITU DTC Initiative through the Cisco Networking Academy program",
+      "link": "https://www.credly.com/badges/e03aa812-d4ff-4871-b8da-f9973fde1a26/public_url"
+    },
+    {
       "id": "jsCert",
       "coverImg": "/assets/cert/js_cert.webp",
       "title": "JavaScript Certificate",
@@ -16,7 +23,7 @@
     },
     {
       "id": "innovationCert",
-      "coverImg": "/assets/cert/innovation cert.webp",
+      "coverImg": "/assets/cert/innovation_cert.webp",
       "title": "Innovation Certificate",
       "description": "Recognized as 1st Place for Best in Research and Innovation during the 50th Recognition Rites for our Capstone project titled: \"Fund Monitoring Management System for DOST Small Enterprise Technology Upgrading Program in the Province of Davao del Norte.\"",
       "link": "https://drive.google.com/file/d/1EfSB42mfYJtI7NnJyzSEvHJ-n5dZYADu/view?usp=drive_link"
