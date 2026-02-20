@@ -18,7 +18,6 @@ type ModalProps = {
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
   ({ modalId, title, onClose, contentCoverImg }, ref) => {
     const renderModalContent = () => {
-      console.log(modalId);
       switch (modalId) {
         case 'javaProjectModal':
           return <POSJavaProject />;
