@@ -57,6 +57,7 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
         data-target-modalid={targetModal_id}
         data-cover-img={coverImg}
         data-title={title}
+        data-trigger-id={id}
         onClick={openModal}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}

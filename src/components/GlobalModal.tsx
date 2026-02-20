@@ -3,7 +3,8 @@ import { useModal } from '../context/ModalContext';
 import Modal from './Modal';
 
 const GlobalModal = () => {
-  const { modal, closeModal } = useModal();
+  const { modal, closeModal, triggeredDivRef, lastClickedTriggerId } =
+    useModal();
   const modalRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -12,6 +13,21 @@ const GlobalModal = () => {
     }
     return () => document.body.classList.remove('no-scroll');
   }, [modal.isOpen]);
+
+  useEffect(() => {
+    if (modal.isOpen && modalRef.current && lastClickedTriggerId.current) {
+      const cardElement =
+        triggeredDivRef.current?.[lastClickedTriggerId.current];
+      const modalElement = modalRef.current;
+
+      if (!cardElement || !modalElement) return;
+
+      const cardRect = cardElement.getBoundingClientRect();
+      const cardCenterX = cardRect.left + cardRect.width / 2;
+      const cardCenterY = cardRect.top + cardRect.height / 2;
+      modalElement.style.transformOrigin = `${cardCenterX}px ${cardCenterY}px`;
+    }
+  }, [modal.isOpen, triggeredDivRef, lastClickedTriggerId]);
 
   return (
     <>

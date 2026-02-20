@@ -1,20 +1,21 @@
-import { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useMemo } from 'react';
 import ProjectCard from './components/ProjectCard';
 import Projects from './content/Project.json';
 import { useModal } from './context/ModalContext';
 
 const ProjectSection = () => {
-  const { openModal } = useModal();
-  const triggeredDivRef = useRef<Record<string, HTMLDivElement | null>>({});
+  const { openModal, triggeredDivRef, lastClickedTriggerId } = useModal();
   const handleOpenModal = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       const modalId = e.currentTarget.dataset.targetModalid;
       const contentCoverImg = e.currentTarget.dataset.coverImg;
       const title = e.currentTarget.dataset.title;
-      if (!modalId || !contentCoverImg || !title) return;
+      const triggerId = e.currentTarget.dataset.triggerId;
+      if (!modalId || !contentCoverImg || !title || !triggerId) return;
+      lastClickedTriggerId.current = triggerId;
       openModal(modalId, contentCoverImg, title);
     },
-    [openModal],
+    [openModal, lastClickedTriggerId],
   );
 
   const rows = useMemo(() => {

@@ -5,6 +5,7 @@ import {
   useState,
   ReactNode,
   useEffect,
+  useRef,
 } from 'react';
 import { useUrlModal } from '../hooks/useUrlModal';
 import { findProjectByModalId } from '../utils/projectUtils';
@@ -25,6 +26,10 @@ interface ModalContextType {
   ) => void;
   closeModal: () => void;
   openModalById: (modalId: string) => void;
+  triggeredDivRef: React.MutableRefObject<
+    Record<string, HTMLDivElement | null>
+  >;
+  lastClickedTriggerId: React.MutableRefObject<string | null>;
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
@@ -102,9 +107,19 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
     updateUrlModal(null);
   }, [updateUrlModal]);
 
+  const triggeredDivRef = useRef<Record<string, HTMLDivElement | null>>({});
+  const lastClickedTriggerId = useRef<string | null>(null);
+
   return (
     <ModalContext.Provider
-      value={{ modal, openModal, closeModal, openModalById }}
+      value={{
+        modal,
+        openModal,
+        closeModal,
+        openModalById,
+        triggeredDivRef,
+        lastClickedTriggerId,
+      }}
     >
       {children}
     </ModalContext.Provider>
